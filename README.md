@@ -1,2 +1,2 @@
 # tenant-security-client-php
-Client for the Tenant Security Proxy in PHP
+SDK providing interface to tenant security proxy for PHP clients
