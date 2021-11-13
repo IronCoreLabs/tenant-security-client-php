@@ -6,8 +6,14 @@ namespace IronCore;
 
 use InvalidArgumentException;
 
+/**
+ * Wrapper around a string that contains raw bytes
+ */
 class Bytes
 {
+    /**
+     * @var string
+     */
     private $bytes;
 
     public function __construct(string $bytes)
@@ -63,7 +69,7 @@ class Bytes
     }
 
     /**
-     * Gets the length of held bytes
+     * Gets the length of the held bytes.
      *
      * @return int Length of held bytes
      */
@@ -89,6 +95,9 @@ class Bytes
 
     /**
      * Gets the held byte string.
+     * 
+     * This string is likely not printable. See `getHexString()` for a printable
+     * representation of the bytes.
      *
      * @return string The held bytes
      */

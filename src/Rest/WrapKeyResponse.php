@@ -7,10 +7,24 @@ namespace IronCore\Rest;
 use InvalidArgumentException;
 use IronCore\Bytes;
 
+/**
+ * Response from the Tenant Security Proxy's wrap key endpoint
+ */
 class WrapKeyResponse
 {
+    /**
+     * @var Bytes
+     */
     private $dek;
+    /**
+     * @var Bytes
+     */
     private $edek;
+
+    /**
+     * @param Bytes $dek Document key sent back from the TSP
+     * @param Bytes $edek Encrypted document key sent back from the TSP.
+     */
 
     public function __construct(Bytes $dek, Bytes $edek)
     {
@@ -36,11 +50,22 @@ class WrapKeyResponse
         return new WrapKeyResponse(Bytes::fromBase64($decoded["dek"]), Bytes::fromBase64($decoded["edek"]));
     }
 
+
+    /**
+     * Gets the document key sent back from the TSP.
+     * 
+     * @return Bytes Document key sent back from the TSP
+     */
     public function getDek(): Bytes
     {
         return $this->dek;
     }
 
+    /**
+     * Gets the encrypted document key sent back from the TSP.
+     * 
+     * @return Bytes Encrypted document key sent back from the TSP
+     */
     public function getEdek(): Bytes
     {
         return $this->edek;

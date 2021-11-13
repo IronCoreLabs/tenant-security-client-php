@@ -17,6 +17,7 @@ final class Aes
     public const TAG_LEN = 16;
     /** The size of the fixed length portion of the header (version, magic, size) */
     public const DOCUMENT_HEADER_META_LENGTH = 7;
+    /** Max IronCore header size. Equals 256 * 255 + 255 since we do a 2 byte size. */
     public const MAX_HEADER_SIZE = 65535;
 
     /**
@@ -282,7 +283,7 @@ final class Aes
         $saasHeader->setTenantId($tenantId);
         $signature = self::generateSignature($dek, $iv, $saasHeader);
         $v3Header = new V3DocumentHeader();
-        $v3Header->setSig($signature->getSig()->getByteString());
+        $v3Header->setSig($signature->getSignatureBytes()->getByteString());
         $v3Header->setSaasShield($saasHeader);
         return $v3Header;
     }

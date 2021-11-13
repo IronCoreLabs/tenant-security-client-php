@@ -9,8 +9,15 @@ use IronCore\Crypto\CryptoRng;
 
 class TenantSecurityClient
 {
+    /**
+     * @var TenantSecurityRequest 
+     */
     public $request;
 
+    /**
+     * @param string $tspAddress URL of the Tenant Security Proxy
+     * @param string $apiKey Secret key needed to communicate with the Tenant Security Proxy
+     */
     public function __construct(string $tspAddress, string $apiKey)
     {
         $this->request = new TenantSecurityRequest($tspAddress, $apiKey);
@@ -23,7 +30,7 @@ class TenantSecurityClient
      * provided document fields. Returns an EncryptedDocument which contains a Map from each field's
      * id/name to encrypted bytes as well as the EDEK and discards the DEK.
      *
-     * @param array $document Document to encrypt. Each field in the provided document will be encrypted
+     * @param Bytes[] $document Document to encrypt. Each field in the provided document will be encrypted
      *                        with the same key.
      * @param RequestMetadata $metadata Metadata about the document being encrypted
      *

@@ -8,21 +8,34 @@ use IronCore\Bytes;
 use IronCore\RequestMetadata;
 use IronCore\Rest\IronCoreRequest;
 
+/**
+ * Request to the Tenant Security Proxy's unwrap key endpoint
+ */
 class UnwrapKeyRequest extends IronCoreRequest
 {
+    /**
+     * @var RequestMetadata
+     */
     private $metadata;
-    private $base64Edek;
+    /**
+     * @var Bytes
+     */
+    private $edek;
 
+    /**
+     * @param RequestMetadata $metadata Metadata about the unwrap key request
+     * @param Bytes $edek Encrypted document key to unwrap
+     */
     public function __construct(RequestMetadata $metadata, Bytes $edek)
     {
         $this->metadata = $metadata;
-        $this->base64Edek = $edek->getBase64String();
+        $this->edek = $edek->getBase64String();
     }
 
     public function getPostData(): array
     {
         $post_data = $this->metadata->getPostData();
-        $post_data["encryptedDocumentKey"] = $this->base64Edek;
+        $post_data["encryptedDocumentKey"] = $this->edek;
         return $post_data;
     }
 }

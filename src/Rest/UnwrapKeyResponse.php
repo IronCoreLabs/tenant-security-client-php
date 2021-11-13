@@ -7,10 +7,19 @@ namespace IronCore\Rest;
 use InvalidArgumentException;
 use IronCore\Bytes;
 
+/**
+ * Response from the Tenant Security Proxy's unwrap key endpoint
+ */
 class UnwrapKeyResponse
 {
+    /**
+     * @var Bytes
+     */
     private $dek;
 
+    /**
+     * @param Bytes $dek Document key sent back from the TSP
+     */
     public function __construct(Bytes $dek)
     {
         $this->dek = $dek;
@@ -34,6 +43,11 @@ class UnwrapKeyResponse
         return new UnwrapKeyResponse(Bytes::fromBase64($decoded["dek"]));
     }
 
+    /**
+     * Gets the document key sent back from the TSP.
+     * 
+     * @return Bytes Document key sent back from the TSP
+     */
     public function getDek(): Bytes
     {
         return $this->dek;
