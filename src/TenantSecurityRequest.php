@@ -44,7 +44,7 @@ class TenantSecurityRequest
      */
     public function __construct(string $tspAddress, string $apiKey)
     {
-        $this->tspAddress = Utils\trim_slashes($tspAddress);
+        $this->tspAddress = Utils\trimSlashes($tspAddress);
         $this->apiKey = $apiKey;
         $this->ch = curl_init();
         // All of our requests are POSTs

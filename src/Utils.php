@@ -11,7 +11,7 @@ namespace IronCore\Utils;
  * 
  * @return string Trimmed string
  */
-function trim_slashes(string $string): string
+function trimSlashes(string $string): string
 {
     return trim($string, "/");
 }

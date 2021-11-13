@@ -34,8 +34,8 @@ class UnwrapKeyRequest extends IronCoreRequest
 
     public function getPostData(): array
     {
-        $post_data = $this->metadata->getPostData();
-        $post_data["encryptedDocumentKey"] = $this->edek;
-        return $post_data;
+        $postData = $this->metadata->getPostData();
+        $postData["encryptedDocumentKey"] = $this->edek;
+        return $postData;
     }
 }

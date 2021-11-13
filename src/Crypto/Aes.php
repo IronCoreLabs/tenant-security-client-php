@@ -300,8 +300,8 @@ final class Aes
     public static function generateSignature(Bytes $dek, Bytes $iv, SaaSShieldHeader $header): V3HeaderSignature
     {
         $headerBytes = new Bytes($header->serializeToString());
-        $encrypted_header_value = Aes::encryptWithIv($headerBytes, $dek, $iv);
-        $tag = $encrypted_header_value->byteSlice(-Aes::TAG_LEN);
+        $encryptedHeaderValue = Aes::encryptWithIv($headerBytes, $dek, $iv);
+        $tag = $encryptedHeaderValue->byteSlice(-Aes::TAG_LEN);
         return new V3HeaderSignature($iv, $tag);
     }
 
@@ -317,9 +317,9 @@ final class Aes
         if (!$header->hasSaasShield()) {
             return false;
         }
-        $header_sig_bytes = new Bytes($header->getSig());
-        $known_sig = V3HeaderSignature::fromBytes($header_sig_bytes);
-        $candidate_sig = Aes::generateSignature($dek, $known_sig->getIv(), $header->getSaasShield());
-        return $known_sig == $candidate_sig;
+        $headerSigBytes = new Bytes($header->getSig());
+        $knownSig = V3HeaderSignature::fromBytes($headerSigBytes);
+        $candidateSig = Aes::generateSignature($dek, $knownSig->getIv(), $header->getSaasShield());
+        return $knownSig == $candidateSig;
     }
 }
