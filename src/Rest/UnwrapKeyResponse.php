@@ -45,7 +45,7 @@ class UnwrapKeyResponse
 
     /**
      * Gets the document key sent back from the TSP.
-     * 
+     *
      * @return Bytes Document key sent back from the TSP
      */
     public function getDek(): Bytes

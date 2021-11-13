@@ -60,12 +60,12 @@ class TenantSecurityRequest
 
     /**
      * Makes a POST request to a Tenant Security Proxy endpoint with the provided JSON payload.
-     * 
+     *
      * @param string $endpoint Tenant Security Proxy endpoint to make a request to
      * @param string $jsonEncodedData Payload to send to the Tenant Security Proxy
-     * 
+     *
      * @throws TspServiceException if the request to the Tenant Security Proxy fails
-     * 
+     *
      * @return string The response from the Tenant Security Proxy
      */
     public function makeJsonRequest(string $endpoint, string $jsonEncodedData): string

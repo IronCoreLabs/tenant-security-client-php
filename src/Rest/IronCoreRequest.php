@@ -9,9 +9,9 @@ namespace IronCore\Rest;
  */
 abstract class IronCoreRequest
 {
-    /** 
+    /**
      * Gets the JSON-encoded form of the request payload.
-     * 
+     *
      * @return string JSON-encoded form of the request payload
      */
     final public function getJsonData(): string
@@ -21,7 +21,7 @@ abstract class IronCoreRequest
 
     /**
      * Method to get the request data as an associative array.
-     * 
+     *
      * @return array Associative array containing all of the object's fields
      */
     abstract public function getPostData(): array;

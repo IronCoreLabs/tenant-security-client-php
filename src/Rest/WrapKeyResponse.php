@@ -53,7 +53,7 @@ class WrapKeyResponse
 
     /**
      * Gets the document key sent back from the TSP.
-     * 
+     *
      * @return Bytes Document key sent back from the TSP
      */
     public function getDek(): Bytes
@@ -63,7 +63,7 @@ class WrapKeyResponse
 
     /**
      * Gets the encrypted document key sent back from the TSP.
-     * 
+     *
      * @return Bytes Encrypted document key sent back from the TSP
      */
     public function getEdek(): Bytes

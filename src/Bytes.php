@@ -95,7 +95,7 @@ class Bytes
 
     /**
      * Gets the held byte string.
-     * 
+     *
      * This string is likely not printable. See `getHexString()` for a printable
      * representation of the bytes.
      *

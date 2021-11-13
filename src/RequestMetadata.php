@@ -6,7 +6,7 @@ namespace IronCore;
 
 /**
  * Holds metadata fields as part of an encrypted document. Each encrypted document will have
- * metadata that associates it to a tenant ID, which service is accessing the data, 
+ * metadata that associates it to a tenant ID, which service is accessing the data,
  * as well as optional fields for other arbitrary key/value pairs and a request ID
  * to send to the Tenant Security Proxy.
  */
@@ -50,7 +50,7 @@ class RequestMetadata
     /**
      * Gets an associative array of data that can be serialized
      * and sent to the Tenant Security Proxy.
-     * 
+     *
      * @return array Data to send to the Tenant Security Proxy.
      */
     public function getPostData(): array

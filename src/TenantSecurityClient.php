@@ -10,7 +10,7 @@ use IronCore\Crypto\CryptoRng;
 class TenantSecurityClient
 {
     /**
-     * @var TenantSecurityRequest 
+     * @var TenantSecurityRequest
      */
     public $request;
 

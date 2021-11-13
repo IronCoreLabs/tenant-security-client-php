@@ -33,9 +33,9 @@ class V3HeaderSignature
 
     /**
      * Constructs header signature from raw bytes.
-     * 
+     *
      * @param Bytes $bytes Raw signature bytes
-     * 
+     *
      * @return V3HeaderSignature V3 IronCore header signature
      */
     public static function fromBytes(Bytes $bytes): V3HeaderSignature
@@ -50,7 +50,7 @@ class V3HeaderSignature
 
     /**
      * Gets the header's IV.
-     * 
+     *
      * @return Bytes Header IV
      */
     public function getIv(): Bytes
@@ -60,7 +60,7 @@ class V3HeaderSignature
 
     /**
      * Gets IronCore signature bytes. Consists of the IV concatenated with the GCM tag.
-     * 
+     *
      * @return Bytes IronCore signature bytes
      */
     public function getSignatureBytes(): Bytes
