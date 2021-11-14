@@ -4,13 +4,13 @@ In order to run this example, you need to be running a _Tenant Security Proxy_ (
 Check the [README.md](../README.md) file in the parent directory to see how to start the TSP, if you haven't done so
 yet.
 
-Once the TSP is running, you can experiment with this example java program. It illustrates the basics of how
+Once the TSP is running, you can experiment with this example php program. It illustrates the basics of how
 to use the Tenant Security Client (TSC) SDK to encrypt and decrypt data. The example code shows two scenarios:
 
 - encryption and decryption of a record that you might store in a key-value store or a database
 - encryption and decryption of a file, using the file-system for storage
 
-To run the example, you will need to have a Java JRE 8+ and Maven installed on your computer.
+To run the example, you will need to have a PHP 7.3+ and composer installed on your computer.
 
 ```bash
 export API_KEY='0WUaXesNgbTAuLwn'
