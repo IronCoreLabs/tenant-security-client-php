@@ -5,15 +5,15 @@ declare(strict_types=1);
 namespace IronCore;
 
 /**
- * Holds metadata fields as part of an encrypted document. Each encrypted document will have
- * metadata that associates it to a tenant ID, which service is accessing the data,
- * as well as optional fields for other arbitrary key/value pairs and a request ID
- * to send to the Tenant Security Proxy.
+ * Holds metadata fields as part of an encrypted document. Each document has metadata associated with it
+ * that will be sent to the Tenant Security Proxy for logging and other purposes. Some examples include
+ * the tenant ID associated with the request, the service that is accessing the data, and a unique ID
+ * for the request.
  */
 class RequestMetadata
 {
     /**
-     * @var string Unique ID of tenant that is performing the operation
+     * @var string Unique ID of tenant the action is being performed for
      */
     private $tenantId;
     /**

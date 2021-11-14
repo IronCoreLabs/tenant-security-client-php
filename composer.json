@@ -1,7 +1,7 @@
 {
   "name": "ironcorelabs/tenant-security-client-php",
   "homepage": "http://github.com/ironcorelabs/tenant-security-client-php",
-  "description": "Ironcore Tenant Security Client for PHP",
+  "description": "IronCore Tenant Security Client for PHP",
   "keywords": [],
   "type": "library",
   "authors": [

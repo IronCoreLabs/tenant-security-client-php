@@ -7,12 +7,17 @@ namespace IronCore;
 use IronCore\Crypto\Aes;
 use IronCore\Crypto\CryptoRng;
 
+/**
+ * Client used to encrypt and decrypt documents. This is the primary class that consumers of the
+ * library will need to utilize, and a single instance of the class can be re-used for requests
+ * across different tenants.
+ */
 class TenantSecurityClient
 {
     /**
      * @var TenantSecurityRequest
      */
-    public $request;
+    private $request;
 
     /**
      * @param string $tspAddress URL of the Tenant Security Proxy
