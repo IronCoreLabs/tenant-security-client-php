@@ -60,7 +60,12 @@ $encryptedDocument = $encryptedResults->getEncryptedFields();
 // retrieve the EDEK and encryptedDocument from your persistence layer
 $retrievedEncryptedDocument = new EncryptedDocument($encryptedDocument, $edek);
 
-$decryptedPlaintext = $tenantSecurityClient->decrypt($retrievedEncryptedDocument, $metadata);
+try {
+    $decryptedPlaintext = $tenantSecurityClient->decrypt($retrievedEncryptedDocument, $metadata);
+} catch (Exception $e) {
+    echo 'Caught exception: ',  $e->getMessage(), "\n";
+    exit(1);
+}
 $decryptedValues = $decryptedPlaintext->getDecryptedFields();
 
 
@@ -72,32 +77,30 @@ echo ("Decrypted name: " . $decryptedValues["name"]->getByteString() . "\n");
 // Example 2: encrypting/decrypting a file, using the filesystem for persistence
 //
 
-
-
 $sourceFilename = "success.jpg";
 $toEncryptBytes = new Bytes(file_get_contents($sourceFilename));
 $toEncrypt = ["file" => $toEncryptBytes];
-//Encrypt the file.
-$encryptedResults = $tenantSecurityClient->encrypt($toEncrypt, $metadata);
-// write the encrypted file and the encrypted key to the filesystem
-file_put_contents("$sourceFilename.enc", $encryptedResults->getEncryptedFields()["file"]->getByteString());
-echo ("Wrote encrypted file to $sourceFilename.enc\n");
-file_put_contents("$sourceFilename.edek", $encryptedResults->getEdek()->getByteString());
-echo ("Wrote edek to $sourceFilename.edek\n");
-// some time later... read the file from the disk
-$encryptedBytes = file_get_contents("$sourceFilename.enc");
-$encryptedDek = file_get_contents("$sourceFilename.edek");
+try {
+    //Encrypt the file.
+    $encryptedResults = $tenantSecurityClient->encrypt($toEncrypt, $metadata);
+    // write the encrypted file and the encrypted key to the filesystem
+    file_put_contents("$sourceFilename.enc", $encryptedResults->getEncryptedFields()["file"]->getByteString());
+    echo ("Wrote encrypted file to $sourceFilename.enc\n");
+    file_put_contents("$sourceFilename.edek", $encryptedResults->getEdek()->getByteString());
+    echo ("Wrote edek to $sourceFilename.edek\n");
+    // some time later... read the file from the disk
+    $encryptedBytes = file_get_contents("$sourceFilename.enc");
+    $encryptedDek = file_get_contents("$sourceFilename.edek");
 
-$fileAndEdek = new EncryptedDocument(["file" => new Bytes($encryptedBytes)], new Bytes($encryptedDek));
+    $fileAndEdek = new EncryptedDocument(["file" => new Bytes($encryptedBytes)], new Bytes($encryptedDek));
 
-// decrypt
-$roundtripFile = $tenantSecurityClient->decrypt($fileAndEdek, $metadata);
+    // decrypt
+    $roundtripFile = $tenantSecurityClient->decrypt($fileAndEdek, $metadata);
 
-// write the decrypted file back to the filesystem
-file_put_contents("decrypted.jpg", $roundtripFile->getDecryptedFields()["file"]->getByteString());
-echo ("Wrote decrypted file to decrypted.jpg\n");                
-// TenantSecurityException kmsError = (TenantSecurityException) e.getCause();
-                // TenantSecurityErrorCodes errorCode = kmsError.getErrorCode();
-                // System.out.println("\nError Message: " + kmsError.getMessage());
-                // System.out.println("\nError Code: " + errorCode.getCode());
-                // System.out.println("\nError Code Info: " + errorCode.getMessage() + "\n");
+    // write the decrypted file back to the filesystem
+    file_put_contents("decrypted.jpg", $roundtripFile->getDecryptedFields()["file"]->getByteString());
+    echo ("Wrote decrypted file to decrypted.jpg\n");
+} catch (Exception $e) {
+    echo 'Caught exception: ',  $e->getMessage(), "\n";
+    exit(1);
+}
