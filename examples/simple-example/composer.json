@@ -1,0 +1,26 @@
+{
+  "name": "ironcorelabs/tenant-security-client-php-simple-example",
+  "homepage": "http://github.com/ironcorelabs/tenant-security-client-php",
+  "description": "Ironcore Tenant Security Client for PHP Example",
+  "keywords": [],
+  "type": "application",
+  "authors": [
+    {
+      "name": "IronCore Labs",
+      "homepage": "https://ironcorelabs.com"
+    }
+  ],
+  "license": "Apache-2.0",
+  "require": {
+    "php": ">=7.3",
+    "ironcorelabs/tenant-security-client-php": "^0.0.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "IronCore\\": "src/"
+    }
+  },
+  "scripts": {
+    "run": ""
+  }
+}
