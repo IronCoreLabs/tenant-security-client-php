@@ -21,8 +21,8 @@ final class TestRng extends Rng
     {
         $bytes = "";
         while (strlen($bytes) <= $length) {
-            $hash_result = hash("sha256", $this->seed . $this->counter++, true);
-            $bytes =  $bytes . $hash_result;
+            $hashResult = hash("sha256", $this->seed . $this->counter++, true);
+            $bytes =  $bytes . $hashResult;
         }
         return new Bytes(substr($bytes, 0, $length));
     }

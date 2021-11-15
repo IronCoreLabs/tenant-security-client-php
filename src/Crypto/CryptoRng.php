@@ -6,6 +6,9 @@ namespace IronCore\Crypto;
 
 use IronCore\Bytes;
 
+/**
+ * Cryptographically-secure random number generator
+ */
 final class CryptoRng extends Rng
 {
     private static $instance = null;

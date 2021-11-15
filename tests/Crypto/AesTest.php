@@ -26,9 +26,9 @@ final class AesTest extends TestCase
         $rng = new TestRng("someseed");
         $plaintext = new Bytes("This is a non base64 string.");
         $key = $rng->randomBytes(32);
-        $encrypted_result = Aes::encrypt($plaintext, $key, new TestRng("hello"));
-        $decrypted_result = Aes::decrypt($encrypted_result, $key);
-        $this->assertEquals($plaintext, $decrypted_result);
+        $encryptedResult = Aes::encrypt($plaintext, $key, new TestRng("hello"));
+        $decryptedResult = Aes::decrypt($encryptedResult, $key);
+        $this->assertEquals($plaintext, $decryptedResult);
     }
 
     public function testSignVerify(): void
@@ -54,10 +54,10 @@ final class AesTest extends TestCase
     {
         $dek = self::hexToBytes("000102030405060708090A0B0C0D0E0F101112131415161718191A1B1C1D1E1F");
         $iv = self::hexToBytes("3171EF3C899F875E595C2213");
-        $expected_hex_result = strtolower("0A1C3171EF3C899F875E595C2213CACF9287C78CF196458CD690544980C71A0A0A0874656E616E744964");
+        $expectedHexResult = strtolower("0A1C3171EF3C899F875E595C2213CACF9287C78CF196458CD690544980C71A0A0A0874656E616E744964");
 
         $result = Aes::createHeaderProto($dek, "tenantId", new TestRng("test"), $iv);
-        $this->assertEquals(AesTest::bytesToHex(new Bytes($result->serializeToString())), $expected_hex_result);
+        $this->assertEquals(AesTest::bytesToHex(new Bytes($result->serializeToString())), $expectedHexResult);
     }
 
     // This is a known encrypted value with the last byte changed
