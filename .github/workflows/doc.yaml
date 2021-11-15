@@ -1,0 +1,41 @@
+name: PHP Doc
+
+on:
+  push:
+    tags:
+      - "*"
+  workflow_dispatch:
+
+jobs:
+  doc:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.WORKFLOW_PAT }}
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "7.4"
+      - name: Download PHP Documentor v3.1.2
+        run: wget https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.1.2/phpDocumentor.phar
+      - name: Run PHP Documentor
+        run: php phpDocumentor.phar -d src -t ./
+      - name: Configure git
+        run: |
+          git config --global user.email ops@ironcorelabs.com
+          git config --global user.name "Leeroy Travis"
+      - name: Commit and push changes to gh-pages branch
+        run: |
+          # Stash all the documentation changes we just made
+          git stash -u
+          git checkout gh-pages
+          # Remove old documentation files
+          rm -rf *
+          git stash pop
+          # Remove generated cache folder
+          rm -rf .phpdoc/
+          git add .
+          git commit -m "Update docs"
+          git push
