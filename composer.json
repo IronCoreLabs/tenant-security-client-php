@@ -12,11 +12,12 @@
   ],
   "license": "Apache-2.0",
   "require": {
-    "php": ">=7.3",
-    "google/protobuf": "^3.19"
+    "php": ">=7.4",
+    "google/protobuf": "^3.19",
+    "ext-openssl": "*",
+    "ext-curl": "*"
   },
   "require-dev": {
-    "ext-openssl": "*",
     "phpunit/phpunit": "^9",
     "squizlabs/php_codesniffer": "^3"
   },
