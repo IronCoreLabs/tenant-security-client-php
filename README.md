@@ -1,3 +1,7 @@
+[![Latest Stable Version](http://poser.pugx.org/ironcorelabs/tenant-security-client-php/v)](https://packagist.org/packages/ironcorelabs/tenant-security-client-php)
+[![PHP CI](https://github.com/IronCoreLabs/tenant-security-client-php/actions/workflows/ci.yaml/badge.svg)](https://github.com/IronCoreLabs/tenant-security-client-php/actions/workflows/ci.yaml)
+[![License](http://poser.pugx.org/ironcorelabs/tenant-security-client-php/license)](https://packagist.org/packages/ironcorelabs/tenant-security-client-php)
+
 # Tenant Security Client PHP Library
 
 A PHP client for implementing CMK within a vendor's infrastructure. Makes requests through an
@@ -10,6 +14,10 @@ This project is still in very early stages, but will eventually implement everyt
 A good place to start is the [TenantSecurityClient](https://ironcorelabs.github.io/tenant-security-client-php/classes/IronCore-TenantSecurityClient.html) class, which is what the consumer should always interact with. You can also go check out the [examples](https://github.com/IronCoreLabs/tenant-security-client-php/tree/main/Examples).
 
 If you're looking for more examples the usage is very similar to that shown in our [Java Examples](https://github.com/IronCoreLabs/tenant-security-client-java/tree/main/examples).
+
+## Documentation
+
+We generate documentation for this library using PHPDoc and publish it to https://ironcorelabs.github.io/tenant-security-client-php/.
 
 ## Design Choices
 
