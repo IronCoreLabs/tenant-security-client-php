@@ -5,7 +5,8 @@ IronCore Tenant Security Proxy to tenants' KMS/logging infrastructures.
 
 This project is still in very early stages, but will eventually implement everything that is in our [Java](https://github.com/ironcorelabs/tenant-security-client-java) and [Node](https://github.com/IronCoreLabs/tenant-security-client-nodejs/) sdks.
 
-A good place to start is the TenantSecurityClient class, which is what the consumer should always interact with. Examples are coming soon! The usage is very similar
-to that shown in our [Java Examples](https://github.com/IronCoreLabs/tenant-security-client-java/tree/main/examples).
+A good place to start is the [TenantSecurityClient](https://ironcorelabs.github.io/tenant-security-client-php/classes/IronCore-TenantSecurityClient.html) class, which is what the consumer should always interact with. You can also go check out the [examples](https://github.com/IronCoreLabs/tenant-security-client-php/tree/main/Examples).
+
+If you're looking for more examples the usage is very similar to that shown in our [Java Examples](https://github.com/IronCoreLabs/tenant-security-client-java/tree/main/examples).
 
 Copyright (c) 2021 IronCore Labs, Inc. All rights reserved.
