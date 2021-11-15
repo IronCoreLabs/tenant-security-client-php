@@ -12,8 +12,8 @@
   ],
   "license": "Apache-2.0",
   "require": {
-    "php": ">=7.3",
-    "ironcorelabs/tenant-security-client-php": "^0.1.0"
+    "php": ">=7.4",
+    "ironcorelabs/tenant-security-client-php": "^0.2.0"
   },
   "autoload": {
     "psr-4": {
