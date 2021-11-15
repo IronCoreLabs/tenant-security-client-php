@@ -17,6 +17,7 @@ final class Aes
     public const TAG_LEN = 16;
     /** The size of the fixed length portion of the header (version, magic, size) */
     public const DOCUMENT_HEADER_META_LENGTH = 7;
+    /** Max IronCore header size. Equals 256 * 255 + 255 since we do a 2 byte size. */
     public const MAX_HEADER_SIZE = 65535;
 
     /**
@@ -282,7 +283,7 @@ final class Aes
         $saasHeader->setTenantId($tenantId);
         $signature = self::generateSignature($dek, $iv, $saasHeader);
         $v3Header = new V3DocumentHeader();
-        $v3Header->setSig($signature->getSig()->getByteString());
+        $v3Header->setSig($signature->getSignatureBytes()->getByteString());
         $v3Header->setSaasShield($saasHeader);
         return $v3Header;
     }
@@ -299,8 +300,8 @@ final class Aes
     public static function generateSignature(Bytes $dek, Bytes $iv, SaaSShieldHeader $header): V3HeaderSignature
     {
         $headerBytes = new Bytes($header->serializeToString());
-        $encrypted_header_value = Aes::encryptWithIv($headerBytes, $dek, $iv);
-        $tag = $encrypted_header_value->byteSlice(-Aes::TAG_LEN);
+        $encryptedHeaderValue = Aes::encryptWithIv($headerBytes, $dek, $iv);
+        $tag = $encryptedHeaderValue->byteSlice(-Aes::TAG_LEN);
         return new V3HeaderSignature($iv, $tag);
     }
 
@@ -316,9 +317,9 @@ final class Aes
         if (!$header->hasSaasShield()) {
             return false;
         }
-        $header_sig_bytes = new Bytes($header->getSig());
-        $known_sig = V3HeaderSignature::fromBytes($header_sig_bytes);
-        $candidate_sig = Aes::generateSignature($dek, $known_sig->getIv(), $header->getSaasShield());
-        return $known_sig == $candidate_sig;
+        $headerSigBytes = new Bytes($header->getSig());
+        $knownSig = V3HeaderSignature::fromBytes($headerSigBytes);
+        $candidateSig = Aes::generateSignature($dek, $knownSig->getIv(), $header->getSaasShield());
+        return $knownSig == $candidateSig;
     }
 }

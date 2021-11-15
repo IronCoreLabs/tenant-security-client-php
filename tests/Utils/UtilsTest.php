@@ -11,7 +11,7 @@ final class UtilsTest extends TestCase
     public function testTrimSlashes(): void
     {
         $url = "//foobar.com//";
-        $trimmed = trim_slashes($url);
+        $trimmed = trimSlashes($url);
         $this->assertEquals($trimmed, "foobar.com");
     }
 }

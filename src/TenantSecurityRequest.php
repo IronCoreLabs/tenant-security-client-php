@@ -11,6 +11,7 @@ use IronCore\Rest\WrapKeyRequest;
 use IronCore\Rest\WrapKeyResponse;
 use IronCore\Rest\UnwrapKeyResponse;
 use IronCore\Exception\TenantSecurityException;
+use IronCore\Exception\TspServiceException;
 use RuntimeException;
 
 const TSP_API_PREFIX = "/api/1/";
@@ -19,35 +20,66 @@ const UNWRAP_ENDPOINT = "document/unwrap";
 const BATCH_UNWRAP_ENDPOINT = "document/batch-unwrap";
 const TENANT_KEY_DERIVE_ENDPOINT = "key/derive";
 
+/**
+ * Class used to communicate with the Tenant Security Proxy.
+ */
 class TenantSecurityRequest
 {
-    private $tsp_address;
-    private $api_key;
+    /**
+     * @var string URL of the Tenant Security Proxy
+     */
+    private $tspAddress;
+    /**
+     * @var string Secret key used to communicate with the Tenant Security Proxy
+     */
+    private $apiKey;
+    /**
+     * @var \CurlHandle Curl handle used to make requests
+     */
     private $ch;
 
-    public function __construct(string $tsp_address, string $api_key)
+    /**
+     * @param string $tspAddress URL of the Tenant Security Proxy
+     * @param string $apiKey Secret key needed to communicate with the Tenant Security Proxy
+     */
+    public function __construct(string $tspAddress, string $apiKey)
     {
-        $this->tsp_address = Utils\trim_slashes($tsp_address);
-        $this->api_key = $api_key;
+        $this->tspAddress = Utils\trimSlashes($tspAddress);
+        $this->apiKey = $apiKey;
         $this->ch = curl_init();
         // All of our requests are POSTs
         curl_setopt($this->ch, CURLOPT_POST, true);
         // All of our requests are JSON and need our authorization header
         curl_setopt($this->ch, CURLOPT_HTTPHEADER, [
             'Content-Type: application/json',
-            "Authorization: cmk $this->api_key"
+            "Authorization: cmk $this->apiKey"
         ]);
         // Make `curl_exec` return the response instead of just true/false
         curl_setopt($this->ch, CURLOPT_RETURNTRANSFER, true);
     }
 
-    public function makeJsonRequest(string $endpoint, string $json_encoded_data)
+    /**
+     * Makes a POST request to a Tenant Security Proxy endpoint with the provided JSON payload.
+     *
+     * @param string $endpoint Tenant Security Proxy endpoint to make a request to
+     * @param string $jsonEncodedData Payload to send to the Tenant Security Proxy
+     *
+     * @throws TspServiceException if the request to the Tenant Security Proxy fails
+     *
+     * @return string The response from the Tenant Security Proxy
+     */
+    public function makeJsonRequest(string $endpoint, string $jsonEncodedData): string
     {
         // Set the request URL
-        curl_setopt($this->ch, CURLOPT_URL, $this->tsp_address . TSP_API_PREFIX . $endpoint);
+        curl_setopt($this->ch, CURLOPT_URL, $this->tspAddress . TSP_API_PREFIX . $endpoint);
         // Set the request body
-        curl_setopt($this->ch, CURLOPT_POSTFIELDS, $json_encoded_data);
-        return curl_exec($this->ch);
+        curl_setopt($this->ch, CURLOPT_POSTFIELDS, $jsonEncodedData);
+        $response = curl_exec($this->ch);
+        if ($response == false) {
+            throw new TspServiceException(-1, "UnknownError: Unknown request error occurred");
+        } else {
+            return $response;
+        }
     }
 
     /**
@@ -68,11 +100,11 @@ class TenantSecurityRequest
             throw new RuntimeException("Failed to make request to TSP.");
         }
         try {
-            $wrap_response = WrapKeyResponse::fromResponse($response);
+            $wrapResponse = WrapKeyResponse::fromResponse($response);
         } catch (InvalidArgumentException $e) {
             throw TenantSecurityException::fromResponse($response);
         }
-        return $wrap_response;
+        return $wrapResponse;
     }
 
     /**
@@ -94,10 +126,10 @@ class TenantSecurityRequest
             throw new RuntimeException("Failed to make request to TSP.");
         }
         try {
-            $unwrap_response = UnwrapKeyResponse::fromResponse($response);
+            $unwrapResponse = UnwrapKeyResponse::fromResponse($response);
         } catch (InvalidArgumentException $e) {
             throw TenantSecurityException::fromResponse($response);
         }
-        return $unwrap_response;
+        return $unwrapResponse;
     }
 }

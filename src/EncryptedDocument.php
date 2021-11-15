@@ -9,7 +9,13 @@ namespace IronCore;
  */
 class EncryptedDocument
 {
+    /**
+     * @var \IronCore\Bytes[]
+     */
     private $encryptedFields;
+    /**
+     * @var \IronCore\Bytes
+     */
     private $edek;
 
     public function __construct(array $encryptedFields, Bytes $edek)
@@ -19,7 +25,7 @@ class EncryptedDocument
     }
 
     /**
-     * @return array The fields that have now been encrypted.
+     * @return Bytes[] The fields that have now been encrypted.
      */
     public function getEncryptedFields(): array
     {

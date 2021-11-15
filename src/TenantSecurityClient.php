@@ -7,10 +7,22 @@ namespace IronCore;
 use IronCore\Crypto\Aes;
 use IronCore\Crypto\CryptoRng;
 
+/**
+ * Client used to encrypt and decrypt documents. This is the primary class that consumers of the
+ * library will need to utilize, and a single instance of the class can be re-used for requests
+ * across different tenants.
+ */
 class TenantSecurityClient
 {
-    public $request;
+    /**
+     * @var TenantSecurityRequest
+     */
+    private $request;
 
+    /**
+     * @param string $tspAddress URL of the Tenant Security Proxy
+     * @param string $apiKey Secret key needed to communicate with the Tenant Security Proxy
+     */
     public function __construct(string $tspAddress, string $apiKey)
     {
         $this->request = new TenantSecurityRequest($tspAddress, $apiKey);
@@ -23,7 +35,7 @@ class TenantSecurityClient
      * provided document fields. Returns an EncryptedDocument which contains a Map from each field's
      * id/name to encrypted bytes as well as the EDEK and discards the DEK.
      *
-     * @param array $document Document to encrypt. Each field in the provided document will be encrypted
+     * @param Bytes[] $document Document to encrypt. Each field in the provided document will be encrypted
      *                        with the same key.
      * @param RequestMetadata $metadata Metadata about the document being encrypted
      *

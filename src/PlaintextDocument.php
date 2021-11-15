@@ -9,9 +9,19 @@ namespace IronCore;
  */
 class PlaintextDocument
 {
+    /**
+     * @var Bytes[]
+     */
     private $decryptedFields;
+    /**
+     * @var Bytes
+     */
     private $edek;
 
+    /**
+     * @param Bytes[] $decryptedFields Decrypted fields of the document
+     * @param Bytes $edek Encrypted document key
+     */
     public function __construct(array $decryptedFields, Bytes $edek)
     {
         $this->decryptedFields = $decryptedFields;
@@ -19,7 +29,7 @@ class PlaintextDocument
     }
 
     /**
-     * @return array of fields which are now decrypted. Each field is in raw byte form.
+     * @return Bytes[] Array of decrypted fields in raw byte form.
      */
     public function getDecryptedFields(): array
     {
@@ -27,7 +37,7 @@ class PlaintextDocument
     }
 
     /**
-     * @return Bytes The edek that was sent to the TSP for decryption.
+     * @return Bytes The encrypted document key that was sent to the TSP for decryption.
      */
     public function getEdek(): Bytes
     {
