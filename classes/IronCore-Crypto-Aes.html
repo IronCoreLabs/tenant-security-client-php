@@ -54,34 +54,30 @@
 <aside class="phpdocumentor-column -four phpdocumentor-sidebar">
                     <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="namespaces/ironcore.html" class="">IronCore</a>
-</h4>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace"><a href="namespaces/ironcore.html">IronCore</a></h4>
     <ul class="phpdocumentor-list">
                     <li>
-                <a href="namespaces/ironcore-crypto.html" class="">Crypto</a>
+                <a href="namespaces/ironcore-crypto.html">Crypto</a>
                 
             </li>
                     <li>
-                <a href="namespaces/ironcore-exception.html" class="">Exception</a>
+                <a href="namespaces/ironcore-exception.html">Exception</a>
                 
             </li>
                     <li>
-                <a href="namespaces/ironcore-rest.html" class="">Rest</a>
+                <a href="namespaces/ironcore-rest.html">Rest</a>
                 
             </li>
                     <li>
-                <a href="namespaces/ironcore-utils.html" class="">Utils</a>
+                <a href="namespaces/ironcore-utils.html">Utils</a>
                 
             </li>
             </ul>
 
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="namespaces/proto.html" class="">Proto</a>
-</h4>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace"><a href="namespaces/proto.html">Proto</a></h4>
     <ul class="phpdocumentor-list">
                     <li>
-                <a href="namespaces/proto-ironcorelabs.html" class="">IronCoreLabs</a>
+                <a href="namespaces/proto-ironcorelabs.html">IronCoreLabs</a>
                 
             </li>
             </ul>
@@ -89,9 +85,7 @@
                         </section>
                 <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="packages/Application.html" class="">Application</a>
-</h4>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace"><a href="packages/Application.html">Application</a></h4>
 
                         </section>
             
@@ -155,119 +149,119 @@
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="classes/IronCore-Crypto-Aes.html#constant_DOCUMENT_HEADER_META_LENGTH">DOCUMENT_HEADER_META_LENGTH</a>
     <span>
-        &nbsp;= 7                            </span>
+        &nbsp;= 7                    </span>
 </dt>
 <dd>The size of the fixed length portion of the header (version, magic, size)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="classes/IronCore-Crypto-Aes.html#constant_IV_LEN">IV_LEN</a>
     <span>
-        &nbsp;= 12                            </span>
+        &nbsp;= 12                    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="classes/IronCore-Crypto-Aes.html#constant_MAX_HEADER_SIZE">MAX_HEADER_SIZE</a>
     <span>
-        &nbsp;= 65535                            </span>
+        &nbsp;= 65535                    </span>
 </dt>
-<dd></dd>
+<dd>Max IronCore header size. Equals 256 * 255 + 255 since we do a 2 byte size.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="classes/IronCore-Crypto-Aes.html#constant_TAG_LEN">TAG_LEN</a>
     <span>
-        &nbsp;= 16                            </span>
+        &nbsp;= 16                    </span>
 </dt>
 <dd></dd>
 
-                        <dt class="phpdocumentor-table-of-contents__entry -method -public">
+                    <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/IronCore-Crypto-Aes.html#method_createHeaderProto">createHeaderProto()</a>
     <span>
-                                &nbsp;: <a href="classes/Proto-IronCoreLabs-V3DocumentHeader.html"><abbr title="\Proto\IronCoreLabs\V3DocumentHeader">V3DocumentHeader</abbr></a>    </span>
+                        &nbsp;: <a href="classes/Proto-IronCoreLabs-V3DocumentHeader.html"><abbr title="\Proto\IronCoreLabs\V3DocumentHeader">V3DocumentHeader</abbr></a>    </span>
 </dt>
 <dd>Make a V3DocumentHeader with a SaaSShieldHeader and a generated signature.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/IronCore-Crypto-Aes.html#method_decrypt">decrypt()</a>
     <span>
-                                &nbsp;: <a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>    </span>
+                        &nbsp;: <a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>    </span>
 </dt>
 <dd>Takes a string of arbitrary bytes and decrypts it using a given key.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/IronCore-Crypto-Aes.html#method_decryptDocument">decryptDocument()</a>
     <span>
-                                &nbsp;: <a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>    </span>
+                        &nbsp;: <a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>    </span>
 </dt>
 <dd>Decrypts an encrypted document.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/IronCore-Crypto-Aes.html#method_encrypt">encrypt()</a>
     <span>
-                                &nbsp;: <a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>    </span>
+                        &nbsp;: <a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>    </span>
 </dt>
 <dd>Encrypts given plaintext with the provided key.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/IronCore-Crypto-Aes.html#method_encryptDocument">encryptDocument()</a>
     <span>
-                                &nbsp;: <a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>    </span>
+                        &nbsp;: <a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>    </span>
 </dt>
 <dd>Encrypts a document.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/IronCore-Crypto-Aes.html#method_generateHeader">generateHeader()</a>
     <span>
-                                &nbsp;: <a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>    </span>
+                        &nbsp;: <a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>    </span>
 </dt>
 <dd>Generates a header to mark the encrypted document as ours.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/IronCore-Crypto-Aes.html#method_generateSignature">generateSignature()</a>
     <span>
-                                &nbsp;: <a href="classes/IronCore-V3HeaderSignature.html"><abbr title="\IronCore\V3HeaderSignature">V3HeaderSignature</abbr></a>    </span>
+                        &nbsp;: <a href="classes/IronCore-V3HeaderSignature.html"><abbr title="\IronCore\V3HeaderSignature">V3HeaderSignature</abbr></a>    </span>
 </dt>
 <dd>Generates a signature over the header using the provided document encryption key and IV.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/IronCore-Crypto-Aes.html#method_getCurrentDocumentHeaderVersion">getCurrentDocumentHeaderVersion()</a>
     <span>
-                                &nbsp;: <a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>    </span>
+                        &nbsp;: <a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>    </span>
 </dt>
 <dd>Gets the current IronCore document header version as a single byte.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/IronCore-Crypto-Aes.html#method_getDocumentMagic">getDocumentMagic()</a>
     <span>
-                                &nbsp;: <a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>    </span>
+                        &nbsp;: <a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>    </span>
 </dt>
 <dd>Gets IronCore document magic bytes that are included in every document&#039;s preamble</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/IronCore-Crypto-Aes.html#method_verifySignature">verifySignature()</a>
     <span>
-                                &nbsp;: bool    </span>
+                        &nbsp;: bool    </span>
 </dt>
 <dd>Verifies a document header&#039;s signature.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/IronCore-Crypto-Aes.html#method_containsIroncoreMagic">containsIroncoreMagic()</a>
     <span>
-                                &nbsp;: bool    </span>
+                        &nbsp;: bool    </span>
 </dt>
 <dd>Verifies that bytes 2-5 are the IronCore magic string.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/IronCore-Crypto-Aes.html#method_encryptWithIv">encryptWithIv()</a>
     <span>
-                                &nbsp;: <a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>    </span>
+                        &nbsp;: <a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>    </span>
 </dt>
 <dd>Encrypts given plaintext with the provided key and IV.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/IronCore-Crypto-Aes.html#method_getHeaderSize">getHeaderSize()</a>
     <span>
-                                &nbsp;: int    </span>
+                        &nbsp;: int    </span>
 </dt>
 <dd>Converts bytes 6 and 7 of the fixed preamble to an integer that
 represents the length of the header.</dd>
@@ -275,14 +269,14 @@ represents the length of the header.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/IronCore-Crypto-Aes.html#method_splitDocument">splitDocument()</a>
     <span>
-                                &nbsp;: <a href="classes/IronCore-DocumentParts.html"><abbr title="\IronCore\DocumentParts">DocumentParts</abbr></a>    </span>
+                        &nbsp;: <a href="classes/IronCore-DocumentParts.html"><abbr title="\IronCore\DocumentParts">DocumentParts</abbr></a>    </span>
 </dt>
 <dd>Splits an IronCore encrypted document into its component pieces.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/IronCore-Crypto-Aes.html#method_verifyPreamble">verifyPreamble()</a>
     <span>
-                                &nbsp;: bool    </span>
+                        &nbsp;: bool    </span>
 </dt>
 <dd>Verifies that the preamble is the correct length and version, contains the string &quot;IRON&quot;,
 and indicates a valid header length.</dd>
@@ -314,7 +308,7 @@ and indicates a valid header length.</dd>
 
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">DOCUMENT_HEADER_META_LENGTH</span>
     = <span class="phpdocumentor-signature__default-value">7</span>
 </code>
@@ -342,7 +336,7 @@ and indicates a valid header length.</dd>
     
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">IV_LEN</span>
     = <span class="phpdocumentor-signature__default-value">12</span>
 </code>
@@ -364,21 +358,21 @@ and indicates a valid header length.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Crypto/Aes.php"><a href="files/src-crypto-aes.html"><abbr title="src/Crypto/Aes.php">Aes.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">20</span>
+    <span class="phpdocumentor-element-found-in__line">21</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Max IronCore header size. Equals 256 * 255 + 255 since we do a 2 byte size.</p>
+
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">MAX_HEADER_SIZE</span>
     = <span class="phpdocumentor-signature__default-value">65535</span>
 </code>
 
 
-        <section class="phpdocumentor-description"></section>
-
+    
         <section class="phpdocumentor-description"></section>
 
     
@@ -400,7 +394,7 @@ and indicates a valid header length.</dd>
     
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">TAG_LEN</span>
     = <span class="phpdocumentor-signature__default-value">16</span>
 </code>
@@ -435,7 +429,7 @@ and indicates a valid header length.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Crypto/Aes.php"><a href="files/src-crypto-aes.html"><abbr title="src/Crypto/Aes.php">Aes.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">272</span>
+    <span class="phpdocumentor-element-found-in__line">273</span>
 
     </aside>
 
@@ -508,7 +502,7 @@ and indicates a valid header length.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Crypto/Aes.php"><a href="files/src-crypto-aes.html"><abbr title="src/Crypto/Aes.php">Aes.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">97</span>
+    <span class="phpdocumentor-element-found-in__line">98</span>
 
     </aside>
 
@@ -580,7 +574,7 @@ and indicates a valid header length.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Crypto/Aes.php"><a href="files/src-crypto-aes.html"><abbr title="src/Crypto/Aes.php">Aes.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">154</span>
+    <span class="phpdocumentor-element-found-in__line">155</span>
 
     </aside>
 
@@ -652,7 +646,7 @@ and indicates a valid header length.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Crypto/Aes.php"><a href="files/src-crypto-aes.html"><abbr title="src/Crypto/Aes.php">Aes.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">52</span>
+    <span class="phpdocumentor-element-found-in__line">53</span>
 
     </aside>
 
@@ -732,7 +726,7 @@ and indicates a valid header length.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Crypto/Aes.php"><a href="files/src-crypto-aes.html"><abbr title="src/Crypto/Aes.php">Aes.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">137</span>
+    <span class="phpdocumentor-element-found-in__line">138</span>
 
     </aside>
 
@@ -821,7 +815,7 @@ and indicates a valid header length.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Crypto/Aes.php"><a href="files/src-crypto-aes.html"><abbr title="src/Crypto/Aes.php">Aes.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">247</span>
+    <span class="phpdocumentor-element-found-in__line">248</span>
 
     </aside>
 
@@ -905,7 +899,7 @@ PROTOBUF_HEADER_DATA (variable bytes)</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Crypto/Aes.php"><a href="files/src-crypto-aes.html"><abbr title="src/Crypto/Aes.php">Aes.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">299</span>
+    <span class="phpdocumentor-element-found-in__line">300</span>
 
     </aside>
 
@@ -970,7 +964,7 @@ PROTOBUF_HEADER_DATA (variable bytes)</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Crypto/Aes.php"><a href="files/src-crypto-aes.html"><abbr title="src/Crypto/Aes.php">Aes.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">28</span>
 
     </aside>
 
@@ -1005,7 +999,7 @@ PROTOBUF_HEADER_DATA (variable bytes)</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Crypto/Aes.php"><a href="files/src-crypto-aes.html"><abbr title="src/Crypto/Aes.php">Aes.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">37</span>
+    <span class="phpdocumentor-element-found-in__line">38</span>
 
     </aside>
 
@@ -1040,7 +1034,7 @@ PROTOBUF_HEADER_DATA (variable bytes)</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Crypto/Aes.php"><a href="files/src-crypto-aes.html"><abbr title="src/Crypto/Aes.php">Aes.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">314</span>
+    <span class="phpdocumentor-element-found-in__line">315</span>
 
     </aside>
 
@@ -1096,7 +1090,7 @@ PROTOBUF_HEADER_DATA (variable bytes)</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Crypto/Aes.php"><a href="files/src-crypto-aes.html"><abbr title="src/Crypto/Aes.php">Aes.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">213</span>
+    <span class="phpdocumentor-element-found-in__line">214</span>
 
     </aside>
 
@@ -1143,7 +1137,7 @@ PROTOBUF_HEADER_DATA (variable bytes)</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Crypto/Aes.php"><a href="files/src-crypto-aes.html"><abbr title="src/Crypto/Aes.php">Aes.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">68</span>
+    <span class="phpdocumentor-element-found-in__line">69</span>
 
     </aside>
 
@@ -1224,7 +1218,7 @@ PROTOBUF_HEADER_DATA (variable bytes)</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Crypto/Aes.php"><a href="files/src-crypto-aes.html"><abbr title="src/Crypto/Aes.php">Aes.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">226</span>
+    <span class="phpdocumentor-element-found-in__line">227</span>
 
     </aside>
 
@@ -1272,7 +1266,7 @@ represents the length of the header.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Crypto/Aes.php"><a href="files/src-crypto-aes.html"><abbr title="src/Crypto/Aes.php">Aes.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">177</span>
+    <span class="phpdocumentor-element-found-in__line">178</span>
 
     </aside>
 
@@ -1335,7 +1329,7 @@ represents the length of the header.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Crypto/Aes.php"><a href="files/src-crypto-aes.html"><abbr title="src/Crypto/Aes.php">Aes.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">198</span>
+    <span class="phpdocumentor-element-found-in__line">199</span>
 
     </aside>
 

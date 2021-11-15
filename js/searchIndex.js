@@ -3,12 +3,12 @@ Search.appendIndex(
                 {
             "fqsen": "\\IronCore\\Bytes",
             "name": "Bytes",
-            "summary": "",
+            "summary": "Wrapper\u0020around\u0020a\u0020string\u0020that\u0020contains\u0020raw\u0020bytes",
             "url": "classes/IronCore-Bytes.html"
         },                {
             "fqsen": "\\IronCore\\Bytes\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Create\u0020a\u0020Bytes\u0020object",
+            "summary": "",
             "url": "classes/IronCore-Bytes.html#method___construct"
         },                {
             "fqsen": "\\IronCore\\Bytes\u003A\u003AfromBase64\u0028\u0029",
@@ -33,7 +33,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\IronCore\\Bytes\u003A\u003Alength\u0028\u0029",
             "name": "length",
-            "summary": "Gets\u0020the\u0020length\u0020of\u0020held\u0020bytes",
+            "summary": "Gets\u0020the\u0020length\u0020of\u0020the\u0020held\u0020bytes.",
             "url": "classes/IronCore-Bytes.html#method_length"
         },                {
             "fqsen": "\\IronCore\\Bytes\u003A\u003AbyteSlice\u0028\u0029",
@@ -158,12 +158,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\IronCore\\Crypto\\Aes\u003A\u003AMAX_HEADER_SIZE",
             "name": "MAX_HEADER_SIZE",
-            "summary": "",
+            "summary": "Max\u0020IronCore\u0020header\u0020size.\u0020Equals\u0020256\u0020\u002A\u0020255\u0020\u002B\u0020255\u0020since\u0020we\u0020do\u0020a\u00202\u0020byte\u0020size.",
             "url": "classes/IronCore-Crypto-Aes.html#constant_MAX_HEADER_SIZE"
         },                {
             "fqsen": "\\IronCore\\Crypto\\CryptoRng",
             "name": "CryptoRng",
-            "summary": "",
+            "summary": "Cryptographically\u002Dsecure\u0020random\u0020number\u0020generator",
             "url": "classes/IronCore-Crypto-CryptoRng.html"
         },                {
             "fqsen": "\\IronCore\\Crypto\\CryptoRng\u003A\u003ArandomBytes\u0028\u0029",
@@ -193,7 +193,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\IronCore\\DocumentParts",
             "name": "DocumentParts",
-            "summary": "",
+            "summary": "A\u0020parsed\u0020IronCore\u0020encrypted\u0020document",
             "url": "classes/IronCore-DocumentParts.html"
         },                {
             "fqsen": "\\IronCore\\DocumentParts\u003A\u003A__construct\u0028\u0029",
@@ -203,17 +203,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\IronCore\\DocumentParts\u003A\u003AgetPreamble\u0028\u0029",
             "name": "getPreamble",
-            "summary": "",
+            "summary": "Gets\u0020the\u0020preamble\u0020of\u0020the\u0020document.",
             "url": "classes/IronCore-DocumentParts.html#method_getPreamble"
         },                {
             "fqsen": "\\IronCore\\DocumentParts\u003A\u003AgetHeader\u0028\u0029",
             "name": "getHeader",
-            "summary": "",
+            "summary": "Gets\u0020the\u0020header\u0020of\u0020the\u0020document.",
             "url": "classes/IronCore-DocumentParts.html#method_getHeader"
         },                {
             "fqsen": "\\IronCore\\DocumentParts\u003A\u003AgetCiphertext\u0028\u0029",
             "name": "getCiphertext",
-            "summary": "",
+            "summary": "Gets\u0020the\u0020encrypted\u0020payload\u0020of\u0020the\u0020document.",
             "url": "classes/IronCore-DocumentParts.html#method_getCiphertext"
         },                {
             "fqsen": "\\IronCore\\DocumentParts\u003A\u003A\u0024preamble",
@@ -266,16 +266,6 @@ Search.appendIndex(
             "summary": "This\u0020exception\u0020indicates\u0020a\u0020problem\u0020with\u0020encrypting,\u0020decrypting\u0020or\u0020verifying\u0020signatures.",
             "url": "classes/IronCore-Exception-CryptoException.html"
         },                {
-            "fqsen": "\\IronCore\\Exception\\CryptoException\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/IronCore-Exception-CryptoException.html#method___construct"
-        },                {
-            "fqsen": "\\IronCore\\Exception\\CryptoException\u003A\u003A\u0024message",
-            "name": "message",
-            "summary": "",
-            "url": "classes/IronCore-Exception-CryptoException.html#property_message"
-        },                {
             "fqsen": "\\IronCore\\Exception\\KmsException",
             "name": "KmsException",
             "summary": "This\u0020exception\u0020indicates\u0020a\u0020problem\u0020with\u0020the\u0020Tenant\u0020Security\u0020Proxy\u0020talking\u0020to\u0020the\nKMS,\u0020or\u0020a\u0020problem\u0020with\u0020KMS\u0020keys.",
@@ -291,34 +281,19 @@ Search.appendIndex(
             "summary": "This\u0020exception\u0020indicates\u0020a\u0020problem\u0020talking\u0020to\u0020the\u0020TSP\u0020or\u0020the\u0020TSP\u0020talking\u0020to\u0020the\nkey\u0020management\u0020servers.\u0020See\u0020the\u0020fromResponse\u0020static\u0020function\u0020for\u0020the\u0020code\u0020\u002D\u003E\u0020exception\u0020mapping.",
             "url": "classes/IronCore-Exception-TenantSecurityException.html"
         },                {
-            "fqsen": "\\IronCore\\Exception\\TenantSecurityException\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/IronCore-Exception-TenantSecurityException.html#method___construct"
-        },                {
             "fqsen": "\\IronCore\\Exception\\TenantSecurityException\u003A\u003AfromResponse\u0028\u0029",
             "name": "fromResponse",
             "summary": "Converts\u0020from\u0020a\u0020TSP\u0020error\u0020response\u0020to\u0020a\u0020TenantSecurityException.",
             "url": "classes/IronCore-Exception-TenantSecurityException.html#method_fromResponse"
         },                {
-            "fqsen": "\\IronCore\\Exception\\TenantSecurityException\u003A\u003A\u0024message",
-            "name": "message",
-            "summary": "",
-            "url": "classes/IronCore-Exception-TenantSecurityException.html#property_message"
-        },                {
-            "fqsen": "\\IronCore\\Exception\\TenantSecurityException\u003A\u003A\u0024code",
-            "name": "code",
-            "summary": "",
-            "url": "classes/IronCore-Exception-TenantSecurityException.html#property_code"
-        },                {
             "fqsen": "\\IronCore\\Exception\\TspServiceException",
             "name": "TspServiceException",
-            "summary": "This\u0020exception\u0020indicates\u0020a\u0020problem\u0020talking\u0020to\u0020the\u0020TSP\u0020or\u0020the\u0020TSP\u0020talking\u0020to\u0020the\nkey\u0020management\u0020servers.\u0020See\u0020the\u0020fromResponse\u0020static\u0020function\u0020for\u0020the\u0020code\u0020\u002D\u003E\u0020exception\u0020mapping.",
+            "summary": "This\u0020indicates\u0020a\u0020problem\u0020from\u0020the\u0020Tenant\u0020Security\u0020Proxy\u0020itself\u0020\u0028such\u0020as\u0020invalid\u0020API\u0020key\u0029.",
             "url": "classes/IronCore-Exception-TspServiceException.html"
         },                {
             "fqsen": "\\IronCore\\IclFields",
             "name": "IclFields",
-            "summary": "",
+            "summary": "Holds\u0020metadata\u0020to\u0020pass\u0020to\u0020the\u0020Tenant\u0020Security\u0020Proxy\u0020for\u0020logging\u0020purposes.",
             "url": "classes/IronCore-IclFields.html"
         },                {
             "fqsen": "\\IronCore\\IclFields\u003A\u003A__construct\u0028\u0029",
@@ -513,7 +488,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\IronCore\\RequestMetadata",
             "name": "RequestMetadata",
-            "summary": "",
+            "summary": "Holds\u0020metadata\u0020fields\u0020as\u0020part\u0020of\u0020an\u0020encrypted\u0020document.\u0020Each\u0020document\u0020has\u0020metadata\u0020associated\u0020with\u0020it\nthat\u0020will\u0020be\u0020sent\u0020to\u0020the\u0020Tenant\u0020Security\u0020Proxy\u0020for\u0020logging\u0020and\u0020other\u0020purposes.\u0020Some\u0020examples\u0020include\nthe\u0020tenant\u0020ID\u0020associated\u0020with\u0020the\u0020request,\u0020the\u0020service\u0020that\u0020is\u0020accessing\u0020the\u0020data,\u0020and\u0020a\u0020unique\u0020ID\nfor\u0020the\u0020request.",
             "url": "classes/IronCore-RequestMetadata.html"
         },                {
             "fqsen": "\\IronCore\\RequestMetadata\u003A\u003A__construct\u0028\u0029",
@@ -523,47 +498,47 @@ Search.appendIndex(
         },                {
             "fqsen": "\\IronCore\\RequestMetadata\u003A\u003AgetTenantId\u0028\u0029",
             "name": "getTenantId",
-            "summary": "",
+            "summary": "Gets\u0020the\u0020ID\u0020of\u0020the\u0020tenant\u0020making\u0020the\u0020request.",
             "url": "classes/IronCore-RequestMetadata.html#method_getTenantId"
         },                {
             "fqsen": "\\IronCore\\RequestMetadata\u003A\u003AgetPostData\u0028\u0029",
             "name": "getPostData",
-            "summary": "",
+            "summary": "Gets\u0020an\u0020associative\u0020array\u0020of\u0020data\u0020that\u0020can\u0020be\u0020serialized\nand\u0020sent\u0020to\u0020the\u0020Tenant\u0020Security\u0020Proxy.",
             "url": "classes/IronCore-RequestMetadata.html#method_getPostData"
         },                {
-            "fqsen": "\\IronCore\\RequestMetadata\u003A\u003A\u0024tenant_id",
-            "name": "tenant_id",
+            "fqsen": "\\IronCore\\RequestMetadata\u003A\u003A\u0024tenantId",
+            "name": "tenantId",
             "summary": "",
-            "url": "classes/IronCore-RequestMetadata.html#property_tenant_id"
+            "url": "classes/IronCore-RequestMetadata.html#property_tenantId"
         },                {
-            "fqsen": "\\IronCore\\RequestMetadata\u003A\u003A\u0024icl_fields",
-            "name": "icl_fields",
+            "fqsen": "\\IronCore\\RequestMetadata\u003A\u003A\u0024iclFields",
+            "name": "iclFields",
             "summary": "",
-            "url": "classes/IronCore-RequestMetadata.html#property_icl_fields"
+            "url": "classes/IronCore-RequestMetadata.html#property_iclFields"
         },                {
-            "fqsen": "\\IronCore\\RequestMetadata\u003A\u003A\u0024custom_fields",
-            "name": "custom_fields",
+            "fqsen": "\\IronCore\\RequestMetadata\u003A\u003A\u0024customFields",
+            "name": "customFields",
             "summary": "",
-            "url": "classes/IronCore-RequestMetadata.html#property_custom_fields"
+            "url": "classes/IronCore-RequestMetadata.html#property_customFields"
         },                {
             "fqsen": "\\IronCore\\Rest\\IronCoreRequest",
             "name": "IronCoreRequest",
-            "summary": "",
+            "summary": "Abstract\u0020class\u0020representing\u0020a\u0020Tenant\u0020Security\u0020Proxy\u0020request\u0020object.",
             "url": "classes/IronCore-Rest-IronCoreRequest.html"
         },                {
             "fqsen": "\\IronCore\\Rest\\IronCoreRequest\u003A\u003AgetJsonData\u0028\u0029",
             "name": "getJsonData",
-            "summary": "",
+            "summary": "Gets\u0020the\u0020JSON\u002Dencoded\u0020form\u0020of\u0020the\u0020request\u0020payload.",
             "url": "classes/IronCore-Rest-IronCoreRequest.html#method_getJsonData"
         },                {
             "fqsen": "\\IronCore\\Rest\\IronCoreRequest\u003A\u003AgetPostData\u0028\u0029",
             "name": "getPostData",
-            "summary": "",
+            "summary": "Method\u0020to\u0020get\u0020the\u0020request\u0020data\u0020as\u0020an\u0020associative\u0020array.",
             "url": "classes/IronCore-Rest-IronCoreRequest.html#method_getPostData"
         },                {
             "fqsen": "\\IronCore\\Rest\\UnwrapKeyRequest",
             "name": "UnwrapKeyRequest",
-            "summary": "",
+            "summary": "Request\u0020to\u0020the\u0020Tenant\u0020Security\u0020Proxy\u0027s\u0020unwrap\u0020key\u0020endpoint",
             "url": "classes/IronCore-Rest-UnwrapKeyRequest.html"
         },                {
             "fqsen": "\\IronCore\\Rest\\UnwrapKeyRequest\u003A\u003A__construct\u0028\u0029",
@@ -573,7 +548,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\IronCore\\Rest\\UnwrapKeyRequest\u003A\u003AgetPostData\u0028\u0029",
             "name": "getPostData",
-            "summary": "",
+            "summary": "Method\u0020to\u0020get\u0020the\u0020request\u0020data\u0020as\u0020an\u0020associative\u0020array.",
             "url": "classes/IronCore-Rest-UnwrapKeyRequest.html#method_getPostData"
         },                {
             "fqsen": "\\IronCore\\Rest\\UnwrapKeyRequest\u003A\u003A\u0024metadata",
@@ -581,14 +556,14 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/IronCore-Rest-UnwrapKeyRequest.html#property_metadata"
         },                {
-            "fqsen": "\\IronCore\\Rest\\UnwrapKeyRequest\u003A\u003A\u0024base64Edek",
-            "name": "base64Edek",
+            "fqsen": "\\IronCore\\Rest\\UnwrapKeyRequest\u003A\u003A\u0024edek",
+            "name": "edek",
             "summary": "",
-            "url": "classes/IronCore-Rest-UnwrapKeyRequest.html#property_base64Edek"
+            "url": "classes/IronCore-Rest-UnwrapKeyRequest.html#property_edek"
         },                {
             "fqsen": "\\IronCore\\Rest\\UnwrapKeyResponse",
             "name": "UnwrapKeyResponse",
-            "summary": "",
+            "summary": "Response\u0020from\u0020the\u0020Tenant\u0020Security\u0020Proxy\u0027s\u0020unwrap\u0020key\u0020endpoint",
             "url": "classes/IronCore-Rest-UnwrapKeyResponse.html"
         },                {
             "fqsen": "\\IronCore\\Rest\\UnwrapKeyResponse\u003A\u003A__construct\u0028\u0029",
@@ -603,7 +578,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\IronCore\\Rest\\UnwrapKeyResponse\u003A\u003AgetDek\u0028\u0029",
             "name": "getDek",
-            "summary": "",
+            "summary": "Gets\u0020the\u0020document\u0020key\u0020sent\u0020back\u0020from\u0020the\u0020TSP.",
             "url": "classes/IronCore-Rest-UnwrapKeyResponse.html#method_getDek"
         },                {
             "fqsen": "\\IronCore\\Rest\\UnwrapKeyResponse\u003A\u003A\u0024dek",
@@ -613,7 +588,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\IronCore\\Rest\\WrapKeyRequest",
             "name": "WrapKeyRequest",
-            "summary": "",
+            "summary": "Request\u0020to\u0020the\u0020Tenant\u0020Security\u0020Proxy\u0027s\u0020wrap\u0020key\u0020endpoint",
             "url": "classes/IronCore-Rest-WrapKeyRequest.html"
         },                {
             "fqsen": "\\IronCore\\Rest\\WrapKeyRequest\u003A\u003A__construct\u0028\u0029",
@@ -623,7 +598,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\IronCore\\Rest\\WrapKeyRequest\u003A\u003AgetPostData\u0028\u0029",
             "name": "getPostData",
-            "summary": "",
+            "summary": "Method\u0020to\u0020get\u0020the\u0020request\u0020data\u0020as\u0020an\u0020associative\u0020array.",
             "url": "classes/IronCore-Rest-WrapKeyRequest.html#method_getPostData"
         },                {
             "fqsen": "\\IronCore\\Rest\\WrapKeyRequest\u003A\u003A\u0024metadata",
@@ -633,7 +608,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\IronCore\\Rest\\WrapKeyResponse",
             "name": "WrapKeyResponse",
-            "summary": "",
+            "summary": "Response\u0020from\u0020the\u0020Tenant\u0020Security\u0020Proxy\u0027s\u0020wrap\u0020key\u0020endpoint",
             "url": "classes/IronCore-Rest-WrapKeyResponse.html"
         },                {
             "fqsen": "\\IronCore\\Rest\\WrapKeyResponse\u003A\u003A__construct\u0028\u0029",
@@ -648,12 +623,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\IronCore\\Rest\\WrapKeyResponse\u003A\u003AgetDek\u0028\u0029",
             "name": "getDek",
-            "summary": "",
+            "summary": "Gets\u0020the\u0020document\u0020key\u0020sent\u0020back\u0020from\u0020the\u0020TSP.",
             "url": "classes/IronCore-Rest-WrapKeyResponse.html#method_getDek"
         },                {
             "fqsen": "\\IronCore\\Rest\\WrapKeyResponse\u003A\u003AgetEdek\u0028\u0029",
             "name": "getEdek",
-            "summary": "",
+            "summary": "Gets\u0020the\u0020encrypted\u0020document\u0020key\u0020sent\u0020back\u0020from\u0020the\u0020TSP.",
             "url": "classes/IronCore-Rest-WrapKeyResponse.html#method_getEdek"
         },                {
             "fqsen": "\\IronCore\\Rest\\WrapKeyResponse\u003A\u003A\u0024dek",
@@ -668,7 +643,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\IronCore\\TenantSecurityClient",
             "name": "TenantSecurityClient",
-            "summary": "",
+            "summary": "Client\u0020used\u0020to\u0020encrypt\u0020and\u0020decrypt\u0020documents.\u0020This\u0020is\u0020the\u0020primary\u0020class\u0020that\u0020consumers\u0020of\u0020the\nlibrary\u0020will\u0020need\u0020to\u0020utilize,\u0020and\u0020a\u0020single\u0020instance\u0020of\u0020the\u0020class\u0020can\u0020be\u0020re\u002Dused\u0020for\u0020requests\nacross\u0020different\u0020tenants.",
             "url": "classes/IronCore-TenantSecurityClient.html"
         },                {
             "fqsen": "\\IronCore\\TenantSecurityClient\u003A\u003A__construct\u0028\u0029",
@@ -718,7 +693,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\IronCore\\TenantSecurityRequest",
             "name": "TenantSecurityRequest",
-            "summary": "",
+            "summary": "Class\u0020used\u0020to\u0020communicate\u0020with\u0020the\u0020Tenant\u0020Security\u0020Proxy.",
             "url": "classes/IronCore-TenantSecurityRequest.html"
         },                {
             "fqsen": "\\IronCore\\TenantSecurityRequest\u003A\u003A__construct\u0028\u0029",
@@ -728,7 +703,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\IronCore\\TenantSecurityRequest\u003A\u003AmakeJsonRequest\u0028\u0029",
             "name": "makeJsonRequest",
-            "summary": "",
+            "summary": "Makes\u0020a\u0020POST\u0020request\u0020to\u0020a\u0020Tenant\u0020Security\u0020Proxy\u0020endpoint\u0020with\u0020the\u0020provided\u0020JSON\u0020payload.",
             "url": "classes/IronCore-TenantSecurityRequest.html#method_makeJsonRequest"
         },                {
             "fqsen": "\\IronCore\\TenantSecurityRequest\u003A\u003AwrapKey\u0028\u0029",
@@ -741,29 +716,29 @@ Search.appendIndex(
             "summary": "Requests\u0020the\u0020TSP\u0020to\u0020unwrap\u0020an\u0020EDEK.",
             "url": "classes/IronCore-TenantSecurityRequest.html#method_unwrapKey"
         },                {
-            "fqsen": "\\IronCore\\TenantSecurityRequest\u003A\u003A\u0024tsp_address",
-            "name": "tsp_address",
+            "fqsen": "\\IronCore\\TenantSecurityRequest\u003A\u003A\u0024tspAddress",
+            "name": "tspAddress",
             "summary": "",
-            "url": "classes/IronCore-TenantSecurityRequest.html#property_tsp_address"
+            "url": "classes/IronCore-TenantSecurityRequest.html#property_tspAddress"
         },                {
-            "fqsen": "\\IronCore\\TenantSecurityRequest\u003A\u003A\u0024api_key",
-            "name": "api_key",
+            "fqsen": "\\IronCore\\TenantSecurityRequest\u003A\u003A\u0024apiKey",
+            "name": "apiKey",
             "summary": "",
-            "url": "classes/IronCore-TenantSecurityRequest.html#property_api_key"
+            "url": "classes/IronCore-TenantSecurityRequest.html#property_apiKey"
         },                {
             "fqsen": "\\IronCore\\TenantSecurityRequest\u003A\u003A\u0024ch",
             "name": "ch",
             "summary": "",
             "url": "classes/IronCore-TenantSecurityRequest.html#property_ch"
         },                {
-            "fqsen": "\\IronCore\\Utils\\trim_slashes\u0028\u0029",
-            "name": "trim_slashes",
-            "summary": "",
-            "url": "namespaces/ironcore-utils.html#function_trim_slashes"
+            "fqsen": "\\IronCore\\Utils\\trimSlashes\u0028\u0029",
+            "name": "trimSlashes",
+            "summary": "Trims\u0020forward\u0020slashes\u0020\u0028\u0060\/\u0060\u0029\u0020from\u0020the\u0020front\u0020and\u0020end\u0020of\u0020a\u0020string.",
+            "url": "namespaces/ironcore-utils.html#function_trimSlashes"
         },                {
             "fqsen": "\\IronCore\\V3HeaderSignature",
             "name": "V3HeaderSignature",
-            "summary": "",
+            "summary": "V3\u0020IronCore\u0020header\u0020signature",
             "url": "classes/IronCore-V3HeaderSignature.html"
         },                {
             "fqsen": "\\IronCore\\V3HeaderSignature\u003A\u003A__construct\u0028\u0029",
@@ -771,20 +746,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/IronCore-V3HeaderSignature.html#method___construct"
         },                {
-            "fqsen": "\\IronCore\\V3HeaderSignature\u003A\u003AgetIv\u0028\u0029",
-            "name": "getIv",
-            "summary": "",
-            "url": "classes/IronCore-V3HeaderSignature.html#method_getIv"
-        },                {
             "fqsen": "\\IronCore\\V3HeaderSignature\u003A\u003AfromBytes\u0028\u0029",
             "name": "fromBytes",
-            "summary": "",
+            "summary": "Constructs\u0020header\u0020signature\u0020from\u0020raw\u0020bytes.",
             "url": "classes/IronCore-V3HeaderSignature.html#method_fromBytes"
         },                {
-            "fqsen": "\\IronCore\\V3HeaderSignature\u003A\u003AgetSig\u0028\u0029",
-            "name": "getSig",
-            "summary": "",
-            "url": "classes/IronCore-V3HeaderSignature.html#method_getSig"
+            "fqsen": "\\IronCore\\V3HeaderSignature\u003A\u003AgetIv\u0028\u0029",
+            "name": "getIv",
+            "summary": "Gets\u0020the\u0020header\u0027s\u0020IV.",
+            "url": "classes/IronCore-V3HeaderSignature.html#method_getIv"
+        },                {
+            "fqsen": "\\IronCore\\V3HeaderSignature\u003A\u003AgetSignatureBytes\u0028\u0029",
+            "name": "getSignatureBytes",
+            "summary": "Gets\u0020IronCore\u0020signature\u0020bytes.\u0020Consists\u0020of\u0020the\u0020IV\u0020concatenated\u0020with\u0020the\u0020GCM\u0020tag.",
+            "url": "classes/IronCore-V3HeaderSignature.html#method_getSignatureBytes"
         },                {
             "fqsen": "\\IronCore\\V3HeaderSignature\u003A\u003A\u0024iv",
             "name": "iv",
@@ -795,161 +770,6 @@ Search.appendIndex(
             "name": "gcmTag",
             "summary": "",
             "url": "classes/IronCore-V3HeaderSignature.html#property_gcmTag"
-        },                {
-            "fqsen": "\\IronCore\\Crypto\\AesTest",
-            "name": "AesTest",
-            "summary": "",
-            "url": "classes/IronCore-Crypto-AesTest.html"
-        },                {
-            "fqsen": "\\IronCore\\Crypto\\AesTest\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/IronCore-Crypto-AesTest.html#method_setUp"
-        },                {
-            "fqsen": "\\IronCore\\Crypto\\AesTest\u003A\u003AtestEncryptDecryptRoundtrip\u0028\u0029",
-            "name": "testEncryptDecryptRoundtrip",
-            "summary": "",
-            "url": "classes/IronCore-Crypto-AesTest.html#method_testEncryptDecryptRoundtrip"
-        },                {
-            "fqsen": "\\IronCore\\Crypto\\AesTest\u003A\u003AtestSignVerify\u0028\u0029",
-            "name": "testSignVerify",
-            "summary": "",
-            "url": "classes/IronCore-Crypto-AesTest.html#method_testSignVerify"
-        },                {
-            "fqsen": "\\IronCore\\Crypto\\AesTest\u003A\u003AtestDecryptingKnownEncryptedValue\u0028\u0029",
-            "name": "testDecryptingKnownEncryptedValue",
-            "summary": "",
-            "url": "classes/IronCore-Crypto-AesTest.html#method_testDecryptingKnownEncryptedValue"
-        },                {
-            "fqsen": "\\IronCore\\Crypto\\AesTest\u003A\u003AtestKnownHeaderProtoFromJava\u0028\u0029",
-            "name": "testKnownHeaderProtoFromJava",
-            "summary": "",
-            "url": "classes/IronCore-Crypto-AesTest.html#method_testKnownHeaderProtoFromJava"
-        },                {
-            "fqsen": "\\IronCore\\Crypto\\AesTest\u003A\u003AtestDecryptingBadTag\u0028\u0029",
-            "name": "testDecryptingBadTag",
-            "summary": "",
-            "url": "classes/IronCore-Crypto-AesTest.html#method_testDecryptingBadTag"
-        },                {
-            "fqsen": "\\IronCore\\Crypto\\AesTest\u003A\u003AtestDecryptInvalidDocument\u0028\u0029",
-            "name": "testDecryptInvalidDocument",
-            "summary": "",
-            "url": "classes/IronCore-Crypto-AesTest.html#method_testDecryptInvalidDocument"
-        },                {
-            "fqsen": "\\IronCore\\Crypto\\AesTest\u003A\u003AtestDecryptInvalidDocumentIncorrectLength\u0028\u0029",
-            "name": "testDecryptInvalidDocumentIncorrectLength",
-            "summary": "",
-            "url": "classes/IronCore-Crypto-AesTest.html#method_testDecryptInvalidDocumentIncorrectLength"
-        },                {
-            "fqsen": "\\IronCore\\Crypto\\AesTest\u003A\u003AtestVerifyWithWrongDek\u0028\u0029",
-            "name": "testVerifyWithWrongDek",
-            "summary": "",
-            "url": "classes/IronCore-Crypto-AesTest.html#method_testVerifyWithWrongDek"
-        },                {
-            "fqsen": "\\IronCore\\Crypto\\AesTest\u003A\u003AtestDecryptDocumentWithCorruptHeader\u0028\u0029",
-            "name": "testDecryptDocumentWithCorruptHeader",
-            "summary": "",
-            "url": "classes/IronCore-Crypto-AesTest.html#method_testDecryptDocumentWithCorruptHeader"
-        },                {
-            "fqsen": "\\IronCore\\Crypto\\AesTest\u003A\u003AhexToBytes\u0028\u0029",
-            "name": "hexToBytes",
-            "summary": "",
-            "url": "classes/IronCore-Crypto-AesTest.html#method_hexToBytes"
-        },                {
-            "fqsen": "\\IronCore\\Crypto\\AesTest\u003A\u003AbytesToHex\u0028\u0029",
-            "name": "bytesToHex",
-            "summary": "",
-            "url": "classes/IronCore-Crypto-AesTest.html#method_bytesToHex"
-        },                {
-            "fqsen": "\\IronCore\\Crypto\\AesTest\u003A\u003A\u0024knownGoodEncryptedValueHexString",
-            "name": "knownGoodEncryptedValueHexString",
-            "summary": "",
-            "url": "classes/IronCore-Crypto-AesTest.html#property_knownGoodEncryptedValueHexString"
-        },                {
-            "fqsen": "\\IronCore\\Crypto\\AesTest\u003A\u003A\u0024knownDek",
-            "name": "knownDek",
-            "summary": "",
-            "url": "classes/IronCore-Crypto-AesTest.html#property_knownDek"
-        },                {
-            "fqsen": "\\IronCore\\Crypto\\AesTest\u003A\u003A\u0024knownDek2",
-            "name": "knownDek2",
-            "summary": "",
-            "url": "classes/IronCore-Crypto-AesTest.html#property_knownDek2"
-        },                {
-            "fqsen": "\\IronCore\\Crypto\\TestRng",
-            "name": "TestRng",
-            "summary": "",
-            "url": "classes/IronCore-Crypto-TestRng.html"
-        },                {
-            "fqsen": "\\IronCore\\Crypto\\TestRng\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/IronCore-Crypto-TestRng.html#method___construct"
-        },                {
-            "fqsen": "\\IronCore\\Crypto\\TestRng\u003A\u003ArandomBytes\u0028\u0029",
-            "name": "randomBytes",
-            "summary": "",
-            "url": "classes/IronCore-Crypto-TestRng.html#method_randomBytes"
-        },                {
-            "fqsen": "\\IronCore\\Crypto\\TestRng\u003A\u003A\u0024counter",
-            "name": "counter",
-            "summary": "",
-            "url": "classes/IronCore-Crypto-TestRng.html#property_counter"
-        },                {
-            "fqsen": "\\IronCore\\Rest\\UnwrapKeyResponseTest",
-            "name": "UnwrapKeyResponseTest",
-            "summary": "",
-            "url": "classes/IronCore-Rest-UnwrapKeyResponseTest.html"
-        },                {
-            "fqsen": "\\IronCore\\Rest\\UnwrapKeyResponseTest\u003A\u003AtestFromResponseGoodValue\u0028\u0029",
-            "name": "testFromResponseGoodValue",
-            "summary": "",
-            "url": "classes/IronCore-Rest-UnwrapKeyResponseTest.html#method_testFromResponseGoodValue"
-        },                {
-            "fqsen": "\\IronCore\\Rest\\UnwrapKeyResponseTest\u003A\u003AtestFromResponseBadDekValue\u0028\u0029",
-            "name": "testFromResponseBadDekValue",
-            "summary": "",
-            "url": "classes/IronCore-Rest-UnwrapKeyResponseTest.html#method_testFromResponseBadDekValue"
-        },                {
-            "fqsen": "\\IronCore\\Rest\\UnwrapKeyResponseTest\u003A\u003AtestFromResponseBadJson\u0028\u0029",
-            "name": "testFromResponseBadJson",
-            "summary": "",
-            "url": "classes/IronCore-Rest-UnwrapKeyResponseTest.html#method_testFromResponseBadJson"
-        },                {
-            "fqsen": "\\IronCore\\Rest\\WrapKeyResponseTest",
-            "name": "WrapKeyResponseTest",
-            "summary": "",
-            "url": "classes/IronCore-Rest-WrapKeyResponseTest.html"
-        },                {
-            "fqsen": "\\IronCore\\Rest\\WrapKeyResponseTest\u003A\u003AtestFromResponseGoodValue\u0028\u0029",
-            "name": "testFromResponseGoodValue",
-            "summary": "",
-            "url": "classes/IronCore-Rest-WrapKeyResponseTest.html#method_testFromResponseGoodValue"
-        },                {
-            "fqsen": "\\IronCore\\Rest\\WrapKeyResponseTest\u003A\u003AtestFromResponseBadDekValue\u0028\u0029",
-            "name": "testFromResponseBadDekValue",
-            "summary": "",
-            "url": "classes/IronCore-Rest-WrapKeyResponseTest.html#method_testFromResponseBadDekValue"
-        },                {
-            "fqsen": "\\IronCore\\Rest\\WrapKeyResponseTest\u003A\u003AtestFromResponseBadJson\u0028\u0029",
-            "name": "testFromResponseBadJson",
-            "summary": "",
-            "url": "classes/IronCore-Rest-WrapKeyResponseTest.html#method_testFromResponseBadJson"
-        },                {
-            "fqsen": "\\IronCore\\Rest\\WrapKeyResponseTest\u003A\u003AtestFromResponseJsonStringResponse\u0028\u0029",
-            "name": "testFromResponseJsonStringResponse",
-            "summary": "",
-            "url": "classes/IronCore-Rest-WrapKeyResponseTest.html#method_testFromResponseJsonStringResponse"
-        },                {
-            "fqsen": "\\IronCore\\Utils\\UtilsTest",
-            "name": "UtilsTest",
-            "summary": "",
-            "url": "classes/IronCore-Utils-UtilsTest.html"
-        },                {
-            "fqsen": "\\IronCore\\Utils\\UtilsTest\u003A\u003AtestTrimSlashes\u0028\u0029",
-            "name": "testTrimSlashes",
-            "summary": "",
-            "url": "classes/IronCore-Utils-UtilsTest.html#method_testTrimSlashes"
         },                {
             "fqsen": "\\",
             "name": "\\",

@@ -54,34 +54,30 @@
 <aside class="phpdocumentor-column -four phpdocumentor-sidebar">
                     <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="namespaces/ironcore.html" class="">IronCore</a>
-</h4>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace"><a href="namespaces/ironcore.html">IronCore</a></h4>
     <ul class="phpdocumentor-list">
                     <li>
-                <a href="namespaces/ironcore-crypto.html" class="">Crypto</a>
+                <a href="namespaces/ironcore-crypto.html">Crypto</a>
                 
             </li>
                     <li>
-                <a href="namespaces/ironcore-exception.html" class="">Exception</a>
+                <a href="namespaces/ironcore-exception.html">Exception</a>
                 
             </li>
                     <li>
-                <a href="namespaces/ironcore-rest.html" class="">Rest</a>
+                <a href="namespaces/ironcore-rest.html">Rest</a>
                 
             </li>
                     <li>
-                <a href="namespaces/ironcore-utils.html" class="">Utils</a>
+                <a href="namespaces/ironcore-utils.html">Utils</a>
                 
             </li>
             </ul>
 
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="namespaces/proto.html" class="">Proto</a>
-</h4>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace"><a href="namespaces/proto.html">Proto</a></h4>
     <ul class="phpdocumentor-list">
                     <li>
-                <a href="namespaces/proto-ironcorelabs.html" class="">IronCoreLabs</a>
+                <a href="namespaces/proto-ironcorelabs.html">IronCoreLabs</a>
                 
             </li>
             </ul>
@@ -89,9 +85,7 @@
                         </section>
                 <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="packages/Application.html" class="">Application</a>
-</h4>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace"><a href="packages/Application.html">Application</a></h4>
 
                         </section>
             
@@ -131,12 +125,15 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/RequestMetadata.php"><a href="files/src-requestmetadata.html"><abbr title="src/RequestMetadata.php">RequestMetadata.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7</span>
+    <span class="phpdocumentor-element-found-in__line">13</span>
 
     </aside>
 
-        
-    <section class="phpdocumentor-description"></section>
+            <p class="phpdocumentor-summary">Holds metadata fields as part of an encrypted document. Each document has metadata associated with it
+that will be sent to the Tenant Security Proxy for logging and other purposes. Some examples include
+the tenant ID associated with the request, the service that is accessing the data, and a unique ID
+for the request.</p>
+
 
 
 
@@ -151,47 +148,48 @@
 </h3>
 
 <dl class="phpdocumentor-table-of-contents">
-                    <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/IronCore-RequestMetadata.html#property_custom_fields">$custom_fields</a>
+                <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/IronCore-RequestMetadata.html#property_customFields">$customFields</a>
     <span>
-                        &nbsp;: mixed            </span>
+                &nbsp;: array&lt;string|int, string&gt;            </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/IronCore-RequestMetadata.html#property_icl_fields">$icl_fields</a>
+    <a href="classes/IronCore-RequestMetadata.html#property_iclFields">$iclFields</a>
     <span>
-                        &nbsp;: mixed            </span>
+                &nbsp;: <a href="classes/IronCore-IclFields.html"><abbr title="\IronCore\IclFields">IclFields</abbr></a>            </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/IronCore-RequestMetadata.html#property_tenant_id">$tenant_id</a>
+    <a href="classes/IronCore-RequestMetadata.html#property_tenantId">$tenantId</a>
     <span>
-                        &nbsp;: mixed            </span>
+                &nbsp;: string            </span>
 </dt>
 <dd></dd>
 
                 <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/IronCore-RequestMetadata.html#method___construct">__construct()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                        &nbsp;: mixed    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/IronCore-RequestMetadata.html#method_getPostData">getPostData()</a>
     <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+                        &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
-<dd></dd>
+<dd>Gets an associative array of data that can be serialized
+and sent to the Tenant Security Proxy.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/IronCore-RequestMetadata.html#method_getTenantId">getTenantId()</a>
     <span>
-                                &nbsp;: string    </span>
+                        &nbsp;: string    </span>
 </dt>
-<dd></dd>
+<dd>Gets the ID of the tenant making the request.</dd>
 
         </dl>
 
@@ -212,29 +210,29 @@
             -private
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_custom_fields">
-        $custom_fields
-        <a href="classes/IronCore-RequestMetadata.html#property_custom_fields" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_customFields">
+        $customFields
+        <a href="classes/IronCore-RequestMetadata.html#property_customFields" class="headerlink"><i class="fas fa-link"></i></a>
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/RequestMetadata.php"><a href="files/src-requestmetadata.html"><abbr title="src/RequestMetadata.php">RequestMetadata.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11</span>
+    <span class="phpdocumentor-element-found-in__line">26</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">$custom_fields</span>
+        <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
+    <span class="phpdocumentor-signature__name">$customFields</span>
     </code>
 
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
+    
+        <section class="phpdocumentor-description"><p>Optional additional information for the Tenant Security Proxy to log</p>
+</section>
 
     
 
@@ -246,29 +244,29 @@
             -private
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_icl_fields">
-        $icl_fields
-        <a href="classes/IronCore-RequestMetadata.html#property_icl_fields" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_iclFields">
+        $iclFields
+        <a href="classes/IronCore-RequestMetadata.html#property_iclFields" class="headerlink"><i class="fas fa-link"></i></a>
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/RequestMetadata.php"><a href="files/src-requestmetadata.html"><abbr title="src/RequestMetadata.php">RequestMetadata.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10</span>
+    <span class="phpdocumentor-element-found-in__line">22</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">$icl_fields</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/IronCore-IclFields.html"><abbr title="\IronCore\IclFields">IclFields</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$iclFields</span>
     </code>
 
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
+    
+        <section class="phpdocumentor-description"><p>Metadata about the request for the Tenant Security Proxy to log</p>
+</section>
 
     
 
@@ -280,29 +278,29 @@
             -private
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_tenant_id">
-        $tenant_id
-        <a href="classes/IronCore-RequestMetadata.html#property_tenant_id" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_tenantId">
+        $tenantId
+        <a href="classes/IronCore-RequestMetadata.html#property_tenantId" class="headerlink"><i class="fas fa-link"></i></a>
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/RequestMetadata.php"><a href="files/src-requestmetadata.html"><abbr title="src/RequestMetadata.php">RequestMetadata.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">9</span>
+    <span class="phpdocumentor-element-found-in__line">18</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">$tenant_id</span>
+        <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">$tenantId</span>
     </code>
 
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
+    
+        <section class="phpdocumentor-description"><p>Unique ID of tenant the action is being performed for</p>
+</section>
 
     
 
@@ -327,41 +325,43 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/RequestMetadata.php"><a href="files/src-requestmetadata.html"><abbr title="src/RequestMetadata.php">RequestMetadata.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13</span>
+    <span class="phpdocumentor-element-found-in__line">33</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$tenant_id</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-IclFields.html"><abbr title="\IronCore\IclFields">IclFields</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$icl_fields</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$custom_fields</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$tenantId</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-IclFields.html"><abbr title="\IronCore\IclFields">IclFields</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$iclFields</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$customFields</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$tenant_id</span>
+                <span class="phpdocumentor-signature__argument__name">$tenantId</span>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>Unique ID of tenant that is performing the operation</p>
+</section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$icl_fields</span>
+                <span class="phpdocumentor-signature__argument__name">$iclFields</span>
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-IclFields.html"><abbr title="\IronCore\IclFields">IclFields</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>Metadata about the request for the Tenant Security Proxy to log</p>
+</section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$custom_fields</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                <span class="phpdocumentor-signature__argument__name">$customFields</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>Optional additional information for the Tenant Security Proxy to log</p>
+</section>
 
             </dd>
             </dl>
@@ -387,24 +387,27 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/RequestMetadata.php"><a href="files/src-requestmetadata.html"><abbr title="src/RequestMetadata.php">RequestMetadata.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">25</span>
+    <span class="phpdocumentor-element-found-in__line">56</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Gets an associative array of data that can be serialized
+and sent to the Tenant Security Proxy.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                 <span class="phpdocumentor-signature__name">getPostData</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
     
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>Data to send to the Tenant Security Proxy.</p>
+</section>
+
     
 </article>
                     <article
@@ -420,24 +423,26 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/RequestMetadata.php"><a href="files/src-requestmetadata.html"><abbr title="src/RequestMetadata.php">RequestMetadata.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">20</span>
+    <span class="phpdocumentor-element-found-in__line">45</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Gets the ID of the tenant making the request.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                 <span class="phpdocumentor-signature__name">getTenantId</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
     
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">string</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>Tenant ID making the request</p>
+</section>
+
     
 </article>
             </section>

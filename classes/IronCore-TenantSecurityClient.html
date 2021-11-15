@@ -54,34 +54,30 @@
 <aside class="phpdocumentor-column -four phpdocumentor-sidebar">
                     <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="namespaces/ironcore.html" class="">IronCore</a>
-</h4>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace"><a href="namespaces/ironcore.html">IronCore</a></h4>
     <ul class="phpdocumentor-list">
                     <li>
-                <a href="namespaces/ironcore-crypto.html" class="">Crypto</a>
+                <a href="namespaces/ironcore-crypto.html">Crypto</a>
                 
             </li>
                     <li>
-                <a href="namespaces/ironcore-exception.html" class="">Exception</a>
+                <a href="namespaces/ironcore-exception.html">Exception</a>
                 
             </li>
                     <li>
-                <a href="namespaces/ironcore-rest.html" class="">Rest</a>
+                <a href="namespaces/ironcore-rest.html">Rest</a>
                 
             </li>
                     <li>
-                <a href="namespaces/ironcore-utils.html" class="">Utils</a>
+                <a href="namespaces/ironcore-utils.html">Utils</a>
                 
             </li>
             </ul>
 
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="namespaces/proto.html" class="">Proto</a>
-</h4>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace"><a href="namespaces/proto.html">Proto</a></h4>
     <ul class="phpdocumentor-list">
                     <li>
-                <a href="namespaces/proto-ironcorelabs.html" class="">IronCoreLabs</a>
+                <a href="namespaces/proto-ironcorelabs.html">IronCoreLabs</a>
                 
             </li>
             </ul>
@@ -89,9 +85,7 @@
                         </section>
                 <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="packages/Application.html" class="">Application</a>
-</h4>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace"><a href="packages/Application.html">Application</a></h4>
 
                         </section>
             
@@ -131,12 +125,14 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityClient.php"><a href="files/src-tenantsecurityclient.html"><abbr title="src/TenantSecurityClient.php">TenantSecurityClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10</span>
+    <span class="phpdocumentor-element-found-in__line">15</span>
 
     </aside>
 
-        
-    <section class="phpdocumentor-description"></section>
+            <p class="phpdocumentor-summary">Client used to encrypt and decrypt documents. This is the primary class that consumers of the
+library will need to utilize, and a single instance of the class can be re-used for requests
+across different tenants.</p>
+
 
 
 
@@ -151,24 +147,24 @@
 </h3>
 
 <dl class="phpdocumentor-table-of-contents">
-                    <dt class="phpdocumentor-table-of-contents__entry -property -public">
+                <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/IronCore-TenantSecurityClient.html#property_request">$request</a>
     <span>
-                        &nbsp;: mixed            </span>
+                &nbsp;: <a href="classes/IronCore-TenantSecurityRequest.html"><abbr title="\IronCore\TenantSecurityRequest">TenantSecurityRequest</abbr></a>            </span>
 </dt>
 <dd></dd>
 
                 <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/IronCore-TenantSecurityClient.html#method___construct">__construct()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                        &nbsp;: mixed    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/IronCore-TenantSecurityClient.html#method_decrypt">decrypt()</a>
     <span>
-                                &nbsp;: <a href="classes/IronCore-PlaintextDocument.html"><abbr title="\IronCore\PlaintextDocument">PlaintextDocument</abbr></a>    </span>
+                        &nbsp;: <a href="classes/IronCore-PlaintextDocument.html"><abbr title="\IronCore\PlaintextDocument">PlaintextDocument</abbr></a>    </span>
 </dt>
 <dd>Decrypts the provided EncryptedDocument. Decrypts the document&#039;s encrypted document key (EDEK)
 using the Tenant Security Proxy and uses it to decrypt and return the document bytes. The DEK
@@ -177,7 +173,7 @@ is then discarded.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/IronCore-TenantSecurityClient.html#method_encrypt">encrypt()</a>
     <span>
-                                &nbsp;: <abbr title="\IronCore\Encrypted">Encrypted</abbr>    </span>
+                        &nbsp;: <abbr title="\IronCore\Encrypted">Encrypted</abbr>    </span>
 </dt>
 <dd>Encrypts the provided document. Documents are provided as a map of fields from the document
 id/name (string) to bytes (string). Uses the Tenant Security Proxy to generate a new document
@@ -201,7 +197,7 @@ id/name to encrypted bytes as well as the EDEK and discards the DEK.</dd>
         class="
             phpdocumentor-element
             -property
-            -public
+            -private
                                                         "
 >
     <h4 class="phpdocumentor-element__name" id="property_request">
@@ -213,21 +209,19 @@ id/name to encrypted bytes as well as the EDEK and discards the DEK.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityClient.php"><a href="files/src-tenantsecurityclient.html"><abbr title="src/TenantSecurityClient.php">TenantSecurityClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12</span>
+    <span class="phpdocumentor-element-found-in__line">20</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/IronCore-TenantSecurityRequest.html"><abbr title="\IronCore\TenantSecurityRequest">TenantSecurityRequest</abbr></a></span>
     <span class="phpdocumentor-signature__name">$request</span>
     </code>
 
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
-
+    
+    
     
 
 </article>
@@ -251,7 +245,7 @@ id/name to encrypted bytes as well as the EDEK and discards the DEK.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityClient.php"><a href="files/src-tenantsecurityclient.html"><abbr title="src/TenantSecurityClient.php">TenantSecurityClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14</span>
+    <span class="phpdocumentor-element-found-in__line">26</span>
 
     </aside>
 
@@ -260,8 +254,7 @@ id/name to encrypted bytes as well as the EDEK and discards the DEK.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
                 <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$tspAddress</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$apiKey</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -269,7 +262,8 @@ id/name to encrypted bytes as well as the EDEK and discards the DEK.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>URL of the Tenant Security Proxy</p>
+</section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
@@ -277,7 +271,8 @@ id/name to encrypted bytes as well as the EDEK and discards the DEK.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>Secret key needed to communicate with the Tenant Security Proxy</p>
+</section>
 
             </dd>
             </dl>
@@ -303,7 +298,7 @@ id/name to encrypted bytes as well as the EDEK and discards the DEK.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityClient.php"><a href="files/src-tenantsecurityclient.html"><abbr title="src/TenantSecurityClient.php">TenantSecurityClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">57</span>
+    <span class="phpdocumentor-element-found-in__line">69</span>
 
     </aside>
 
@@ -361,7 +356,7 @@ is then discarded.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityClient.php"><a href="files/src-tenantsecurityclient.html"><abbr title="src/TenantSecurityClient.php">TenantSecurityClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">44</span>
 
     </aside>
 
@@ -373,14 +368,14 @@ id/name to encrypted bytes as well as the EDEK and discards the DEK.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">encrypt</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$document</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-RequestMetadata.html"><abbr title="\IronCore\RequestMetadata">RequestMetadata</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$metadata</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\IronCore\Encrypted">Encrypted</abbr></span></code>
+                <span class="phpdocumentor-signature__name">encrypt</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$document</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-RequestMetadata.html"><abbr title="\IronCore\RequestMetadata">RequestMetadata</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$metadata</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\IronCore\Encrypted">Encrypted</abbr></span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$document</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>Document to encrypt. Each field in the provided document will be encrypted

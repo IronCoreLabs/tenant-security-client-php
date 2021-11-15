@@ -54,34 +54,30 @@
 <aside class="phpdocumentor-column -four phpdocumentor-sidebar">
                     <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="namespaces/ironcore.html" class="">IronCore</a>
-</h4>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace"><a href="namespaces/ironcore.html">IronCore</a></h4>
     <ul class="phpdocumentor-list">
                     <li>
-                <a href="namespaces/ironcore-crypto.html" class="">Crypto</a>
+                <a href="namespaces/ironcore-crypto.html">Crypto</a>
                 
             </li>
                     <li>
-                <a href="namespaces/ironcore-exception.html" class="">Exception</a>
+                <a href="namespaces/ironcore-exception.html">Exception</a>
                 
             </li>
                     <li>
-                <a href="namespaces/ironcore-rest.html" class="">Rest</a>
+                <a href="namespaces/ironcore-rest.html">Rest</a>
                 
             </li>
                     <li>
-                <a href="namespaces/ironcore-utils.html" class="">Utils</a>
+                <a href="namespaces/ironcore-utils.html">Utils</a>
                 
             </li>
             </ul>
 
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="namespaces/proto.html" class="">Proto</a>
-</h4>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace"><a href="namespaces/proto.html">Proto</a></h4>
     <ul class="phpdocumentor-list">
                     <li>
-                <a href="namespaces/proto-ironcorelabs.html" class="">IronCoreLabs</a>
+                <a href="namespaces/proto-ironcorelabs.html">IronCoreLabs</a>
                 
             </li>
             </ul>
@@ -89,9 +85,7 @@
                         </section>
                 <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="packages/Application.html" class="">Application</a>
-</h4>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace"><a href="packages/Application.html">Application</a></h4>
 
                         </section>
             
@@ -131,12 +125,12 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">22</span>
+    <span class="phpdocumentor-element-found-in__line">26</span>
 
     </aside>
 
-        
-    <section class="phpdocumentor-description"></section>
+            <p class="phpdocumentor-summary">Class used to communicate with the Tenant Security Proxy.</p>
+
 
 
 
@@ -151,52 +145,52 @@
 </h3>
 
 <dl class="phpdocumentor-table-of-contents">
-                    <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/IronCore-TenantSecurityRequest.html#property_api_key">$api_key</a>
+                <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/IronCore-TenantSecurityRequest.html#property_apiKey">$apiKey</a>
     <span>
-                        &nbsp;: mixed            </span>
+                &nbsp;: string            </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/IronCore-TenantSecurityRequest.html#property_ch">$ch</a>
     <span>
-                        &nbsp;: mixed            </span>
+                &nbsp;: <abbr title="\CurlHandle">CurlHandle</abbr>            </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/IronCore-TenantSecurityRequest.html#property_tsp_address">$tsp_address</a>
+    <a href="classes/IronCore-TenantSecurityRequest.html#property_tspAddress">$tspAddress</a>
     <span>
-                        &nbsp;: mixed            </span>
+                &nbsp;: string            </span>
 </dt>
 <dd></dd>
 
                 <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/IronCore-TenantSecurityRequest.html#method___construct">__construct()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                        &nbsp;: mixed    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/IronCore-TenantSecurityRequest.html#method_makeJsonRequest">makeJsonRequest()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                        &nbsp;: string    </span>
 </dt>
-<dd></dd>
+<dd>Makes a POST request to a Tenant Security Proxy endpoint with the provided JSON payload.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/IronCore-TenantSecurityRequest.html#method_unwrapKey">unwrapKey()</a>
     <span>
-                                &nbsp;: <a href="classes/IronCore-Rest-UnwrapKeyResponse.html"><abbr title="\IronCore\Rest\UnwrapKeyResponse">UnwrapKeyResponse</abbr></a>    </span>
+                        &nbsp;: <a href="classes/IronCore-Rest-UnwrapKeyResponse.html"><abbr title="\IronCore\Rest\UnwrapKeyResponse">UnwrapKeyResponse</abbr></a>    </span>
 </dt>
 <dd>Requests the TSP to unwrap an EDEK.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/IronCore-TenantSecurityRequest.html#method_wrapKey">wrapKey()</a>
     <span>
-                                &nbsp;: <a href="classes/IronCore-Rest-WrapKeyResponse.html"><abbr title="\IronCore\Rest\WrapKeyResponse">WrapKeyResponse</abbr></a>    </span>
+                        &nbsp;: <a href="classes/IronCore-Rest-WrapKeyResponse.html"><abbr title="\IronCore\Rest\WrapKeyResponse">WrapKeyResponse</abbr></a>    </span>
 </dt>
 <dd>Requests the TSP to generate a DEK and an EDEK.</dd>
 
@@ -219,29 +213,29 @@
             -private
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_api_key">
-        $api_key
-        <a href="classes/IronCore-TenantSecurityRequest.html#property_api_key" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_apiKey">
+        $apiKey
+        <a href="classes/IronCore-TenantSecurityRequest.html#property_apiKey" class="headerlink"><i class="fas fa-link"></i></a>
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">25</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">$api_key</span>
+        <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">$apiKey</span>
     </code>
 
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
+    
+        <section class="phpdocumentor-description"><p>Secret key used to communicate with the Tenant Security Proxy</p>
+</section>
 
     
 
@@ -262,20 +256,20 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">26</span>
+    <span class="phpdocumentor-element-found-in__line">39</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
+        <span class="phpdocumentor-signature__type"><abbr title="\CurlHandle">CurlHandle</abbr></span>
     <span class="phpdocumentor-signature__name">$ch</span>
     </code>
 
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
+    
+        <section class="phpdocumentor-description"><p>Curl handle used to make requests</p>
+</section>
 
     
 
@@ -287,29 +281,29 @@
             -private
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_tsp_address">
-        $tsp_address
-        <a href="classes/IronCore-TenantSecurityRequest.html#property_tsp_address" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_tspAddress">
+        $tspAddress
+        <a href="classes/IronCore-TenantSecurityRequest.html#property_tspAddress" class="headerlink"><i class="fas fa-link"></i></a>
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">24</span>
+    <span class="phpdocumentor-element-found-in__line">31</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">$tsp_address</span>
+        <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">$tspAddress</span>
     </code>
 
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
+    
+        <section class="phpdocumentor-description"><p>URL of the Tenant Security Proxy</p>
+</section>
 
     
 
@@ -334,33 +328,34 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">28</span>
+    <span class="phpdocumentor-element-found-in__line">45</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$tsp_address</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$api_key</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$tspAddress</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$apiKey</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$tsp_address</span>
+                <span class="phpdocumentor-signature__argument__name">$tspAddress</span>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>URL of the Tenant Security Proxy</p>
+</section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$api_key</span>
+                <span class="phpdocumentor-signature__argument__name">$apiKey</span>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>Secret key needed to communicate with the Tenant Security Proxy</p>
+</section>
 
             </dd>
             </dl>
@@ -386,17 +381,17 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">44</span>
+    <span class="phpdocumentor-element-found-in__line">71</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Makes a POST request to a Tenant Security Proxy endpoint with the provided JSON payload.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">makeJsonRequest</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$endpoint</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$json_encoded_data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                <span class="phpdocumentor-signature__name">makeJsonRequest</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$endpoint</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$jsonEncodedData</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -404,25 +399,45 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>Tenant Security Proxy endpoint to make a request to</p>
+</section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$json_encoded_data</span>
+                <span class="phpdocumentor-signature__argument__name">$jsonEncodedData</span>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>Payload to send to the Tenant Security Proxy</p>
+</section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/IronCore-Exception-TenantSecurityException.html"><abbr title="\IronCore\Exception\TenantSecurityException">TenantSecurityException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>if the request to the Tenant Security Proxy fails</p>
+</section>
+
+                                    </dd>
+                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type">string</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>The response from the Tenant Security Proxy</p>
+</section>
+
     
 </article>
                     <article
@@ -438,7 +453,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">89</span>
+    <span class="phpdocumentor-element-found-in__line">116</span>
 
     </aside>
 
@@ -481,19 +496,9 @@
                     <span class="phpdocumentor-tag__name">throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\RuntimeException">RuntimeException</abbr></span>
-                                                            
-                                                 <section class="phpdocumentor-description"><p>if the request to the TSP fails</p>
-</section>
-
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/IronCore-Exception-TenantSecurityException.html"><abbr title="\IronCore\Exception\TenantSecurityException">TenantSecurityException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>if the TSP responds with an error</p>
+                                                 <section class="phpdocumentor-description"><p>if the TSP responds with an error or if the request to the TSP fails.</p>
 </section>
 
                                     </dd>
@@ -520,7 +525,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">63</span>
+    <span class="phpdocumentor-element-found-in__line">94</span>
 
     </aside>
 
@@ -554,19 +559,9 @@
                     <span class="phpdocumentor-tag__name">throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\RuntimeException">RuntimeException</abbr></span>
-                                                            
-                                                 <section class="phpdocumentor-description"><p>if the request to the TSP fails</p>
-</section>
-
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/IronCore-Exception-TenantSecurityException.html"><abbr title="\IronCore\Exception\TenantSecurityException">TenantSecurityException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>if the TSP responds with an error</p>
+                                                 <section class="phpdocumentor-description"><p>if the TSP responds with an error or if the request to the TSP fails.</p>
 </section>
 
                                     </dd>
