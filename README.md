@@ -7,7 +7,7 @@ This project is still in very early stages, but will eventually implement everyt
 
 ## Getting started
 
-A good place to start is the [TenantSecurityClient](https://ironcorelabs.github.io/tenant-security-client-php/classes/IronCore-TenantSecurityClient.html) class, which is what the consumer should always interact with. You can also go check out the [examples](https://github.com/IronCoreLabs/tenant-security-client-php/tree/main/Examples).
+A good place to start is the [TenantSecurityClient](https://ironcorelabs.github.io/tenant-security-client-php/classes/IronCore-TenantSecurityClient.html) class, which is what the consumer should always interact with. You can also go check out the [examples](https://github.com/IronCoreLabs/tenant-security-client-php/tree/main/examples).
 
 If you're looking for more examples the usage is very similar to that shown in our [Java Examples](https://github.com/IronCoreLabs/tenant-security-client-java/tree/main/examples).
 
