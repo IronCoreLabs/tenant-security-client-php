@@ -13,15 +13,6 @@ use JsonException;
  */
 class TenantSecurityException extends Exception
 {
-    protected $message;
-    protected $code;
-
-    public function __construct(int $code, string $message)
-    {
-        $this->code = $code;
-        $this->message = $message;
-    }
-
     /**
      * Converts from a TSP error response to a TenantSecurityException.
      *
@@ -37,87 +28,87 @@ class TenantSecurityException extends Exception
             !array_key_exists("code", $decodedResponse) ||
             !is_int($decodedResponse["code"])
         ) {
-            return new TspServiceException(-1, "UnknownError: Unknown request error occurred");
+            return new TspServiceException("UnknownError: Unknown request error occurred", -1);
         }
         $code = (int) $decodedResponse["code"];
         switch ($code) {
             case 0:
                 return new TspServiceException(
-                    $code,
-                    "UnableToMakeRequest: Request to Tenant Security Proxy could not be made"
+                    "UnableToMakeRequest: Request to Tenant Security Proxy could not be made",
+                    $code
                 );
             case 100:
                 return new TspServiceException(
-                    $code,
-                    "UnknownError: Unknown request error occurred"
+                    "UnknownError: Unknown request error occurred",
+                    $code
                 );
             case 101:
                 return new TspServiceException(
-                    $code,
-                    "UnauthorizedRequest: Request authorization header API key was incorrect."
+                    "UnauthorizedRequest: Request authorization header API key was incorrect.",
+                    $code
                 );
             case 102:
                 return new TspServiceException(
-                    $code,
-                    "InvalidRequestBody: Request body was invalid."
+                    "InvalidRequestBody: Request body was invalid.",
+                    $code
                 );
             case 200:
                 return new KmsException(
-                    $code,
-                    "NoPrimaryKmsConfiguration: Tenant has no primary KMS configuration."
+                    "NoPrimaryKmsConfiguration: Tenant has no primary KMS configuration.",
+                    $code
                 );
             case 201:
                 return new KmsException(
-                    $code,
-                    "UnknownTenantOrNoActiveKmsConfigurations: Tenant either doesn't exist 
-                    or has no active KMS configurations."
+                    "UnknownTenantOrNoActiveKmsConfigurations: Tenant either doesn't exist
+                    or has no active KMS configurations.",
+                    $code
                 );
             case 202:
                 return new KmsException(
-                    $code,
-                    "KmsConfigurationDisabled: Tenant configuration specified in EDEK is no longer active."
+                    "KmsConfigurationDisabled: Tenant configuration specified in EDEK is no longer active.",
+                    $code
                 );
             case 203:
                 return new KmsException(
-                    $code,
-                    "InvalidProvidedEdek: Provided EDEK was not valid."
+                    "InvalidProvidedEdek: Provided EDEK was not valid.",
+                    $code
                 );
             case 204:
                 return new KmsException(
-                    $code,
-                    "KmsWrapFailed: Request to KMS API to wrap key returned invalid results."
+                    "KmsWrapFailed: Request to KMS API to wrap key returned invalid results.",
+                    $code
                 );
             case 205:
                 return new KmsException(
-                    $code,
-                    "KmsUnwrapFailed: Request to KMS API to unwrap key returned invalid results."
+                    "KmsUnwrapFailed: Request to KMS API to unwrap key returned invalid results.",
+                    $code
                 );
             case 206:
                 return new KmsException(
-                    $code,
-                    "KmsAuthorizationFailed: Request to KMS failed because the tenant credentials 
-                    were invalid or have been revoked."
+                    "KmsAuthorizationFailed: Request to KMS failed because the tenant credentials
+                    were invalid or have been revoked.",
+                    $code
                 );
             case 207:
                 return new KmsException(
-                    $code,
-                    "KmsConfigurationInvalid: Request to KMS failed because the key configuration was 
-                    invalid or the necessary permissions for the operation were missing/revoked."
+                    "KmsConfigurationInvalid: Request to KMS failed because the key configuration was
+                    invalid or the necessary permissions for the operation were missing/revoked.",
+                    $code
                 );
             case 208:
                 return new KmsException(
-                    $code,
-                    "KmsUnreachable: Request to KMS failed because KMS was unreachable."
+                    "KmsUnreachable: Request to KMS failed because KMS was unreachable.",
+                    $code
                 );
             case 301:
                 return new SecurityEventException(
-                    $code,
-                    "SecurityEventRejected: Tenant Security Proxy could not accept the security event"
+                    "SecurityEventRejected: Tenant Security Proxy could not accept the security event",
+                    $code
                 );
             default:
                 return new TenantSecurityException(
-                    $code,
-                    "Unknown TSP error code."
+                    "Unknown TSP error code.",
+                    $code
                 );
         }
     }
