@@ -36,7 +36,7 @@
   },
   "scripts": {
     "test": "./vendor/bin/phpunit tests",
-    "test-coverage": "phpunit --coverage-html=coverage tests", 
+    "test-coverage": "./vendor/bin/phpunit --coverage-html=coverage tests",
     "lint": "./vendor/bin/phpcs --standard=phpcs-ruleset.xml src/ --ignore=src/Proto"
   }
 }
