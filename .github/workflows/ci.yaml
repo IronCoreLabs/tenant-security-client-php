@@ -33,7 +33,7 @@ jobs:
         run: ./vendor/bin/phpunit --coverage-cobertura=cobertura.xml tests
       - name: Post code coverage to PR comment
         if: ${{ github.base_ref != '' }}
-        uses: 5monkeys/cobertura-action@v11
+        uses: 5monkeys/cobertura-action@v12
         with:
           path: cobertura.xml
           repo_token: ${{ secrets.GITHUB_TOKEN }}
