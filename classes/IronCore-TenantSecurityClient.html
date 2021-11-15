@@ -173,7 +173,7 @@ is then discarded.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/IronCore-TenantSecurityClient.html#method_encrypt">encrypt()</a>
     <span>
-                        &nbsp;: <abbr title="\IronCore\Encrypted">Encrypted</abbr>    </span>
+                        &nbsp;: <a href="classes/IronCore-EncryptedDocument.html"><abbr title="\IronCore\EncryptedDocument">EncryptedDocument</abbr></a>    </span>
 </dt>
 <dd>Encrypts the provided document. Documents are provided as a map of fields from the document
 id/name (string) to bytes (string). Uses the Tenant Security Proxy to generate a new document
@@ -368,7 +368,7 @@ id/name to encrypted bytes as well as the EDEK and discards the DEK.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">encrypt</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$document</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-RequestMetadata.html"><abbr title="\IronCore\RequestMetadata">RequestMetadata</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$metadata</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\IronCore\Encrypted">Encrypted</abbr></span></code>
+                <span class="phpdocumentor-signature__name">encrypt</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$document</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-RequestMetadata.html"><abbr title="\IronCore\RequestMetadata">RequestMetadata</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$metadata</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-EncryptedDocument.html"><abbr title="\IronCore\EncryptedDocument">EncryptedDocument</abbr></a></span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -397,7 +397,7 @@ with the same key.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\IronCore\Encrypted">Encrypted</abbr></span>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-EncryptedDocument.html"><abbr title="\IronCore\EncryptedDocument">EncryptedDocument</abbr></a></span>
             &mdash;
             <section class="phpdocumentor-description"><p>Encrypted document and encrypted document key (EDEK)</p>
 </section>
