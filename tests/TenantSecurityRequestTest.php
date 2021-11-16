@@ -16,4 +16,23 @@ final class TenantSecurityRequestTest extends TestCase
         $this->expectException(TenantSecurityException::class);
         $request->makeJsonRequest("/", "");
     }
+
+    public function testFailedWrapRequest(): void
+    {
+        $request = new TenantSecurityRequest("localhost:99999", "");
+        $metadata = new RequestMetadata("tenant", new IclFields("foo"), []);
+        $this->expectException(TenantSecurityException::class);
+        $this->expectExceptionMessage("Failed to make a request to the TSP.");
+        $request->wrapKey($metadata);
+    }
+
+    public function testFailedUnwrapRequest(): void
+    {
+        $request = new TenantSecurityRequest("localhost:99999", "");
+        $metadata = new RequestMetadata("tenant", new IclFields("foo"), []);
+        $edek = new Bytes("boo");
+        $this->expectException(TenantSecurityException::class);
+        $this->expectExceptionMessage("Failed to make a request to the TSP.");
+        $request->unwrapKey($edek, $metadata);
+    }
 }

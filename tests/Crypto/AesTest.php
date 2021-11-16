@@ -7,6 +7,7 @@ namespace IronCore\Crypto;
 use IronCore\Bytes;
 use IronCore\Exception\CryptoException;
 use PHPUnit\Framework\TestCase;
+use Proto\IronCoreLabs\V3DocumentHeader;
 use UnexpectedValueException;
 
 require("TestRng.php");
@@ -16,11 +17,23 @@ final class AesTest extends TestCase
     private static $knownGoodEncryptedValueHexString = "0349524f4e016c0a1c3130eaf8ff88c1a08df550095522aebfdc7b0d060d3adad8836fea7e1acb020ac80274656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e74496474656e616e744964bb54218111033f5c68c92feb8fae88c255cc56e902becdfde679defa2628950beb966e0e43d27f42dcdbd98587e8bf5f8458411760fb72ca4442ae79877da90dff7de6df43e549df3085aae5f55f05aa37cdd045ffa7";
     private $knownDek;
     private $knownDek2;
+
     public function setUp(): void
     {
         $this->knownDek = self::hexToBytes("3939393939393939393939393939393939393939393939393939393939393939");
         $this->knownDek2 = self::hexToBytes("3838383838383838383838383838383838383838383838383838383838383838");
     }
+
+    protected static function callAesMethod(string $name, array $args)
+    {
+        $class = new \ReflectionClass('IronCore\Crypto\Aes');
+        $method = $class->getMethod($name);
+        $method->setAccessible(true);
+        // All methods in this class are static, so we can pass null for object
+        $result = $method->invokeArgs(null, $args);
+        return $result;
+    }
+
     public function testEncryptDecryptRoundtrip(): void
     {
         $rng = new TestRng("someseed");
@@ -55,7 +68,6 @@ final class AesTest extends TestCase
         $dek = self::hexToBytes("000102030405060708090A0B0C0D0E0F101112131415161718191A1B1C1D1E1F");
         $iv = self::hexToBytes("3171EF3C899F875E595C2213");
         $expectedHexResult = strtolower("0A1C3171EF3C899F875E595C2213CACF9287C78CF196458CD690544980C71A0A0A0874656E616E744964");
-
         $result = Aes::createHeaderProto($dek, "tenantId", new TestRng("test"), $iv);
         $this->assertEquals(AesTest::bytesToHex(new Bytes($result->serializeToString())), $expectedHexResult);
     }
@@ -116,5 +128,68 @@ final class AesTest extends TestCase
             throw new UnexpectedValueException("Value could not be unpacked. Maybe it wasn't hex?");
         }
         return $unpackResult[1];
+    }
+
+    public function testEncryptWithBadIv(): void
+    {
+        $rng = new TestRng("someseed");
+        $plaintext = new Bytes("This is a non base64 string.");
+        $key = $rng->randomBytes(32);
+        $badIv = new Bytes("foobar");
+        $this->expectException(CryptoException::class);
+        $this->expectExceptionMessage("The IV passed was not the correct length.");
+        $method = self::callAesMethod('encryptWithIv', [$plaintext, $key, $badIv]);
+    }
+
+    public function testDecryptTooShort(): void
+    {
+        $rng = new TestRng("someseed");
+        $key = $rng->randomBytes(32);
+        $badCiphertext = new Bytes("foo");
+        $this->expectException(CryptoException::class);
+        $this->expectExceptionMessage("The ciphertext was not well formed.");
+        Aes::decrypt($badCiphertext, $key);
+    }
+
+    public function testRoundtripDocument(): void
+    {
+        $rng = new TestRng("someseed");
+        $dek = $rng->randomBytes(32);
+        $document = new Bytes("bytes");
+        $tenantId = "tenant";
+        $encrypted = Aes::encryptDocument($document, $tenantId, $dek, $rng);
+        $decrypted = Aes::decryptDocument($encrypted, $dek);
+        $this->assertEquals($decrypted, $document);
+    }
+
+    public function testDecryptBadDocument(): void
+    {
+        $rng = new TestRng("someseed");
+        $dek = $rng->randomBytes(32);
+        $document = new Bytes("bytes");
+        $tenantId = "tenant";
+        $encrypted = Aes::encryptDocument($document, $tenantId, $dek, $rng);
+        $badDek = new Bytes("bar");
+        $this->expectException(CryptoException::class);
+        $this->expectExceptionMessage("The signature computed did not match. The document key is likely incorrect.");
+        Aes::decryptDocument($encrypted, $badDek);
+    }
+
+    public function testGenerateHeaderTooLarge(): void
+    {
+        $rng = new TestRng("someseed");
+        $dek = $rng->randomBytes(32);
+        $tenantId = str_repeat("g", 100000);
+        $this->expectException(CryptoException::class);
+        $this->expectExceptionMessage("The header is too large.");
+        Aes::generateHeader($dek, $tenantId, $rng);
+    }
+
+    public function testVerifyWrongHeader(): void
+    {
+        // No SaasShieldHeader set
+        $header = new V3DocumentHeader();
+        $verify = Aes::verifySignature(new Bytes("dek"), $header);
+        $this->assertFalse($verify);
     }
 }
