@@ -15,7 +15,7 @@ services:
     env_file:
       - ./demo-tsp.conf
     ports:
-      - "32806:9001"
+      - 32806:9001
     image: gcr.io/ironcore-images/tenant-security-logdriver:4
     volumes:
       - type: bind
