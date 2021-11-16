@@ -39,7 +39,7 @@ class TenantSecurityClient
      *                        with the same key.
      * @param RequestMetadata $metadata Metadata about the document being encrypted
      *
-     * @return Encrypted Encrypted document and encrypted document key (EDEK)
+     * @return EncryptedDocument Encrypted document and encrypted document key (EDEK)
      */
     public function encrypt(array $document, RequestMetadata $metadata): EncryptedDocument
     {

@@ -9,12 +9,6 @@ use Exception;
 /**
  * This exception indicates a problem with encrypting, decrypting or verifying signatures.
  */
-class CryptoException extends Exception
+class CryptoException extends TenantSecurityException
 {
-    protected $message;
-
-    public function __construct(string $message)
-    {
-        $this->message = $message;
-    }
 }

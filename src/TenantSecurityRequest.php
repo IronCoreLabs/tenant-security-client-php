@@ -64,7 +64,7 @@ class TenantSecurityRequest
      * @param string $endpoint Tenant Security Proxy endpoint to make a request to
      * @param string $jsonEncodedData Payload to send to the Tenant Security Proxy
      *
-     * @throws TspServiceException if the request to the Tenant Security Proxy fails
+     * @throws TenantSecurityException if the request to the Tenant Security Proxy fails
      *
      * @return string The response from the Tenant Security Proxy
      */
@@ -76,7 +76,7 @@ class TenantSecurityRequest
         curl_setopt($this->ch, CURLOPT_POSTFIELDS, $jsonEncodedData);
         $response = curl_exec($this->ch);
         if ($response == false) {
-            throw new TspServiceException(-1, "UnknownError: Unknown request error occurred");
+            throw new TenantSecurityException("Request Error: Failed to make a request to the TSP.", -1);
         } else {
             return $response;
         }
@@ -87,8 +87,7 @@ class TenantSecurityRequest
      *
      * @param RequestMetadata $metadata Metadata about the requesting user/service
      *
-     * @throws RuntimeException if the request to the TSP fails
-     * @throws TenantSecurityException if the TSP responds with an error
+     * @throws TenantSecurityException if the TSP responds with an error or if the request to the TSP fails.
      *
      * @return WrapKeyResponse The generated DEK and EDEK
      */
@@ -96,9 +95,6 @@ class TenantSecurityRequest
     {
         $request = new WrapKeyRequest($metadata);
         $response = $this->makeJsonRequest(WRAP_ENDPOINT, $request->getJsonData());
-        if ($response == false) {
-            throw new RuntimeException("Failed to make request to TSP.");
-        }
         try {
             $wrapResponse = WrapKeyResponse::fromResponse($response);
         } catch (InvalidArgumentException $e) {
@@ -113,8 +109,7 @@ class TenantSecurityRequest
      * @param Bytes $edek The encrypted document key to unwrap
      * @param RequestMetadata $metadata Metadata about the requesting user/service
      *
-     * @throws RuntimeException if the request to the TSP fails
-     * @throws TenantSecurityException if the TSP responds with an error
+     * @throws TenantSecurityException if the TSP responds with an error or if the request to the TSP fails.
      *
      * @return UnwrapKeyResponse The unwrapped DEK
      */
@@ -122,9 +117,6 @@ class TenantSecurityRequest
     {
         $request = new UnwrapKeyRequest($metadata, $edek);
         $response = $this->makeJsonRequest(UNWRAP_ENDPOINT, $request->getJsonData());
-        if ($response == false) {
-            throw new RuntimeException("Failed to make request to TSP.");
-        }
         try {
             $unwrapResponse = UnwrapKeyResponse::fromResponse($response);
         } catch (InvalidArgumentException $e) {
