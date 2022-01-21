@@ -28,14 +28,14 @@ jobs:
           git config --global user.name "Leeroy Travis"
       - name: Commit and push changes to gh-pages branch
         run: |
+          # Remove generated cache folder
+          rm -rf .phpdoc/
           # Stash all the documentation changes we just made
           git stash -u
           git checkout gh-pages
           # Remove old documentation files
           rm -rf *
           git stash pop
-          # Remove generated cache folder
-          rm -rf .phpdoc/
           git add .
           git commit -m "Update docs for tag ${{ github.ref }}."
           git push
