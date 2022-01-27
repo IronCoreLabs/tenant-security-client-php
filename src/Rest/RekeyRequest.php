@@ -29,7 +29,7 @@ class RekeyRequest extends IronCoreRequest
     /**
      * @param RequestMetadata $metadata Metadata about the re-key request
      * @param Bytes $edek Encrypted document key to re-key
-     * @param string $newTenantId Tenant ID the document should be re-keyed to 
+     * @param string $newTenantId Tenant ID the document should be re-keyed to
      */
     public function __construct(RequestMetadata $metadata, Bytes $edek, string $newTenantId)
     {
