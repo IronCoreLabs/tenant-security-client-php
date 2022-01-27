@@ -129,7 +129,7 @@ class TenantSecurityRequest
     /**
      * Requests the TSP to re-key an EDEK.
      *
-     * @param Bytes $edek The encrypted document key to unwrap
+     * @param Bytes $edek The encrypted document key to re-key
      * @param string $newTenantId Tenant ID to re-key to
      * @param RequestMetadata $metadata Metadata about the requesting user/service
      *

@@ -1,7 +1,7 @@
 {
-  "name": "ironcorelabs/tenant-security-client-php-simple-example",
+  "name": "ironcorelabs/tenant-security-client-php-rekey-example",
   "homepage": "http://github.com/ironcorelabs/tenant-security-client-php",
-  "description": "Ironcore Tenant Security Client for PHP Example",
+  "description": "Ironcore Tenant Security Client for PHP Re-key Example",
   "keywords": [],
   "type": "application",
   "authors": [
