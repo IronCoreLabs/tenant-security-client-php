@@ -35,4 +35,15 @@ final class TenantSecurityRequestTest extends TestCase
         $this->expectExceptionMessage("Failed to make a request to the TSP.");
         $request->unwrapKey($edek, $metadata);
     }
+
+    public function testFailedRekeyRequest(): void
+    {
+        $request = new TenantSecurityRequest("localhost:99999", "");
+        $metadata = new RequestMetadata("tenant", new IclFields("foo"), []);
+        $edek = new Bytes("boo");
+        $newTenantId = "foo";
+        $this->expectException(TenantSecurityException::class);
+        $this->expectExceptionMessage("Failed to make a request to the TSP.");
+        $request->rekey($edek, $newTenantId, $metadata);
+    }
 }

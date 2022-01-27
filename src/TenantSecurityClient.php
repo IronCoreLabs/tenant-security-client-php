@@ -75,4 +75,10 @@ class TenantSecurityClient
         $decryptedFields = array_map($callback, $encryptedFields);
         return new PlaintextDocument($decryptedFields, $document->getEdek());
     }
+
+    public function rekeyEdek(Bytes $edek, string $newTenantId, RequestMetadata $metadata): Bytes
+    {
+        $rekeyResponse = $this->request->rekey($edek, $newTenantId, $metadata);
+        return $rekeyResponse->getEdek();
+    }
 }
