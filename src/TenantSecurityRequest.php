@@ -126,6 +126,17 @@ class TenantSecurityRequest
         return $unwrapResponse;
     }
 
+    /**
+     * Requests the TSP to re-key an EDEK.
+     *
+     * @param Bytes $edek The encrypted document key to unwrap
+     * @param string $newTenantId Tenant ID to re-key to
+     * @param RequestMetadata $metadata Metadata about the requesting user/service
+     *
+     * @throws TenantSecurityException if the TSP responds with an error or if the request to the TSP fails.
+     *
+     * @return RekeyResponse The new DEK and EDEK
+     */
     public function rekey(Bytes $edek, string $newTenantId, RequestMetadata $metadata): RekeyResponse
     {
         $request = new RekeyRequest($metadata, $edek, $newTenantId);

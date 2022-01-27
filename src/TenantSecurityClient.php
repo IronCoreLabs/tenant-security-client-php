@@ -75,7 +75,17 @@ class TenantSecurityClient
         $decryptedFields = array_map($callback, $encryptedFields);
         return new PlaintextDocument($decryptedFields, $document->getEdek());
     }
-
+    /**
+     * Re-key a document's encrypted document key (EDEK) to a new tenant. Decrypts the EDEK then re-encrypts it to the new 
+     * tenant. The DEK is then discarded. The old tenant and new tenant can be the same in order to re-key the document 
+     * to the tenant's latest primary config.
+     *
+     * @param Bytes $edek EDEK to re-key
+     * @param string $newTenantId Tenant ID the document should be re-keyed to
+     * @param RequestMetadata $metadata Metadata about the document being re-keyed.
+     * 
+     * @return Bytes Newly re-keyed EDEK
+     */
     public function rekeyEdek(Bytes $edek, string $newTenantId, RequestMetadata $metadata): Bytes
     {
         $rekeyResponse = $this->request->rekey($edek, $newTenantId, $metadata);
