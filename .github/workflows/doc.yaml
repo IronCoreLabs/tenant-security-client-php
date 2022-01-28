@@ -32,6 +32,7 @@ jobs:
           rm -rf .phpdoc/
           # Stash all the documentation changes we just made
           git stash -u
+          git fetch -a
           git checkout gh-pages
           # Remove old documentation files
           rm -rf *
