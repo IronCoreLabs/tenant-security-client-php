@@ -10,14 +10,15 @@ use IronCore\Rest\UnwrapKeyRequest;
 use IronCore\Rest\WrapKeyRequest;
 use IronCore\Rest\WrapKeyResponse;
 use IronCore\Rest\UnwrapKeyResponse;
+use IronCore\Rest\RekeyResponse;
 use IronCore\Exception\TenantSecurityException;
-use IronCore\Exception\TspServiceException;
-use RuntimeException;
+use IronCore\Rest\RekeyRequest;
 
 const TSP_API_PREFIX = "/api/1/";
 const WRAP_ENDPOINT = "document/wrap";
 const UNWRAP_ENDPOINT = "document/unwrap";
 const BATCH_UNWRAP_ENDPOINT = "document/batch-unwrap";
+const REKEY_ENDPOINT = "document/rekey";
 const TENANT_KEY_DERIVE_ENDPOINT = "key/derive";
 
 /**
@@ -123,5 +124,28 @@ class TenantSecurityRequest
             throw TenantSecurityException::fromResponse($response);
         }
         return $unwrapResponse;
+    }
+
+    /**
+     * Requests the TSP to re-key an EDEK.
+     *
+     * @param Bytes $edek The encrypted document key to re-key
+     * @param string $newTenantId Tenant ID to re-key to
+     * @param RequestMetadata $metadata Metadata about the requesting user/service
+     *
+     * @throws TenantSecurityException if the TSP responds with an error or if the request to the TSP fails.
+     *
+     * @return RekeyResponse The new DEK and EDEK
+     */
+    public function rekey(Bytes $edek, string $newTenantId, RequestMetadata $metadata): RekeyResponse
+    {
+        $request = new RekeyRequest($metadata, $edek, $newTenantId);
+        $response = $this->makeJsonRequest(REKEY_ENDPOINT, $request->getJsonData());
+        try {
+            $rekeyResponse = RekeyResponse::fromResponse($response);
+        } catch (InvalidArgumentException $e) {
+            throw TenantSecurityException::fromResponse($response);
+        }
+        return $rekeyResponse;
     }
 }

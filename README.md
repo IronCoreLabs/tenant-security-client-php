@@ -7,7 +7,7 @@
 A PHP client for implementing CMK within a vendor's infrastructure. Makes requests through an
 IronCore Tenant Security Proxy to tenants' KMS/logging infrastructures.
 
-This project is still in very early stages, but will eventually implement everything that is in our [Java](https://github.com/ironcorelabs/tenant-security-client-java) and [Node](https://github.com/IronCoreLabs/tenant-security-client-nodejs/) sdks.
+This project is still in very early stages, but will eventually implement everything that is in our [Java](https://github.com/ironcorelabs/tenant-security-client-java) and [Node](https://github.com/IronCoreLabs/tenant-security-client-nodejs/) SDKs.
 
 ## Getting started
 
