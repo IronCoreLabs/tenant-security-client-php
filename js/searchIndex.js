@@ -536,6 +536,71 @@ Search.appendIndex(
             "summary": "Method\u0020to\u0020get\u0020the\u0020request\u0020data\u0020as\u0020an\u0020associative\u0020array.",
             "url": "classes/IronCore-Rest-IronCoreRequest.html#method_getPostData"
         },                {
+            "fqsen": "\\IronCore\\Rest\\RekeyRequest",
+            "name": "RekeyRequest",
+            "summary": "Request\u0020to\u0020the\u0020Tenant\u0020Security\u0020Proxy\u0027s\u0020re\u002Dkey\u0020endpoint",
+            "url": "classes/IronCore-Rest-RekeyRequest.html"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\RekeyRequest\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/IronCore-Rest-RekeyRequest.html#method___construct"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\RekeyRequest\u003A\u003AgetPostData\u0028\u0029",
+            "name": "getPostData",
+            "summary": "Method\u0020to\u0020get\u0020the\u0020request\u0020data\u0020as\u0020an\u0020associative\u0020array.",
+            "url": "classes/IronCore-Rest-RekeyRequest.html#method_getPostData"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\RekeyRequest\u003A\u003A\u0024metadata",
+            "name": "metadata",
+            "summary": "",
+            "url": "classes/IronCore-Rest-RekeyRequest.html#property_metadata"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\RekeyRequest\u003A\u003A\u0024edek",
+            "name": "edek",
+            "summary": "",
+            "url": "classes/IronCore-Rest-RekeyRequest.html#property_edek"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\RekeyRequest\u003A\u003A\u0024newTenantId",
+            "name": "newTenantId",
+            "summary": "",
+            "url": "classes/IronCore-Rest-RekeyRequest.html#property_newTenantId"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\RekeyResponse",
+            "name": "RekeyResponse",
+            "summary": "Response\u0020from\u0020the\u0020Tenant\u0020Security\u0020Proxy\u0027s\u0020re\u002Dkey\u0020endpoint",
+            "url": "classes/IronCore-Rest-RekeyResponse.html"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\RekeyResponse\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/IronCore-Rest-RekeyResponse.html#method___construct"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\RekeyResponse\u003A\u003AfromResponse\u0028\u0029",
+            "name": "fromResponse",
+            "summary": "Converts\u0020from\u0020a\u0020TSP\u0020response\u0020to\u0020a\u0020RekeyResponse.",
+            "url": "classes/IronCore-Rest-RekeyResponse.html#method_fromResponse"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\RekeyResponse\u003A\u003AgetDek\u0028\u0029",
+            "name": "getDek",
+            "summary": "Gets\u0020the\u0020document\u0020key\u0020sent\u0020back\u0020from\u0020the\u0020TSP.",
+            "url": "classes/IronCore-Rest-RekeyResponse.html#method_getDek"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\RekeyResponse\u003A\u003AgetEdek\u0028\u0029",
+            "name": "getEdek",
+            "summary": "Gets\u0020the\u0020encrypted\u0020document\u0020key\u0020sent\u0020back\u0020from\u0020the\u0020TSP.",
+            "url": "classes/IronCore-Rest-RekeyResponse.html#method_getEdek"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\RekeyResponse\u003A\u003A\u0024dek",
+            "name": "dek",
+            "summary": "",
+            "url": "classes/IronCore-Rest-RekeyResponse.html#property_dek"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\RekeyResponse\u003A\u003A\u0024edek",
+            "name": "edek",
+            "summary": "",
+            "url": "classes/IronCore-Rest-RekeyResponse.html#property_edek"
+        },                {
             "fqsen": "\\IronCore\\Rest\\UnwrapKeyRequest",
             "name": "UnwrapKeyRequest",
             "summary": "Request\u0020to\u0020the\u0020Tenant\u0020Security\u0020Proxy\u0027s\u0020unwrap\u0020key\u0020endpoint",
@@ -661,6 +726,11 @@ Search.appendIndex(
             "summary": "Decrypts\u0020the\u0020provided\u0020EncryptedDocument.\u0020Decrypts\u0020the\u0020document\u0027s\u0020encrypted\u0020document\u0020key\u0020\u0028EDEK\u0029\nusing\u0020the\u0020Tenant\u0020Security\u0020Proxy\u0020and\u0020uses\u0020it\u0020to\u0020decrypt\u0020and\u0020return\u0020the\u0020document\u0020bytes.\u0020The\u0020DEK\nis\u0020then\u0020discarded.",
             "url": "classes/IronCore-TenantSecurityClient.html#method_decrypt"
         },                {
+            "fqsen": "\\IronCore\\TenantSecurityClient\u003A\u003ArekeyEdek\u0028\u0029",
+            "name": "rekeyEdek",
+            "summary": "Re\u002Dkey\u0020a\u0020document\u0027s\u0020encrypted\u0020document\u0020key\u0020\u0028EDEK\u0029\u0020to\u0020a\u0020new\u0020tenant.\u0020Decrypts\u0020the\u0020EDEK\u0020then\u0020re\u002Dencrypts\u0020it\u0020to\u0020the\nnew\u0020tenant.\u0020The\u0020DEK\u0020is\u0020then\u0020discarded.\u0020The\u0020old\u0020tenant\u0020and\u0020new\u0020tenant\u0020can\u0020be\u0020the\u0020same\u0020in\u0020order\u0020to\u0020re\u002Dkey\u0020the\ndocument\u0020to\u0020the\u0020tenant\u0027s\u0020latest\u0020primary\u0020config.",
+            "url": "classes/IronCore-TenantSecurityClient.html#method_rekeyEdek"
+        },                {
             "fqsen": "\\IronCore\\TenantSecurityClient\u003A\u003A\u0024request",
             "name": "request",
             "summary": "",
@@ -685,6 +755,11 @@ Search.appendIndex(
             "name": "BATCH_UNWRAP_ENDPOINT",
             "summary": "",
             "url": "namespaces/ironcore.html#constant_BATCH_UNWRAP_ENDPOINT"
+        },                {
+            "fqsen": "\\IronCore\\REKEY_ENDPOINT",
+            "name": "REKEY_ENDPOINT",
+            "summary": "",
+            "url": "namespaces/ironcore.html#constant_REKEY_ENDPOINT"
         },                {
             "fqsen": "\\IronCore\\TENANT_KEY_DERIVE_ENDPOINT",
             "name": "TENANT_KEY_DERIVE_ENDPOINT",
@@ -715,6 +790,11 @@ Search.appendIndex(
             "name": "unwrapKey",
             "summary": "Requests\u0020the\u0020TSP\u0020to\u0020unwrap\u0020an\u0020EDEK.",
             "url": "classes/IronCore-TenantSecurityRequest.html#method_unwrapKey"
+        },                {
+            "fqsen": "\\IronCore\\TenantSecurityRequest\u003A\u003Arekey\u0028\u0029",
+            "name": "rekey",
+            "summary": "Requests\u0020the\u0020TSP\u0020to\u0020re\u002Dkey\u0020an\u0020EDEK.",
+            "url": "classes/IronCore-TenantSecurityRequest.html#method_rekey"
         },                {
             "fqsen": "\\IronCore\\TenantSecurityRequest\u003A\u003A\u0024tspAddress",
             "name": "tspAddress",
