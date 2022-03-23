@@ -12,10 +12,13 @@ use IronCore\Rest\WrapKeyResponse;
 use IronCore\Rest\UnwrapKeyResponse;
 use IronCore\Rest\RekeyResponse;
 use IronCore\Exception\TenantSecurityException;
+use IronCore\Rest\BatchWrapKeyRequest;
+use IronCore\Rest\BatchWrapKeyResponse;
 use IronCore\Rest\RekeyRequest;
 
 const TSP_API_PREFIX = "/api/1/";
 const WRAP_ENDPOINT = "document/wrap";
+const BATCH_WRAP_ENDPOINT = "document/batch-wrap";
 const UNWRAP_ENDPOINT = "document/unwrap";
 const BATCH_UNWRAP_ENDPOINT = "document/batch-unwrap";
 const REKEY_ENDPOINT = "document/rekey";
@@ -102,6 +105,22 @@ class TenantSecurityRequest
             throw TenantSecurityException::fromResponse($response);
         }
         return $wrapResponse;
+    }
+
+    /**
+     * @param string[] $documentIds TODO
+     * @param RequestMetadata $metadata TODO
+     */
+    public function batchWrapKeys(array $documentIds, RequestMetadata $metadata): BatchWrapKeyResponse
+    {
+        $request = new BatchWrapKeyRequest($metadata, $documentIds);
+        $response = $this->makeJsonRequest(BATCH_WRAP_ENDPOINT, $request->getJsonData());
+        try {
+            $batchWrapResponse = BatchWrapKeyResponse::fromResponse($response);
+        } catch (InvalidArgumentException $e) {
+            throw TenantSecurityException::fromResponse($response);
+        }
+        return $batchWrapResponse;
     }
 
     /**

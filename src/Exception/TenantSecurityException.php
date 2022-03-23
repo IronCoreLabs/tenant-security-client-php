@@ -59,8 +59,7 @@ class TenantSecurityException extends Exception
                 );
             case 201:
                 return new KmsException(
-                    "UnknownTenantOrNoActiveKmsConfigurations: Tenant either doesn't exist
-                    or has no active KMS configurations.",
+                    "UnknownTenantOrNoActiveKmsConfigurations: Tenant either doesn't exist or has no active KMS configurations.",
                     $code
                 );
             case 202:
@@ -85,14 +84,12 @@ class TenantSecurityException extends Exception
                 );
             case 206:
                 return new KmsException(
-                    "KmsAuthorizationFailed: Request to KMS failed because the tenant credentials
-                    were invalid or have been revoked.",
+                    "KmsAuthorizationFailed: Request to KMS failed because the tenant credentials were invalid or have been revoked.",
                     $code
                 );
             case 207:
                 return new KmsException(
-                    "KmsConfigurationInvalid: Request to KMS failed because the key configuration was
-                    invalid or the necessary permissions for the operation were missing/revoked.",
+                    "KmsConfigurationInvalid: Request to KMS failed because the key configuration was invalid or the necessary permissions for the operation were missing/revoked.",
                     $code
                 );
             case 208:
@@ -102,7 +99,7 @@ class TenantSecurityException extends Exception
                 );
             case 301:
                 return new SecurityEventException(
-                    "SecurityEventRejected: Tenant Security Proxy could not accept the security event",
+                    "SecurityEventRejected: Tenant Security Proxy could not accept the security event.",
                     $code
                 );
             default:

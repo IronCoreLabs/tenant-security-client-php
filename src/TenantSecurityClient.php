@@ -56,6 +56,46 @@ class TenantSecurityClient
         return new EncryptedDocument($encryptedFields, $wrapResponse->getEdek());
     }
 
+    public function batchEncrypt(array $documents, RequestMetadata $metadata): array
+    {
+        // array_keys() turns numeric document IDs into ints, so we have to cast them back to strings.
+        $documentIds = array_map(fn ($s): string => (string)$s, array_keys($documents));
+        // Ask the TSP to generate a DEK/EDEK for each document ID
+        $batchWrapKeyResponse = $this->request->batchWrapKeys($documentIds, $metadata);
+        $keys = $batchWrapKeyResponse->getKeys();
+        $keyFailures = $batchWrapKeyResponse->getFailures();
+        $encrypted = [];
+        $encryptionFailures = [];
+
+        // If a document ID didn't get a key from the TSP, put it into the failures list and don't try to decrypt it
+        $filterCallback = function ($docId) use ($keys, $encryptionFailures, $keyFailures): bool {
+            $tspReturnedKey = array_key_exists($docId, $keys);
+            if (!$tspReturnedKey) {
+                // This assumes that every document ID will be in either the `keys` or `failures` from the TSP response.
+                $encryptionFailures[$docId] = $keyFailures[$docId];
+            }
+            return $tspReturnedKey;
+        };
+        $documentsWithKeys = array_filter($documents, $filterCallback, ARRAY_FILTER_USE_KEY);
+
+        $tenantId = $metadata->getTenantId();
+        foreach ($documentsWithKeys as $documentId => $docFields) {
+            // We verified in the filter function that this document ID exists
+            $dek = $keys[$documentId]->getDek();
+            $edek = $keys[$documentId]->getEdek();
+            $innerCallback = fn (Bytes $documentData): Bytes => Aes::encryptDocument(
+                $documentData,
+                $tenantId,
+                $dek,
+                CryptoRng::getInstance()
+            );
+
+            $encrypted = array_map($innerCallback, $docFields);
+            $successfulEncrypts[$documentId] = new EncryptedDocument($encrypted, $edek);
+        };
+        return $successfulEncrypts;
+    }
+
     /**
      * Decrypts the provided EncryptedDocument. Decrypts the document's encrypted document key (EDEK)
      * using the Tenant Security Proxy and uses it to decrypt and return the document bytes. The DEK
@@ -75,6 +115,7 @@ class TenantSecurityClient
         $decryptedFields = array_map($callback, $encryptedFields);
         return new PlaintextDocument($decryptedFields, $document->getEdek());
     }
+
     /**
      * Re-key a document's encrypted document key (EDEK) to a new tenant. Decrypts the EDEK then re-encrypts it to the
      * new tenant. The DEK is then discarded. The old tenant and new tenant can be the same in order to re-key the
