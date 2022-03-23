@@ -56,7 +56,7 @@ class TenantSecurityClient
         return new EncryptedDocument($encryptedFields, $wrapResponse->getEdek());
     }
 
-    public function batchEncrypt(array $documents, RequestMetadata $metadata): array
+    public function batchEncrypt(array $documents, RequestMetadata $metadata): BatchEncryptedDocuments
     {
         // array_keys() turns numeric document IDs into ints, so we have to cast them back to strings.
         $documentIds = array_map(fn ($s): string => (string)$s, array_keys($documents));
@@ -64,36 +64,27 @@ class TenantSecurityClient
         $batchWrapKeyResponse = $this->request->batchWrapKeys($documentIds, $metadata);
         $keys = $batchWrapKeyResponse->getKeys();
         $keyFailures = $batchWrapKeyResponse->getFailures();
-        $encrypted = [];
+        $encryptedDocuments = [];
         $encryptionFailures = [];
-
-        // If a document ID didn't get a key from the TSP, put it into the failures list and don't try to decrypt it
-        $filterCallback = function ($docId) use ($keys, $encryptionFailures, $keyFailures): bool {
-            $tspReturnedKey = array_key_exists($docId, $keys);
-            if (!$tspReturnedKey) {
-                // This assumes that every document ID will be in either the `keys` or `failures` from the TSP response.
-                $encryptionFailures[$docId] = $keyFailures[$docId];
-            }
-            return $tspReturnedKey;
-        };
-        $documentsWithKeys = array_filter($documents, $filterCallback, ARRAY_FILTER_USE_KEY);
-
         $tenantId = $metadata->getTenantId();
-        foreach ($documentsWithKeys as $documentId => $docFields) {
-            // We verified in the filter function that this document ID exists
-            $dek = $keys[$documentId]->getDek();
-            $edek = $keys[$documentId]->getEdek();
-            $innerCallback = fn (Bytes $documentData): Bytes => Aes::encryptDocument(
-                $documentData,
+
+        foreach ($keyFailures as $documentId => $failure) {
+            $encryptionFailures[$documentId] = $failure;
+        };
+        foreach ($keys as $documentId => $key) {
+            $dek = $key->getDek();
+            $edek = $key->getEdek();
+            $document = $documents[$documentId];
+            $encryptDocumentFields = fn (Bytes $fieldData): Bytes => Aes::encryptDocument(
+                $fieldData,
                 $tenantId,
                 $dek,
                 CryptoRng::getInstance()
             );
-
-            $encrypted = array_map($innerCallback, $docFields);
-            $successfulEncrypts[$documentId] = new EncryptedDocument($encrypted, $edek);
+            $encryptedData = array_map($encryptDocumentFields, $document);
+            $encryptedDocuments[$documentId] = new EncryptedDocument($encryptedData, $edek);
         };
-        return $successfulEncrypts;
+        return new BatchEncryptedDocuments($encryptedDocuments, $encryptionFailures);
     }
 
     /**
