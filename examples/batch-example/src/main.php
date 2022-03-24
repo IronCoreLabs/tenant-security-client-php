@@ -58,3 +58,8 @@ try {
 }
 
 $decryptedDocuments = $decryptionResults->getPlaintextDocuments();
+$decryptedId1 = $decryptedDocuments["1"]["id"];
+$decryptedId2 = $decryptedDocuments["2"]["id"];
+
+echo "First decrypted ID: $decryptedId1";
+echo "Second decrypted ID: $decryptedId2";

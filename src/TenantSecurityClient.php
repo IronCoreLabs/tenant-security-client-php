@@ -122,7 +122,7 @@ class TenantSecurityClient
      * supports partial failure so it returns two Maps, one of document ID to successfully decrypted
      * document and one of document ID to a TenantSecurityException.
      * 
-     * @param EncryptedDocument[] $documents Encrypted documents to decrypt.  Each entry in the array is [documentId => EncryptedDocument].
+     * @param EncryptedDocument[] $documents Encrypted documents to decrypt. Each entry in the array is [documentId => EncryptedDocument].
      * @param RequestMetadata Metadata about the documents being decrypted
      * 
      * @return BatchPlaintextDocuments Collection of successes and failures that occurred during operation. The keys of each
@@ -131,6 +131,7 @@ class TenantSecurityClient
     public function batchDecrypt(array $documents, RequestMetadata $metadata): BatchPlaintextDocuments
     {
         // make map from docId => edek
+        /**@var Bytes[] */
         $edeks = array_map(fn (EncryptedDocument $doc): Bytes => $doc->getEdek(), $documents);
         // Ask the TSP to unwrap the EDEK for each document ID
         $batchUnwrapKeyResponse = $this->request->batchUnwrapKeys($edeks, $metadata);
@@ -141,9 +142,6 @@ class TenantSecurityClient
         foreach ($unwrappedKeys as $documentId => $key) {
             $dek = $key->getDek();
             $edek = $edeks[$documentId];
-            /**
-             * @var EncryptedDocument
-             */
             $document = $documents[$documentId];
             $decryptFields = fn (Bytes $field): Bytes => Aes::decryptDocument($field, $dek);
             $decryptedDocument = array_map($decryptFields, $document->getEncryptedFields());
