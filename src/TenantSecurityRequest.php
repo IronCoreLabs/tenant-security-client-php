@@ -12,9 +12,13 @@ use IronCore\Rest\WrapKeyResponse;
 use IronCore\Rest\UnwrapKeyResponse;
 use IronCore\Rest\RekeyResponse;
 use IronCore\Exception\TenantSecurityException;
+use IronCore\Rest\BatchUnwrapKeyRequest;
+use IronCore\Rest\BatchUnwrapKeyResponse;
 use IronCore\Rest\BatchWrapKeyRequest;
 use IronCore\Rest\BatchWrapKeyResponse;
+use IronCore\Rest\LogSecurityEventRequest;
 use IronCore\Rest\RekeyRequest;
+use IronCore\SecurityEvents\SecurityEvent;
 
 const TSP_API_PREFIX = "/api/1/";
 const WRAP_ENDPOINT = "document/wrap";
@@ -23,6 +27,7 @@ const UNWRAP_ENDPOINT = "document/unwrap";
 const BATCH_UNWRAP_ENDPOINT = "document/batch-unwrap";
 const REKEY_ENDPOINT = "document/rekey";
 const TENANT_KEY_DERIVE_ENDPOINT = "key/derive";
+const SECURITY_EVENT_ENDPOINT = "event/security-event";
 
 /**
  * Class used to communicate with the Tenant Security Proxy.
@@ -108,8 +113,14 @@ class TenantSecurityRequest
     }
 
     /**
-     * @param string[] $documentIds TODO
-     * @param RequestMetadata $metadata TODO
+     * Requests the TSP to generate multiple DEK/EDEK pairs.
+     * 
+     * @param string[] $documentIds Document IDs to generate DEK/EDEK for.
+     * @param RequestMetadata $metadata Metadata about the requesting user/service
+     * 
+     * @throws TenantSecurityException if the request to the TSP fails.
+     * 
+     * @return BatchWrapKeyResponse The generated DEKs and EDEKs, as well as any failures
      */
     public function batchWrapKeys(array $documentIds, RequestMetadata $metadata): BatchWrapKeyResponse
     {
@@ -146,6 +157,28 @@ class TenantSecurityRequest
     }
 
     /**
+     * Requests the TSP to unwrap multiple EDEKs.
+     * 
+     * @param Bytes[] $edeks Map from document IDs to EDEKs to unwrap
+     * @param RequestMetadata $metadata Metadata about the requesting user/service
+     * 
+     * @throws TenantSecurityException if the request to the TSP fails.
+     * 
+     * @return BatchUnwrapKeyResponse The unwrapped DEKs, as well as any failures
+     */
+    public function batchUnwrapKeys(array $edeks, RequestMetadata $metadata): BatchUnwrapKeyResponse
+    {
+        $request = new BatchUnwrapKeyRequest($metadata, $edeks);
+        $response = $this->makeJsonRequest(BATCH_UNWRAP_ENDPOINT, $request->getJsonData());
+        try {
+            $batchWrapResponse = BatchUnwrapKeyResponse::fromResponse($response);
+        } catch (InvalidArgumentException $e) {
+            throw TenantSecurityException::fromResponse($response);
+        }
+        return $batchWrapResponse;
+    }
+
+    /**
      * Requests the TSP to re-key an EDEK.
      *
      * @param Bytes $edek The encrypted document key to re-key
@@ -166,5 +199,21 @@ class TenantSecurityRequest
             throw TenantSecurityException::fromResponse($response);
         }
         return $rekeyResponse;
+    }
+
+    /**
+     * Request to the security event endpoint with the provided event and metadata.
+     * 
+     * @param SecurityEvent $event Security event representing the action to be logged.
+     * @param EventMetadata $metadata Metadata associated with the security event.
+     * @return void Failures come back as exceptions
+     */
+    public function logSecurityEvent(SecurityEvent $event, EventMetadata $metadata): void
+    {
+        $request = new LogSecurityEventRequest($metadata, $event);
+        $response = $this->makeJsonRequest(SECURITY_EVENT_ENDPOINT, $request->getJsonData());
+        if ($response !== "null") {
+            throw TenantSecurityException::fromResponse($response);
+        }
     }
 }

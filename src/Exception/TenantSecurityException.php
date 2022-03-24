@@ -14,23 +14,18 @@ use JsonException;
 class TenantSecurityException extends Exception
 {
     /**
-     * Converts from a TSP error response to a TenantSecurityException.
-     *
-     * @param string $response Response from the TSP
-     *
-     * @return TenantSecurityException TenantSecurityException associated with the TSP status code
+     * Converts from a JSON-decoded TSP error response to a TenantSecurityException.
+     * 
+     * @param array $decodedJson Decoded response from the TSP.
+     * 
+     * @return TenantSecurityException TenantSecurityException associated with the TSP status coe.
      */
-    public static function fromResponse(string $response): TenantSecurityException
+    public static function fromDecodedJson(array $decodedJson)
     {
-        $decodedResponse = json_decode($response, true);
-        if (
-            !is_array($decodedResponse) ||
-            !array_key_exists("code", $decodedResponse) ||
-            !is_int($decodedResponse["code"])
-        ) {
+        if (!array_key_exists("code", $decodedJson) || !is_int($decodedJson["code"])) {
             return new TspServiceException("UnknownError: Unknown request error occurred", -1);
         }
-        $code = (int) $decodedResponse["code"];
+        $code = (int) $decodedJson["code"];
         switch ($code) {
             case 0:
                 return new TspServiceException(
@@ -108,5 +103,20 @@ class TenantSecurityException extends Exception
                     $code
                 );
         }
+    }
+    /**
+     * Converts from a TSP error response to a TenantSecurityException.
+     *
+     * @param string $response Response from the TSP
+     *
+     * @return TenantSecurityException TenantSecurityException associated with the TSP status code
+     */
+    public static function fromResponse(string $response): TenantSecurityException
+    {
+        $decodedResponse = json_decode($response, true);
+        if (!is_array($decodedResponse)) {
+            return new TspServiceException("UnknownError: Unknown request error occurred", -1);
+        }
+        return TenantSecurityException::fromDecodedJson($decodedResponse);
     }
 }

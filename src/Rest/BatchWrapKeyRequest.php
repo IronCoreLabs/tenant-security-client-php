@@ -22,9 +22,8 @@ class BatchWrapKeyRequest extends IronCoreRequest
     private $documentIds;
 
     /**
-     * @param RequestMetadata $metadata TODO
-     * @param string[] $documentIds TODO
-     * 
+     * @param RequestMetadata $metadata Metadata about the batch wrap key request
+     * @param string[] $documentIds Document IDs to generate DEK/EDEK pairs for
      */
     public function __construct(RequestMetadata $metadata, array $documentIds)
     {

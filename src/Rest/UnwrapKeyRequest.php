@@ -18,7 +18,7 @@ class UnwrapKeyRequest extends IronCoreRequest
      */
     private $metadata;
     /**
-     * @var Bytes
+     * @var string
      */
     private $edek;
 

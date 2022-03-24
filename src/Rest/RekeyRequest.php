@@ -18,7 +18,7 @@ class RekeyRequest extends IronCoreRequest
      */
     private $metadata;
     /**
-     * @var Bytes
+     * @var string
      */
     private $edek;
     /**

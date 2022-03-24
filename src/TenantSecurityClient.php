@@ -6,6 +6,7 @@ namespace IronCore;
 
 use IronCore\Crypto\Aes;
 use IronCore\Crypto\CryptoRng;
+use IronCore\SecurityEvents\SecurityEvent;
 
 /**
  * Client used to encrypt and decrypt documents. This is the primary class that consumers of the
@@ -46,16 +47,28 @@ class TenantSecurityClient
         $wrapResponse = $this->request->wrapKey($metadata);
         $tenantId = $metadata->getTenantId();
         $dek = $wrapResponse->getDek();
-        $callback = fn (Bytes $field): Bytes => Aes::encryptDocument(
+        $encryptDocument = fn (Bytes $field): Bytes => Aes::encryptDocument(
             $field,
             $tenantId,
             $dek,
             CryptoRng::getInstance()
         );
-        $encryptedFields = array_map($callback, $document);
+        $encryptedFields = array_map($encryptDocument, $document);
         return new EncryptedDocument($encryptedFields, $wrapResponse->getEdek());
     }
 
+    /**
+     * Encrypts an array of documents from the ID of the document to the list of fields to encrypt.
+     * Makes a call out to the Tenant Security Proxy to generate a collection of new DEK/EDEK pairs
+     * for each document ID provided. This function supports partial failure so it returns two Maps,
+     * one of document ID to successfully encrypted document and one of document ID to a TenantSecurityException.
+     * 
+     * @param Bytes[][] $documents Documents to encrypt. Each entry in the array is [documentId => Bytes[]].
+     * @param RequestMetadata $metadata Metadata about the documents being encrypted
+     * 
+     * @return BatchEncryptedDocuments Collection of successes and failures that occurred during operation. The keys of each
+     *         map returned will be the same keys provided in the original documents map.
+     */
     public function batchEncrypt(array $documents, RequestMetadata $metadata): BatchEncryptedDocuments
     {
         // array_keys() turns numeric document IDs into ints, so we have to cast them back to strings.
@@ -65,18 +78,14 @@ class TenantSecurityClient
         $keys = $batchWrapKeyResponse->getKeys();
         $keyFailures = $batchWrapKeyResponse->getFailures();
         $encryptedDocuments = [];
-        $encryptionFailures = [];
         $tenantId = $metadata->getTenantId();
 
-        foreach ($keyFailures as $documentId => $failure) {
-            $encryptionFailures[$documentId] = $failure;
-        };
         foreach ($keys as $documentId => $key) {
             $dek = $key->getDek();
             $edek = $key->getEdek();
             $document = $documents[$documentId];
-            $encryptDocumentFields = fn (Bytes $fieldData): Bytes => Aes::encryptDocument(
-                $fieldData,
+            $encryptDocumentFields = fn (Bytes $field): Bytes => Aes::encryptDocument(
+                $field,
                 $tenantId,
                 $dek,
                 CryptoRng::getInstance()
@@ -84,7 +93,7 @@ class TenantSecurityClient
             $encryptedData = array_map($encryptDocumentFields, $document);
             $encryptedDocuments[$documentId] = new EncryptedDocument($encryptedData, $edek);
         };
-        return new BatchEncryptedDocuments($encryptedDocuments, $encryptionFailures);
+        return new BatchEncryptedDocuments($encryptedDocuments, $keyFailures);
     }
 
     /**
@@ -102,9 +111,45 @@ class TenantSecurityClient
         $unwrapResponse = $this->request->unwrapKey($document->getEdek(), $metadata);
         $dek = $unwrapResponse->getDek();
         $encryptedFields = $document->getEncryptedFields();
-        $callback = fn (Bytes $field): Bytes => Aes::decryptDocument($field, $dek);
-        $decryptedFields = array_map($callback, $encryptedFields);
+        $decryptDocumentFields = fn (Bytes $field): Bytes => Aes::decryptDocument($field, $dek);
+        $decryptedFields = array_map($decryptDocumentFields, $encryptedFields);
         return new PlaintextDocument($decryptedFields, $document->getEdek());
+    }
+
+    /**
+     * Decrypts a map of documents from the ID of the document to its encrypted content. Makes a call
+     * out to the Tenant Security Proxy to decrypt all of the EDEKs in each document. This function
+     * supports partial failure so it returns two Maps, one of document ID to successfully decrypted
+     * document and one of document ID to a TenantSecurityException.
+     * 
+     * @param EncryptedDocument[] $documents Encrypted documents to decrypt.  Each entry in the array is [documentId => EncryptedDocument].
+     * @param RequestMetadata Metadata about the documents being decrypted
+     * 
+     * @return BatchPlaintextDocuments Collection of successes and failures that occurred during operation. The keys of each
+     *         map returned will be the same keys provided in the original documents map.
+     */
+    public function batchDecrypt(array $documents, RequestMetadata $metadata): BatchPlaintextDocuments
+    {
+        // make map from docId => edek
+        $edeks = array_map(fn (EncryptedDocument $doc): Bytes => $doc->getEdek(), $documents);
+        // Ask the TSP to unwrap the EDEK for each document ID
+        $batchUnwrapKeyResponse = $this->request->batchUnwrapKeys($edeks, $metadata);
+        $unwrappedKeys = $batchUnwrapKeyResponse->getKeys();
+        $keyFailures = $batchUnwrapKeyResponse->getFailures();
+        $decryptedDocuments = [];
+
+        foreach ($unwrappedKeys as $documentId => $key) {
+            $dek = $key->getDek();
+            $edek = $edeks[$documentId];
+            /**
+             * @var EncryptedDocument
+             */
+            $document = $documents[$documentId];
+            $decryptFields = fn (Bytes $field): Bytes => Aes::decryptDocument($field, $dek);
+            $decryptedDocument = array_map($decryptFields, $document->getEncryptedFields());
+            $decryptedDocuments[$documentId] = new PlaintextDocument($decryptedDocument, $edek);
+        };
+        return new BatchPlaintextDocuments($decryptedDocuments, $keyFailures);
     }
 
     /**
@@ -122,5 +167,20 @@ class TenantSecurityClient
     {
         $rekeyResponse = $this->request->rekey($edek, $newTenantId, $metadata);
         return $rekeyResponse->getEdek();
+    }
+
+    /**
+     * Send the provided security event to the TSP to be logged and analyzed. Note that logging a security event is an
+     * asynchronous operation at the TSP, so successful receipt of a security event does not mean
+     * that the event is deliverable or has been delivered to the tenant's logging system. It simply
+     * means that the event has been received and will be processed.
+     *
+     * @param SecurityEvent $event Security event that represents the action that took place.
+     * @param EventMetadata $metadata Metadata that provides additional context about the event.
+     */
+
+    public function logSecurityEvent(SecurityEvent $event, EventMetadata $metadata): void
+    {
+        $this->request->logSecurityEvent($event, $metadata);
     }
 }
