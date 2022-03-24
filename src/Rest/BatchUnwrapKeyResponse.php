@@ -46,7 +46,7 @@ class BatchUnwrapKeyResponse
     }
 
     /**
-     * @return UnwrapKeyResponse[]
+     * @return UnwrapKeyResponse[] Keys that were successfully unwrapped
      */
     public function getKeys(): array
     {
@@ -54,7 +54,7 @@ class BatchUnwrapKeyResponse
     }
 
     /**
-     * @return TenantSecurityException[] TODO
+     * @return TenantSecurityException[] Keys that failed to be unwrapped
      */
     public function getFailures(): array
     {

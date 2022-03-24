@@ -25,7 +25,7 @@ class BatchEncryptedDocuments
     }
 
     /**
-     * @return EncryptedDocument[] TODO
+     * @return EncryptedDocument[] Documents that were successfully encrypted
      */
     public function getEncryptedDocuments(): array
     {
@@ -33,7 +33,7 @@ class BatchEncryptedDocuments
     }
 
     /**
-     * @return TenantSecurityException[]
+     * @return TenantSecurityException[] Documents that failed to be encrypted
      */
     public function getFailures(): array
     {

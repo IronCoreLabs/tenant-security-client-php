@@ -45,13 +45,16 @@ class BatchWrapKeyResponse
         return new BatchWrapKeyResponse($keys, $failures);
     }
 
+    /**
+     * @return WrapKeyResponse[] Keys that were successfully wrapped
+     */
     public function getKeys(): array
     {
         return $this->keys;
     }
 
     /**
-     * @return TenantSecurityException[] TODO
+     * @return TenantSecurityException[] Keys that failed to be wrapped
      */
     public function getFailures(): array
     {
