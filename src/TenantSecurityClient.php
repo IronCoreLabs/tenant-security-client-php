@@ -62,12 +62,12 @@ class TenantSecurityClient
      * Makes a call out to the Tenant Security Proxy to generate a collection of new DEK/EDEK pairs
      * for each document ID provided. This function supports partial failure so it returns two Maps,
      * one of document ID to successfully encrypted document and one of document ID to a TenantSecurityException.
-     * 
+     *
      * @param Bytes[][] $documents Documents to encrypt. Each entry in the array is [documentId => Bytes[]].
      * @param RequestMetadata $metadata Metadata about the documents being encrypted
-     * 
-     * @return BatchEncryptedDocuments Collection of successes and failures that occurred during operation. The keys of each
-     *         map returned will be the same keys provided in the original documents map.
+     *
+     * @return BatchEncryptedDocuments Collection of successes and failures that occurred during operation.
+     *          The keys of each map returned will be the same keys provided in the original documents map.
      */
     public function batchEncrypt(array $documents, RequestMetadata $metadata): BatchEncryptedDocuments
     {
@@ -121,12 +121,13 @@ class TenantSecurityClient
      * out to the Tenant Security Proxy to decrypt all of the EDEKs in each document. This function
      * supports partial failure so it returns two Maps, one of document ID to successfully decrypted
      * document and one of document ID to a TenantSecurityException.
-     * 
-     * @param EncryptedDocument[] $documents Encrypted documents to decrypt. Each entry in the array is [documentId => EncryptedDocument].
+     *
+     * @param EncryptedDocument[] $documents Encrypted documents to decrypt. Each entry in the array is
+     *                            [documentId => EncryptedDocument].
      * @param RequestMetadata Metadata about the documents being decrypted
-     * 
-     * @return BatchPlaintextDocuments Collection of successes and failures that occurred during operation. The keys of each
-     *         map returned will be the same keys provided in the original documents map.
+     *
+     * @return BatchPlaintextDocuments Collection of successes and failures that occurred during operation.
+     *          The keys of each map returned will be the same keys provided in the original documents map.
      */
     public function batchDecrypt(array $documents, RequestMetadata $metadata): BatchPlaintextDocuments
     {

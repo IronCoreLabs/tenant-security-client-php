@@ -35,12 +35,16 @@ class BatchUnwrapKeyResponse
     public static function fromResponse(string $response): BatchUnwrapKeyResponse
     {
         $decoded = json_decode($response, true);
-        if (!is_array($decoded) ||  !array_key_exists("keys", $decoded) || !array_key_exists("failures", $decoded) || !is_array($decoded["keys"]) || !is_array($decoded["failures"])) {
+        if (
+            !is_array($decoded) ||  !array_key_exists("keys", $decoded) || !array_key_exists("failures", $decoded)
+            || !is_array($decoded["keys"]) || !is_array($decoded["failures"])
+        ) {
             throw new InvalidArgumentException("$response is not a valid BatchUnwrapKeyResponse.");
         }
         $keysCallback = fn (array $key): UnwrapKeyResponse => new UnwrapKeyResponse(Bytes::fromBase64($key["dek"]));
         $keys = array_map($keysCallback, $decoded["keys"]);
-        $failuresCallback = fn (array $failure): TenantSecurityException => TenantSecurityException::fromDecodedJson($failure);
+        $failuresCallback = fn (array $failure): TenantSecurityException =>
+        TenantSecurityException::fromDecodedJson($failure);
         $failures = array_map($failuresCallback, $decoded["failures"]);
         return new BatchUnwrapKeyResponse($keys, $failures);
     }

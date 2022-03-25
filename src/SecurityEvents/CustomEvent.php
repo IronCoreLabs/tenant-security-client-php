@@ -8,7 +8,7 @@ use InvalidArgumentException;
 
 class CustomEvent extends SecurityEvent
 {
-    var $flatEvent;
+    private $flatEvent;
 
     private function __construct(string $eventName)
     {
@@ -23,7 +23,8 @@ class CustomEvent extends SecurityEvent
     public static function customEvent(string $event): CustomEvent
     {
         if (preg_match("<[A-Z_]+>", $event) !== 1 || $event === "" || $event[0] === "_") {
-            throw new InvalidArgumentException("Custom event must be screaming snake case, not empty, and start with a letter.");
+            throw new InvalidArgumentException("Custom event must be screaming snake case, " .
+                "not empty, and start with a letter.");
         }
         return new CustomEvent($event);
     }

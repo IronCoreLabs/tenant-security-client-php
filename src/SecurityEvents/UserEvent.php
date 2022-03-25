@@ -6,7 +6,7 @@ namespace IronCore\SecurityEvents;
 
 class UserEvent extends SecurityEvent
 {
-    var $flatEvent;
+    private $flatEvent;
 
     private function __construct(string $eventName)
     {

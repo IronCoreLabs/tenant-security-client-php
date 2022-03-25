@@ -20,10 +20,15 @@ class EventMetadata extends RequestMetadata
      * @param string $tenantId Unique ID of tenant that is performing the operation
      * @param IclFields $iclFields Metadata about the request for the Tenant Security Proxy to log
      * @param string[] $customFields Optional additional information for the Tenant Security Proxy to log
-     * @param int $timestampMillis Linux epoch millis of when the event occurred. If this isn't passed, now will be assumed.
+     * @param int $timestampMillis Linux epoch millis of when the event occurred.
+     *            If this isn't passed, now will be assumed.
      */
-    public function __construct(string $tenantId, IclFields $iclFields, array $customFields, int $timestampMillis = null)
-    {
+    public function __construct(
+        string $tenantId,
+        IclFields $iclFields,
+        array $customFields,
+        int $timestampMillis = null
+    ) {
         $this->tenantId = $tenantId;
         $this->iclFields = $iclFields;
         $this->customFields = $customFields;

@@ -35,12 +35,19 @@ class BatchWrapKeyResponse
     public static function fromResponse(string $response): BatchWrapKeyResponse
     {
         $decoded = json_decode($response, true);
-        if (!is_array($decoded) || !array_key_exists("keys", $decoded) || !array_key_exists("failures", $decoded) || !is_array($decoded["keys"]) || !is_array($decoded["failures"])) {
+        if (
+            !is_array($decoded) || !array_key_exists("keys", $decoded) || !array_key_exists("failures", $decoded) ||
+            !is_array($decoded["keys"]) || !is_array($decoded["failures"])
+        ) {
             throw new InvalidArgumentException("$response is not a valid BatchWrapKeyResponse.");
         }
-        $keysCallback = fn (array $key): WrapKeyResponse => new WrapKeyResponse(Bytes::fromBase64($key["dek"]), Bytes::fromBase64($key["edek"]));
+        $keysCallback = fn (array $key): WrapKeyResponse => new WrapKeyResponse(
+            Bytes::fromBase64($key["dek"]),
+            Bytes::fromBase64($key["edek"])
+        );
         $keys = array_map($keysCallback, $decoded["keys"]);
-        $failuresCallback = fn (array $failure): TenantSecurityException => TenantSecurityException::fromDecodedJson($failure);
+        $failuresCallback = fn (array $failure): TenantSecurityException =>
+        TenantSecurityException::fromDecodedJson($failure);
         $failures = array_map($failuresCallback, $decoded["failures"]);
         return new BatchWrapKeyResponse($keys, $failures);
     }

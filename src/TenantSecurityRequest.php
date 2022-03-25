@@ -114,12 +114,12 @@ class TenantSecurityRequest
 
     /**
      * Requests the TSP to generate multiple DEK/EDEK pairs.
-     * 
+     *
      * @param string[] $documentIds Document IDs to generate DEK/EDEK for.
      * @param RequestMetadata $metadata Metadata about the requesting user/service
-     * 
+     *
      * @throws TenantSecurityException if the request to the TSP fails.
-     * 
+     *
      * @return BatchWrapKeyResponse The generated DEKs and EDEKs, as well as any failures
      */
     public function batchWrapKeys(array $documentIds, RequestMetadata $metadata): BatchWrapKeyResponse
@@ -158,12 +158,12 @@ class TenantSecurityRequest
 
     /**
      * Requests the TSP to unwrap multiple EDEKs.
-     * 
+     *
      * @param Bytes[] $edeks Map from document IDs to EDEKs to unwrap
      * @param RequestMetadata $metadata Metadata about the requesting user/service
-     * 
+     *
      * @throws TenantSecurityException if the request to the TSP fails.
-     * 
+     *
      * @return BatchUnwrapKeyResponse The unwrapped DEKs, as well as any failures
      */
     public function batchUnwrapKeys(array $edeks, RequestMetadata $metadata): BatchUnwrapKeyResponse
@@ -203,7 +203,7 @@ class TenantSecurityRequest
 
     /**
      * Request to the security event endpoint with the provided event and metadata.
-     * 
+     *
      * @param SecurityEvent $event Security event representing the action to be logged.
      * @param EventMetadata $metadata Metadata associated with the security event.
      * @return void Failures come back as exceptions
