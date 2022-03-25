@@ -47,8 +47,7 @@ try {
     exit(1);
 }
 
-$encryptionDocuments = $encryptedResults->getEncryptedDocuments();
-
+$encryptedDocuments = $encryptionResults->getEncryptedDocuments();
 // Decrypt the documents
 try {
     $decryptionResults = $tenantSecurityClient->batchDecrypt($encryptedDocuments, $metadata);
@@ -56,10 +55,12 @@ try {
     echo 'Caught exception: ',  $e->getMessage(), "\n";
     exit(1);
 }
-
 $decryptedDocuments = $decryptionResults->getPlaintextDocuments();
-$decryptedId1 = $decryptedDocuments["1"]["id"];
-$decryptedId2 = $decryptedDocuments["2"]["id"];
 
-echo "First decrypted ID: $decryptedId1";
-echo "Second decrypted ID: $decryptedId2";
+$decryptedFields1 = $decryptedDocuments["1"]->getDecryptedFields();
+$decryptedId1 = $decryptedFields1["id"]->getByteString();
+echo "First decrypted ID: $decryptedId1\n";
+
+$decryptedFields2 = $decryptedDocuments["2"]->getDecryptedFields();
+$decryptedId2 = $decryptedFields2["id"]->getByteString();
+echo "Second decrypted ID: $decryptedId2\n";
