@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace IronCore;
 
-use IronCore\SecurityEvents\SecurityEvent;
-
 /**
  * RequestMetadata with an optional `timestampMillis` referencing when a security event took place.
  */

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace IronCore\Exception;
 
 use Exception;
-use JsonException;
 
 /**
  * This exception indicates a problem talking to the TSP or the TSP talking to the
