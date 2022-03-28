@@ -25,6 +25,6 @@ class IclFieldsWithEvent extends IclFields
         $this->sourceIp = $iclFields->sourceIp;
         $this->objectId = $iclFields->objectId;
         $this->requestId = $iclFields->requestId;
-        $this->event = $event;
+        $this->event = $event->getFlatEvent();
     }
 }
