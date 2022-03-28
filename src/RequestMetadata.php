@@ -56,8 +56,9 @@ class RequestMetadata
     public function getPostData(): array
     {
         return [
-            "tenantId" => $this->tenantId, "iclFields" => $this->iclFields,
-            "customFields" => $this->customFields
+            "tenantId" => $this->tenantId,
+            "iclFields" => $this->iclFields,
+            "customFields" => (object)$this->customFields // even if this is empty, it needs to serialize as an object.
         ];
     }
 }

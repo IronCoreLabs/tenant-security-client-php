@@ -44,7 +44,10 @@ class RekeyResponse
     public static function fromResponse(string $response): RekeyResponse
     {
         $decoded = json_decode($response, true);
-        if (!is_array($decoded) || !is_string($decoded["dek"]) || !is_string($decoded["edek"])) {
+        if (
+            !is_array($decoded) || !array_key_exists("dek", $decoded) || !array_key_exists("edek", $decoded) ||
+            !is_string($decoded["dek"]) || !is_string($decoded["edek"])
+        ) {
             throw new InvalidArgumentException("$response is not a valid RekeyResponse.");
         }
         return new RekeyResponse(Bytes::fromBase64($decoded["dek"]), Bytes::fromBase64($decoded["edek"]));

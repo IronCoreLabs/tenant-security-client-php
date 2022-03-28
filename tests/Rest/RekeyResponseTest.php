@@ -25,7 +25,7 @@ final class RekeyResponseTest extends TestCase
         $edekString = "ODc5NDMyODk3NDMyOTg3MjQzODk3";
         $str = "{\"dek\":\"$dekString\", \"edek\": \"$edekString\"}";
         $this->expectException(\InvalidArgumentException::class);
-        $result = RekeyResponse::fromResponse($str);
+        RekeyResponse::fromResponse($str);
     }
 
     public function testFromResponseBadJson(): void
@@ -34,7 +34,7 @@ final class RekeyResponseTest extends TestCase
         $edekString = "ODc5NDMyODk3NDMyOTg3MjQzODk3";
         $str = "{\"dek\":\"$dekString\", \"edek\": \"$edekString\""; //Missing closing }
         $this->expectException(\InvalidArgumentException::class);
-        $result = RekeyResponse::fromResponse($str);
+        RekeyResponse::fromResponse($str);
     }
 
     public function testFromResponseJsonStringResponse(): void
@@ -43,6 +43,6 @@ final class RekeyResponseTest extends TestCase
         $edekString = "ODc5NDMyODk3NDMyOTg3MjQzODk3";
         $str = "\"this is valid json string\"";
         $this->expectException(\InvalidArgumentException::class);
-        $result = RekeyResponse::fromResponse($str);
+        RekeyResponse::fromResponse($str);
     }
 }

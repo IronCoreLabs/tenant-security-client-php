@@ -37,7 +37,7 @@ class UnwrapKeyResponse
     public static function fromResponse(string $response): UnwrapKeyResponse
     {
         $decoded = json_decode($response, true);
-        if (!is_array($decoded) || !is_string($decoded["dek"])) {
+        if (!is_array($decoded) ||  !array_key_exists("dek", $decoded) || !is_string($decoded["dek"])) {
             throw new InvalidArgumentException("$response is not a valid UnwrapKeyResponse.");
         }
         return new UnwrapKeyResponse(Bytes::fromBase64($decoded["dek"]));

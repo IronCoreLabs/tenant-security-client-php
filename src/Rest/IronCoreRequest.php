@@ -16,7 +16,7 @@ abstract class IronCoreRequest
      */
     final public function getJsonData(): string
     {
-        return json_encode($this->getPostData(), JSON_FORCE_OBJECT);
+        return json_encode($this->getPostData());
     }
 
     /**

@@ -21,6 +21,13 @@ final class TenantSecurityExceptionTest extends TestCase
         $this->assertEquals($exception->getCode(), -1);
     }
 
+    public function testFromResponseUnknownWhenMissingCode(): void
+    {
+        $exception = TenantSecurityException::fromResponse("[]");
+        $this->assertEquals($exception->getCode(), -1);
+    }
+
+
     public function testForAllKnownCodes(): void
     {
         $this->assertEquals(self::createExceptionForCode(0)->getCode(), 0);

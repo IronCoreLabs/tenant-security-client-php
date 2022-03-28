@@ -11,7 +11,7 @@ to use the Tenant Security Client (TSC) re-key function. The example code contai
 2. Reading the EDEK from the file-system, re-keying it to tenant-aws, then storing it again
 3. Reading the new EDEK from the file-system then using it to decrypt to document for tenant-aws
 
-To run the example, you will need to have a PHP 7.3+ and composer installed on your computer.
+To run the example, you will need to have a PHP 7.4+ and composer installed on your computer.
 
 ```bash
 export API_KEY='0WUaXesNgbTAuLwn'

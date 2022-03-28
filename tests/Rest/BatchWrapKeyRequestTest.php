@@ -4,18 +4,17 @@ declare(strict_types=1);
 
 namespace IronCore\Rest;
 
-use IronCore\Bytes;
 use IronCore\IclFields;
 use IronCore\RequestMetadata;
 use PHPUnit\Framework\TestCase;
 
-final class WrapKeyRequestTest extends TestCase
+final class BatchWrapKeyRequestTest extends TestCase
 {
     public function testJsonData(): void
     {
         $iclFields = new IclFields("requesting-id");
         $metadata = new RequestMetadata("my-tenant", $iclFields, []);
-        $request = new WrapKeyRequest($metadata);
+        $request = new BatchWrapKeyRequest($metadata, ["1", "b"]);
         $post = $request->getJsonData();
         $expected =
             '{
@@ -27,7 +26,8 @@ final class WrapKeyRequestTest extends TestCase
                     "objectId":null,
                     "requestId":null
                 },
-                "customFields":{}
+                "customFields":{},
+                "documentIds":["1","b"]
             }';
         // Generated JSON won't have extra lines or spaces
         $strippedExpected = str_replace(["\n", " "], "", $expected);

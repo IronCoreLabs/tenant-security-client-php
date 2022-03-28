@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace IronCore\Exception;
 
 use Exception;
-use JsonException;
 
 /**
  * This exception indicates a problem talking to the TSP or the TSP talking to the
@@ -14,23 +13,18 @@ use JsonException;
 class TenantSecurityException extends Exception
 {
     /**
-     * Converts from a TSP error response to a TenantSecurityException.
+     * Converts from a JSON-decoded TSP error response to a TenantSecurityException.
      *
-     * @param string $response Response from the TSP
+     * @param array $decodedJson Decoded response from the TSP.
      *
-     * @return TenantSecurityException TenantSecurityException associated with the TSP status code
+     * @return TenantSecurityException TenantSecurityException associated with the TSP status coe.
      */
-    public static function fromResponse(string $response): TenantSecurityException
+    public static function fromDecodedJson(array $decodedJson)
     {
-        $decodedResponse = json_decode($response, true);
-        if (
-            !is_array($decodedResponse) ||
-            !array_key_exists("code", $decodedResponse) ||
-            !is_int($decodedResponse["code"])
-        ) {
+        if (!array_key_exists("code", $decodedJson) || !is_int($decodedJson["code"])) {
             return new TspServiceException("UnknownError: Unknown request error occurred", -1);
         }
-        $code = (int) $decodedResponse["code"];
+        $code = (int) $decodedJson["code"];
         switch ($code) {
             case 0:
                 return new TspServiceException(
@@ -59,8 +53,8 @@ class TenantSecurityException extends Exception
                 );
             case 201:
                 return new KmsException(
-                    "UnknownTenantOrNoActiveKmsConfigurations: Tenant either doesn't exist
-                    or has no active KMS configurations.",
+                    "UnknownTenantOrNoActiveKmsConfigurations: Tenant either doesn't exist or " .
+                        "has no active KMS configurations.",
                     $code
                 );
             case 202:
@@ -85,14 +79,14 @@ class TenantSecurityException extends Exception
                 );
             case 206:
                 return new KmsException(
-                    "KmsAuthorizationFailed: Request to KMS failed because the tenant credentials
-                    were invalid or have been revoked.",
+                    "KmsAuthorizationFailed: Request to KMS failed because the tenant credentials were " .
+                        "invalid or have been revoked.",
                     $code
                 );
             case 207:
                 return new KmsException(
-                    "KmsConfigurationInvalid: Request to KMS failed because the key configuration was
-                    invalid or the necessary permissions for the operation were missing/revoked.",
+                    "KmsConfigurationInvalid: Request to KMS failed because the key configuration was " .
+                        "invalid or the necessary permissions for the operation were missing/revoked.",
                     $code
                 );
             case 208:
@@ -102,7 +96,7 @@ class TenantSecurityException extends Exception
                 );
             case 301:
                 return new SecurityEventException(
-                    "SecurityEventRejected: Tenant Security Proxy could not accept the security event",
+                    "SecurityEventRejected: Tenant Security Proxy could not accept the security event.",
                     $code
                 );
             default:
@@ -111,5 +105,20 @@ class TenantSecurityException extends Exception
                     $code
                 );
         }
+    }
+    /**
+     * Converts from a TSP error response to a TenantSecurityException.
+     *
+     * @param string $response Response from the TSP
+     *
+     * @return TenantSecurityException TenantSecurityException associated with the TSP status code
+     */
+    public static function fromResponse(string $response): TenantSecurityException
+    {
+        $decodedResponse = json_decode($response, true);
+        if (!is_array($decodedResponse)) {
+            return new TspServiceException("UnknownError: Unknown request error occurred", -1);
+        }
+        return TenantSecurityException::fromDecodedJson($decodedResponse);
     }
 }
