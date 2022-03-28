@@ -69,6 +69,10 @@
                 
             </li>
                     <li>
+                <a href="namespaces/ironcore-securityevents.html">SecurityEvents</a>
+                
+            </li>
+                    <li>
                 <a href="namespaces/ironcore-utils.html">Utils</a>
                 
             </li>
@@ -125,7 +129,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityClient.php"><a href="files/src-tenantsecurityclient.html"><abbr title="src/TenantSecurityClient.php">TenantSecurityClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15</span>
+    <span class="phpdocumentor-element-found-in__line">16</span>
 
     </aside>
 
@@ -162,6 +166,23 @@ across different tenants.</p>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/IronCore-TenantSecurityClient.html#method_batchDecrypt">batchDecrypt()</a>
+    <span>
+                        &nbsp;: <a href="classes/IronCore-BatchPlaintextDocuments.html"><abbr title="\IronCore\BatchPlaintextDocuments">BatchPlaintextDocuments</abbr></a>    </span>
+</dt>
+<dd>Decrypts a map of documents from the ID of the document to its encrypted content. Makes a call
+out to the Tenant Security Proxy to decrypt all of the EDEKs in each document. This function
+supports partial failure so it returns two Maps, one of document ID to successfully decrypted
+document and one of document ID to a TenantSecurityException.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/IronCore-TenantSecurityClient.html#method_batchEncrypt">batchEncrypt()</a>
+    <span>
+                        &nbsp;: <a href="classes/IronCore-BatchEncryptedDocuments.html"><abbr title="\IronCore\BatchEncryptedDocuments">BatchEncryptedDocuments</abbr></a>    </span>
+</dt>
+<dd>Encrypts an array of documents from the ID of the document to the list of fields to encrypt.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/IronCore-TenantSecurityClient.html#method_decrypt">decrypt()</a>
     <span>
                         &nbsp;: <a href="classes/IronCore-PlaintextDocument.html"><abbr title="\IronCore\PlaintextDocument">PlaintextDocument</abbr></a>    </span>
@@ -180,6 +201,16 @@ id/name (string) to bytes (string). Uses the Tenant Security Proxy to generate a
 encryption key (DEK), encrypt that key (EDEK), then use the DEK to encrypt all of the
 provided document fields. Returns an EncryptedDocument which contains a Map from each field&#039;s
 id/name to encrypted bytes as well as the EDEK and discards the DEK.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/IronCore-TenantSecurityClient.html#method_logSecurityEvent">logSecurityEvent()</a>
+    <span>
+                        &nbsp;: void    </span>
+</dt>
+<dd>Send the provided security event to the TSP to be logged and analyzed. Note that logging a security event is an
+asynchronous operation at the TSP, so successful receipt of a security event does not mean
+that the event is deliverable or has been delivered to the tenant&#039;s logging system. It simply
+means that the event has been received and will be processed.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/IronCore-TenantSecurityClient.html#method_rekeyEdek">rekeyEdek()</a>
@@ -218,7 +249,7 @@ document to the tenant&#039;s latest primary config.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityClient.php"><a href="files/src-tenantsecurityclient.html"><abbr title="src/TenantSecurityClient.php">TenantSecurityClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">20</span>
+    <span class="phpdocumentor-element-found-in__line">21</span>
 
     </aside>
 
@@ -254,7 +285,7 @@ document to the tenant&#039;s latest primary config.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityClient.php"><a href="files/src-tenantsecurityclient.html"><abbr title="src/TenantSecurityClient.php">TenantSecurityClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">26</span>
+    <span class="phpdocumentor-element-found-in__line">27</span>
 
     </aside>
 
@@ -300,6 +331,127 @@ document to the tenant&#039;s latest primary config.</dd>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_batchDecrypt">
+        batchDecrypt()
+        <a href="classes/IronCore-TenantSecurityClient.html#method_batchDecrypt" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityClient.php"><a href="files/src-tenantsecurityclient.html"><abbr title="src/TenantSecurityClient.php">TenantSecurityClient.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">132</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Decrypts a map of documents from the ID of the document to its encrypted content. Makes a call
+out to the Tenant Security Proxy to decrypt all of the EDEKs in each document. This function
+supports partial failure so it returns two Maps, one of document ID to successfully decrypted
+document and one of document ID to a TenantSecurityException.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">batchDecrypt</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/IronCore-EncryptedDocument.html"><abbr title="\IronCore\EncryptedDocument">EncryptedDocument</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$documents</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-RequestMetadata.html"><abbr title="\IronCore\RequestMetadata">RequestMetadata</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$metadata</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-BatchPlaintextDocuments.html"><abbr title="\IronCore\BatchPlaintextDocuments">BatchPlaintextDocuments</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$documents</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/IronCore-EncryptedDocument.html"><abbr title="\IronCore\EncryptedDocument">EncryptedDocument</abbr></a>&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Encrypted documents to decrypt. Each entry in the array is
+[documentId =&gt; EncryptedDocument].</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$metadata</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-RequestMetadata.html"><abbr title="\IronCore\RequestMetadata">RequestMetadata</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-BatchPlaintextDocuments.html"><abbr title="\IronCore\BatchPlaintextDocuments">BatchPlaintextDocuments</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>Collection of successes and failures that occurred during operation.
+The keys of each map returned will be the same keys provided in the original documents map.</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_batchEncrypt">
+        batchEncrypt()
+        <a href="classes/IronCore-TenantSecurityClient.html#method_batchEncrypt" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityClient.php"><a href="files/src-tenantsecurityclient.html"><abbr title="src/TenantSecurityClient.php">TenantSecurityClient.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">72</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Encrypts an array of documents from the ID of the document to the list of fields to encrypt.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">batchEncrypt</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, array&lt;string|int, <a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>&gt;&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$documents</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-RequestMetadata.html"><abbr title="\IronCore\RequestMetadata">RequestMetadata</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$metadata</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-BatchEncryptedDocuments.html"><abbr title="\IronCore\BatchEncryptedDocuments">BatchEncryptedDocuments</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"><p>Makes a call out to the Tenant Security Proxy to generate a collection of new DEK/EDEK pairs
+for each document ID provided. This function supports partial failure so it returns two Maps,
+one of document ID to successfully encrypted document and one of document ID to a TenantSecurityException.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$documents</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, array&lt;string|int, <a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>&gt;&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Documents to encrypt. Each entry in the array is [documentId =&gt; Bytes[]].</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$metadata</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-RequestMetadata.html"><abbr title="\IronCore\RequestMetadata">RequestMetadata</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Metadata about the documents being encrypted</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-BatchEncryptedDocuments.html"><abbr title="\IronCore\BatchEncryptedDocuments">BatchEncryptedDocuments</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>Collection of successes and failures that occurred during operation.
+The keys of each map returned will be the same keys provided in the original documents map.</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_decrypt">
         decrypt()
         <a href="classes/IronCore-TenantSecurityClient.html#method_decrypt" class="headerlink"><i class="fas fa-link"></i></a>
@@ -307,7 +459,7 @@ document to the tenant&#039;s latest primary config.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityClient.php"><a href="files/src-tenantsecurityclient.html"><abbr title="src/TenantSecurityClient.php">TenantSecurityClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">69</span>
+    <span class="phpdocumentor-element-found-in__line">109</span>
 
     </aside>
 
@@ -365,7 +517,7 @@ is then discarded.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityClient.php"><a href="files/src-tenantsecurityclient.html"><abbr title="src/TenantSecurityClient.php">TenantSecurityClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">44</span>
+    <span class="phpdocumentor-element-found-in__line">45</span>
 
     </aside>
 
@@ -419,6 +571,63 @@ with the same key.</p>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_logSecurityEvent">
+        logSecurityEvent()
+        <a href="classes/IronCore-TenantSecurityClient.html#method_logSecurityEvent" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityClient.php"><a href="files/src-tenantsecurityclient.html"><abbr title="src/TenantSecurityClient.php">TenantSecurityClient.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">181</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Send the provided security event to the TSP to be logged and analyzed. Note that logging a security event is an
+asynchronous operation at the TSP, so successful receipt of a security event does not mean
+that the event is deliverable or has been delivered to the tenant&#039;s logging system. It simply
+means that the event has been received and will be processed.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">logSecurityEvent</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-SecurityEvents-SecurityEvent.html"><abbr title="\IronCore\SecurityEvents\SecurityEvent">SecurityEvent</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$event</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-EventMetadata.html"><abbr title="\IronCore\EventMetadata">EventMetadata</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$metadata</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$event</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-SecurityEvents-SecurityEvent.html"><abbr title="\IronCore\SecurityEvents\SecurityEvent">SecurityEvent</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Security event that represents the action that took place.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$metadata</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-EventMetadata.html"><abbr title="\IronCore\EventMetadata">EventMetadata</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Metadata that provides additional context about the event.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">void</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_rekeyEdek">
         rekeyEdek()
         <a href="classes/IronCore-TenantSecurityClient.html#method_rekeyEdek" class="headerlink"><i class="fas fa-link"></i></a>
@@ -426,7 +635,7 @@ with the same key.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityClient.php"><a href="files/src-tenantsecurityclient.html"><abbr title="src/TenantSecurityClient.php">TenantSecurityClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">89</span>
+    <span class="phpdocumentor-element-found-in__line">165</span>
 
     </aside>
 

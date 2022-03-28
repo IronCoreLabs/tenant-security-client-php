@@ -69,6 +69,10 @@
                 
             </li>
                     <li>
+                <a href="namespaces/ironcore-securityevents.html">SecurityEvents</a>
+                
+            </li>
+                    <li>
                 <a href="namespaces/ironcore-utils.html">Utils</a>
                 
             </li>
@@ -118,6 +122,10 @@
 
 <dl class="phpdocumentor-table-of-contents">
     
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/IronCore-BatchEncryptedDocuments.html"><abbr title="\IronCore\BatchEncryptedDocuments">BatchEncryptedDocuments</abbr></a></dt>
+        <dd>A batch of documents which have been encrypted.</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/IronCore-BatchPlaintextDocuments.html"><abbr title="\IronCore\BatchPlaintextDocuments">BatchPlaintextDocuments</abbr></a></dt>
+        <dd>A batch of documents which have been decrypted.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></dt>
         <dd>Wrapper around a string that contains raw bytes</dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/IronCore-Crypto-Aes.html"><abbr title="\IronCore\Crypto\Aes">Aes</abbr></a></dt>
@@ -130,6 +138,8 @@
         <dd>A parsed IronCore encrypted document</dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/IronCore-EncryptedDocument.html"><abbr title="\IronCore\EncryptedDocument">EncryptedDocument</abbr></a></dt>
         <dd>A set of fields which has been encrypted.</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/IronCore-EventMetadata.html"><abbr title="\IronCore\EventMetadata">EventMetadata</abbr></a></dt>
+        <dd>RequestMetadata with an optional `timestampMillis` referencing when a security event took place.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/IronCore-Exception-CryptoException.html"><abbr title="\IronCore\Exception\CryptoException">CryptoException</abbr></a></dt>
         <dd>This exception indicates a problem with encrypting, decrypting or verifying signatures.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/IronCore-Exception-KmsException.html"><abbr title="\IronCore\Exception\KmsException">KmsException</abbr></a></dt>
@@ -144,6 +154,8 @@ key management servers. See the fromResponse static function for the code -&gt; 
         <dd>This indicates a problem from the Tenant Security Proxy itself (such as invalid API key).</dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/IronCore-IclFields.html"><abbr title="\IronCore\IclFields">IclFields</abbr></a></dt>
         <dd>Holds metadata to pass to the Tenant Security Proxy for logging purposes.</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/IronCore-IclFieldsWithEvent.html"><abbr title="\IronCore\IclFieldsWithEvent">IclFieldsWithEvent</abbr></a></dt>
+        <dd>Holds the event to pass to the Tenant Security Proxy for logging purposes.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/IronCore-PlaintextDocument.html"><abbr title="\IronCore\PlaintextDocument">PlaintextDocument</abbr></a></dt>
         <dd>A decrypted document.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Proto-IronCoreLabs-DataControlPlatformHeader.html"><abbr title="\Proto\IronCoreLabs\DataControlPlatformHeader">DataControlPlatformHeader</abbr></a></dt>
@@ -157,8 +169,18 @@ key management servers. See the fromResponse static function for the code -&gt; 
 that will be sent to the Tenant Security Proxy for logging and other purposes. Some examples include
 the tenant ID associated with the request, the service that is accessing the data, and a unique ID
 for the request.</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/IronCore-Rest-BatchUnwrapKeyRequest.html"><abbr title="\IronCore\Rest\BatchUnwrapKeyRequest">BatchUnwrapKeyRequest</abbr></a></dt>
+        <dd>Request to the Tenant Security Proxy&#039;s batch unwrap keys endpoint</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/IronCore-Rest-BatchUnwrapKeyResponse.html"><abbr title="\IronCore\Rest\BatchUnwrapKeyResponse">BatchUnwrapKeyResponse</abbr></a></dt>
+        <dd>Response from the Tenant Security Proxy&#039;s batch unwrap key endpoint</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/IronCore-Rest-BatchWrapKeyRequest.html"><abbr title="\IronCore\Rest\BatchWrapKeyRequest">BatchWrapKeyRequest</abbr></a></dt>
+        <dd>Request to the Tenant Security Proxy&#039;s batch wrap keys endpoint</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/IronCore-Rest-BatchWrapKeyResponse.html"><abbr title="\IronCore\Rest\BatchWrapKeyResponse">BatchWrapKeyResponse</abbr></a></dt>
+        <dd>Response from the Tenant Security Proxy&#039;s batch wrap key endpoint</dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/IronCore-Rest-IronCoreRequest.html"><abbr title="\IronCore\Rest\IronCoreRequest">IronCoreRequest</abbr></a></dt>
         <dd>Abstract class representing a Tenant Security Proxy request object.</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/IronCore-Rest-LogSecurityEventRequest.html"><abbr title="\IronCore\Rest\LogSecurityEventRequest">LogSecurityEventRequest</abbr></a></dt>
+        <dd>Request to the Tenant Security Proxy&#039;s security event logging endpoint</dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/IronCore-Rest-RekeyRequest.html"><abbr title="\IronCore\Rest\RekeyRequest">RekeyRequest</abbr></a></dt>
         <dd>Request to the Tenant Security Proxy&#039;s re-key endpoint</dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/IronCore-Rest-RekeyResponse.html"><abbr title="\IronCore\Rest\RekeyResponse">RekeyResponse</abbr></a></dt>
@@ -171,6 +193,18 @@ for the request.</dd>
         <dd>Request to the Tenant Security Proxy&#039;s wrap key endpoint</dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/IronCore-Rest-WrapKeyResponse.html"><abbr title="\IronCore\Rest\WrapKeyResponse">WrapKeyResponse</abbr></a></dt>
         <dd>Response from the Tenant Security Proxy&#039;s wrap key endpoint</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/IronCore-SecurityEvents-AdminEvent.html"><abbr title="\IronCore\SecurityEvents\AdminEvent">AdminEvent</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/IronCore-SecurityEvents-CustomEvent.html"><abbr title="\IronCore\SecurityEvents\CustomEvent">CustomEvent</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/IronCore-SecurityEvents-DataEvent.html"><abbr title="\IronCore\SecurityEvents\DataEvent">DataEvent</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/IronCore-SecurityEvents-PeriodicEvent.html"><abbr title="\IronCore\SecurityEvents\PeriodicEvent">PeriodicEvent</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/IronCore-SecurityEvents-SecurityEvent.html"><abbr title="\IronCore\SecurityEvents\SecurityEvent">SecurityEvent</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/IronCore-SecurityEvents-UserEvent.html"><abbr title="\IronCore\SecurityEvents\UserEvent">UserEvent</abbr></a></dt>
+        <dd></dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/IronCore-TenantSecurityClient.html"><abbr title="\IronCore\TenantSecurityClient">TenantSecurityClient</abbr></a></dt>
         <dd>Client used to encrypt and decrypt documents. This is the primary class that consumers of the
 library will need to utilize, and a single instance of the class can be re-used for requests
@@ -197,9 +231,23 @@ across different tenants.</dd>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/ironcore.html#constant_BATCH_WRAP_ENDPOINT">BATCH_WRAP_ENDPOINT</a>
+    <span>
+        &nbsp;= &quot;document/batch-wrap&quot;                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="namespaces/ironcore.html#constant_REKEY_ENDPOINT">REKEY_ENDPOINT</a>
     <span>
         &nbsp;= &quot;document/rekey&quot;                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/ironcore.html#constant_SECURITY_EVENT_ENDPOINT">SECURITY_EVENT_ENDPOINT</a>
+    <span>
+        &nbsp;= &quot;event/security-event&quot;                    </span>
 </dt>
 <dd></dd>
 
@@ -255,7 +303,7 @@ across different tenants.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">20</span>
+    <span class="phpdocumentor-element-found-in__line">27</span>
 
     </aside>
 
@@ -276,6 +324,35 @@ across different tenants.</dd>
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_BATCH_WRAP_ENDPOINT">
+        BATCH_WRAP_ENDPOINT
+        <a href="namespaces/ironcore.html#constant_BATCH_WRAP_ENDPOINT" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">25</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">BATCH_WRAP_ENDPOINT</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;document/batch-wrap&quot;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_REKEY_ENDPOINT">
         REKEY_ENDPOINT
         <a href="namespaces/ironcore.html#constant_REKEY_ENDPOINT" class="headerlink"><i class="fas fa-link"></i></a>
@@ -284,7 +361,7 @@ across different tenants.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">21</span>
+    <span class="phpdocumentor-element-found-in__line">28</span>
 
     </aside>
 
@@ -305,6 +382,35 @@ across different tenants.</dd>
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SECURITY_EVENT_ENDPOINT">
+        SECURITY_EVENT_ENDPOINT
+        <a href="namespaces/ironcore.html#constant_SECURITY_EVENT_ENDPOINT" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">30</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SECURITY_EVENT_ENDPOINT</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;event/security-event&quot;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_TENANT_KEY_DERIVE_ENDPOINT">
         TENANT_KEY_DERIVE_ENDPOINT
         <a href="namespaces/ironcore.html#constant_TENANT_KEY_DERIVE_ENDPOINT" class="headerlink"><i class="fas fa-link"></i></a>
@@ -313,7 +419,7 @@ across different tenants.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">22</span>
+    <span class="phpdocumentor-element-found-in__line">29</span>
 
     </aside>
 
@@ -342,7 +448,7 @@ across different tenants.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">17</span>
+    <span class="phpdocumentor-element-found-in__line">23</span>
 
     </aside>
 
@@ -371,7 +477,7 @@ across different tenants.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">19</span>
+    <span class="phpdocumentor-element-found-in__line">26</span>
 
     </aside>
 
@@ -400,7 +506,7 @@ across different tenants.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">24</span>
 
     </aside>
 

@@ -1,6 +1,66 @@
 Search.appendIndex(
     [
                 {
+            "fqsen": "\\IronCore\\BatchEncryptedDocuments",
+            "name": "BatchEncryptedDocuments",
+            "summary": "A\u0020batch\u0020of\u0020documents\u0020which\u0020have\u0020been\u0020encrypted.",
+            "url": "classes/IronCore-BatchEncryptedDocuments.html"
+        },                {
+            "fqsen": "\\IronCore\\BatchEncryptedDocuments\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/IronCore-BatchEncryptedDocuments.html#method___construct"
+        },                {
+            "fqsen": "\\IronCore\\BatchEncryptedDocuments\u003A\u003AgetEncryptedDocuments\u0028\u0029",
+            "name": "getEncryptedDocuments",
+            "summary": "",
+            "url": "classes/IronCore-BatchEncryptedDocuments.html#method_getEncryptedDocuments"
+        },                {
+            "fqsen": "\\IronCore\\BatchEncryptedDocuments\u003A\u003AgetFailures\u0028\u0029",
+            "name": "getFailures",
+            "summary": "",
+            "url": "classes/IronCore-BatchEncryptedDocuments.html#method_getFailures"
+        },                {
+            "fqsen": "\\IronCore\\BatchEncryptedDocuments\u003A\u003A\u0024documents",
+            "name": "documents",
+            "summary": "",
+            "url": "classes/IronCore-BatchEncryptedDocuments.html#property_documents"
+        },                {
+            "fqsen": "\\IronCore\\BatchEncryptedDocuments\u003A\u003A\u0024failures",
+            "name": "failures",
+            "summary": "",
+            "url": "classes/IronCore-BatchEncryptedDocuments.html#property_failures"
+        },                {
+            "fqsen": "\\IronCore\\BatchPlaintextDocuments",
+            "name": "BatchPlaintextDocuments",
+            "summary": "A\u0020batch\u0020of\u0020documents\u0020which\u0020have\u0020been\u0020decrypted.",
+            "url": "classes/IronCore-BatchPlaintextDocuments.html"
+        },                {
+            "fqsen": "\\IronCore\\BatchPlaintextDocuments\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/IronCore-BatchPlaintextDocuments.html#method___construct"
+        },                {
+            "fqsen": "\\IronCore\\BatchPlaintextDocuments\u003A\u003AgetPlaintextDocuments\u0028\u0029",
+            "name": "getPlaintextDocuments",
+            "summary": "",
+            "url": "classes/IronCore-BatchPlaintextDocuments.html#method_getPlaintextDocuments"
+        },                {
+            "fqsen": "\\IronCore\\BatchPlaintextDocuments\u003A\u003AgetFailures\u0028\u0029",
+            "name": "getFailures",
+            "summary": "",
+            "url": "classes/IronCore-BatchPlaintextDocuments.html#method_getFailures"
+        },                {
+            "fqsen": "\\IronCore\\BatchPlaintextDocuments\u003A\u003A\u0024documents",
+            "name": "documents",
+            "summary": "",
+            "url": "classes/IronCore-BatchPlaintextDocuments.html#property_documents"
+        },                {
+            "fqsen": "\\IronCore\\BatchPlaintextDocuments\u003A\u003A\u0024failures",
+            "name": "failures",
+            "summary": "",
+            "url": "classes/IronCore-BatchPlaintextDocuments.html#property_failures"
+        },                {
             "fqsen": "\\IronCore\\Bytes",
             "name": "Bytes",
             "summary": "Wrapper\u0020around\u0020a\u0020string\u0020that\u0020contains\u0020raw\u0020bytes",
@@ -261,6 +321,26 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/IronCore-EncryptedDocument.html#property_edek"
         },                {
+            "fqsen": "\\IronCore\\EventMetadata",
+            "name": "EventMetadata",
+            "summary": "RequestMetadata\u0020with\u0020an\u0020optional\u0020\u0060timestampMillis\u0060\u0020referencing\u0020when\u0020a\u0020security\u0020event\u0020took\u0020place.",
+            "url": "classes/IronCore-EventMetadata.html"
+        },                {
+            "fqsen": "\\IronCore\\EventMetadata\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/IronCore-EventMetadata.html#method___construct"
+        },                {
+            "fqsen": "\\IronCore\\EventMetadata\u003A\u003AgetPostData\u0028\u0029",
+            "name": "getPostData",
+            "summary": "Gets\u0020an\u0020associative\u0020array\u0020of\u0020data\u0020that\u0020can\u0020be\u0020serialized\nand\u0020sent\u0020to\u0020the\u0020Tenant\u0020Security\u0020Proxy.",
+            "url": "classes/IronCore-EventMetadata.html#method_getPostData"
+        },                {
+            "fqsen": "\\IronCore\\EventMetadata\u003A\u003A\u0024timestampMillis",
+            "name": "timestampMillis",
+            "summary": "",
+            "url": "classes/IronCore-EventMetadata.html#property_timestampMillis"
+        },                {
             "fqsen": "\\IronCore\\Exception\\CryptoException",
             "name": "CryptoException",
             "summary": "This\u0020exception\u0020indicates\u0020a\u0020problem\u0020with\u0020encrypting,\u0020decrypting\u0020or\u0020verifying\u0020signatures.",
@@ -280,6 +360,11 @@ Search.appendIndex(
             "name": "TenantSecurityException",
             "summary": "This\u0020exception\u0020indicates\u0020a\u0020problem\u0020talking\u0020to\u0020the\u0020TSP\u0020or\u0020the\u0020TSP\u0020talking\u0020to\u0020the\nkey\u0020management\u0020servers.\u0020See\u0020the\u0020fromResponse\u0020static\u0020function\u0020for\u0020the\u0020code\u0020\u002D\u003E\u0020exception\u0020mapping.",
             "url": "classes/IronCore-Exception-TenantSecurityException.html"
+        },                {
+            "fqsen": "\\IronCore\\Exception\\TenantSecurityException\u003A\u003AfromDecodedJson\u0028\u0029",
+            "name": "fromDecodedJson",
+            "summary": "Converts\u0020from\u0020a\u0020JSON\u002Ddecoded\u0020TSP\u0020error\u0020response\u0020to\u0020a\u0020TenantSecurityException.",
+            "url": "classes/IronCore-Exception-TenantSecurityException.html#method_fromDecodedJson"
         },                {
             "fqsen": "\\IronCore\\Exception\\TenantSecurityException\u003A\u003AfromResponse\u0028\u0029",
             "name": "fromResponse",
@@ -325,6 +410,21 @@ Search.appendIndex(
             "name": "requestId",
             "summary": "",
             "url": "classes/IronCore-IclFields.html#property_requestId"
+        },                {
+            "fqsen": "\\IronCore\\IclFieldsWithEvent",
+            "name": "IclFieldsWithEvent",
+            "summary": "Holds\u0020the\u0020event\u0020to\u0020pass\u0020to\u0020the\u0020Tenant\u0020Security\u0020Proxy\u0020for\u0020logging\u0020purposes.",
+            "url": "classes/IronCore-IclFieldsWithEvent.html"
+        },                {
+            "fqsen": "\\IronCore\\IclFieldsWithEvent\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/IronCore-IclFieldsWithEvent.html#method___construct"
+        },                {
+            "fqsen": "\\IronCore\\IclFieldsWithEvent\u003A\u003A\u0024event",
+            "name": "event",
+            "summary": "",
+            "url": "classes/IronCore-IclFieldsWithEvent.html#property_event"
         },                {
             "fqsen": "\\IronCore\\PlaintextDocument",
             "name": "PlaintextDocument",
@@ -521,6 +621,126 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/IronCore-RequestMetadata.html#property_customFields"
         },                {
+            "fqsen": "\\IronCore\\Rest\\BatchUnwrapKeyRequest",
+            "name": "BatchUnwrapKeyRequest",
+            "summary": "Request\u0020to\u0020the\u0020Tenant\u0020Security\u0020Proxy\u0027s\u0020batch\u0020unwrap\u0020keys\u0020endpoint",
+            "url": "classes/IronCore-Rest-BatchUnwrapKeyRequest.html"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\BatchUnwrapKeyRequest\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/IronCore-Rest-BatchUnwrapKeyRequest.html#method___construct"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\BatchUnwrapKeyRequest\u003A\u003AgetPostData\u0028\u0029",
+            "name": "getPostData",
+            "summary": "Method\u0020to\u0020get\u0020the\u0020request\u0020data\u0020as\u0020an\u0020associative\u0020array.",
+            "url": "classes/IronCore-Rest-BatchUnwrapKeyRequest.html#method_getPostData"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\BatchUnwrapKeyRequest\u003A\u003A\u0024metadata",
+            "name": "metadata",
+            "summary": "",
+            "url": "classes/IronCore-Rest-BatchUnwrapKeyRequest.html#property_metadata"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\BatchUnwrapKeyRequest\u003A\u003A\u0024edeks",
+            "name": "edeks",
+            "summary": "",
+            "url": "classes/IronCore-Rest-BatchUnwrapKeyRequest.html#property_edeks"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\BatchUnwrapKeyResponse",
+            "name": "BatchUnwrapKeyResponse",
+            "summary": "Response\u0020from\u0020the\u0020Tenant\u0020Security\u0020Proxy\u0027s\u0020batch\u0020unwrap\u0020key\u0020endpoint",
+            "url": "classes/IronCore-Rest-BatchUnwrapKeyResponse.html"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\BatchUnwrapKeyResponse\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/IronCore-Rest-BatchUnwrapKeyResponse.html#method___construct"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\BatchUnwrapKeyResponse\u003A\u003AfromResponse\u0028\u0029",
+            "name": "fromResponse",
+            "summary": "",
+            "url": "classes/IronCore-Rest-BatchUnwrapKeyResponse.html#method_fromResponse"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\BatchUnwrapKeyResponse\u003A\u003AgetKeys\u0028\u0029",
+            "name": "getKeys",
+            "summary": "",
+            "url": "classes/IronCore-Rest-BatchUnwrapKeyResponse.html#method_getKeys"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\BatchUnwrapKeyResponse\u003A\u003AgetFailures\u0028\u0029",
+            "name": "getFailures",
+            "summary": "",
+            "url": "classes/IronCore-Rest-BatchUnwrapKeyResponse.html#method_getFailures"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\BatchUnwrapKeyResponse\u003A\u003A\u0024keys",
+            "name": "keys",
+            "summary": "",
+            "url": "classes/IronCore-Rest-BatchUnwrapKeyResponse.html#property_keys"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\BatchUnwrapKeyResponse\u003A\u003A\u0024failures",
+            "name": "failures",
+            "summary": "",
+            "url": "classes/IronCore-Rest-BatchUnwrapKeyResponse.html#property_failures"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\BatchWrapKeyRequest",
+            "name": "BatchWrapKeyRequest",
+            "summary": "Request\u0020to\u0020the\u0020Tenant\u0020Security\u0020Proxy\u0027s\u0020batch\u0020wrap\u0020keys\u0020endpoint",
+            "url": "classes/IronCore-Rest-BatchWrapKeyRequest.html"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\BatchWrapKeyRequest\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/IronCore-Rest-BatchWrapKeyRequest.html#method___construct"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\BatchWrapKeyRequest\u003A\u003AgetPostData\u0028\u0029",
+            "name": "getPostData",
+            "summary": "Method\u0020to\u0020get\u0020the\u0020request\u0020data\u0020as\u0020an\u0020associative\u0020array.",
+            "url": "classes/IronCore-Rest-BatchWrapKeyRequest.html#method_getPostData"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\BatchWrapKeyRequest\u003A\u003A\u0024metadata",
+            "name": "metadata",
+            "summary": "",
+            "url": "classes/IronCore-Rest-BatchWrapKeyRequest.html#property_metadata"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\BatchWrapKeyRequest\u003A\u003A\u0024documentIds",
+            "name": "documentIds",
+            "summary": "",
+            "url": "classes/IronCore-Rest-BatchWrapKeyRequest.html#property_documentIds"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\BatchWrapKeyResponse",
+            "name": "BatchWrapKeyResponse",
+            "summary": "Response\u0020from\u0020the\u0020Tenant\u0020Security\u0020Proxy\u0027s\u0020batch\u0020wrap\u0020key\u0020endpoint",
+            "url": "classes/IronCore-Rest-BatchWrapKeyResponse.html"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\BatchWrapKeyResponse\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/IronCore-Rest-BatchWrapKeyResponse.html#method___construct"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\BatchWrapKeyResponse\u003A\u003AfromResponse\u0028\u0029",
+            "name": "fromResponse",
+            "summary": "",
+            "url": "classes/IronCore-Rest-BatchWrapKeyResponse.html#method_fromResponse"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\BatchWrapKeyResponse\u003A\u003AgetKeys\u0028\u0029",
+            "name": "getKeys",
+            "summary": "",
+            "url": "classes/IronCore-Rest-BatchWrapKeyResponse.html#method_getKeys"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\BatchWrapKeyResponse\u003A\u003AgetFailures\u0028\u0029",
+            "name": "getFailures",
+            "summary": "",
+            "url": "classes/IronCore-Rest-BatchWrapKeyResponse.html#method_getFailures"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\BatchWrapKeyResponse\u003A\u003A\u0024keys",
+            "name": "keys",
+            "summary": "",
+            "url": "classes/IronCore-Rest-BatchWrapKeyResponse.html#property_keys"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\BatchWrapKeyResponse\u003A\u003A\u0024failures",
+            "name": "failures",
+            "summary": "",
+            "url": "classes/IronCore-Rest-BatchWrapKeyResponse.html#property_failures"
+        },                {
             "fqsen": "\\IronCore\\Rest\\IronCoreRequest",
             "name": "IronCoreRequest",
             "summary": "Abstract\u0020class\u0020representing\u0020a\u0020Tenant\u0020Security\u0020Proxy\u0020request\u0020object.",
@@ -535,6 +755,31 @@ Search.appendIndex(
             "name": "getPostData",
             "summary": "Method\u0020to\u0020get\u0020the\u0020request\u0020data\u0020as\u0020an\u0020associative\u0020array.",
             "url": "classes/IronCore-Rest-IronCoreRequest.html#method_getPostData"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\LogSecurityEventRequest",
+            "name": "LogSecurityEventRequest",
+            "summary": "Request\u0020to\u0020the\u0020Tenant\u0020Security\u0020Proxy\u0027s\u0020security\u0020event\u0020logging\u0020endpoint",
+            "url": "classes/IronCore-Rest-LogSecurityEventRequest.html"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\LogSecurityEventRequest\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/IronCore-Rest-LogSecurityEventRequest.html#method___construct"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\LogSecurityEventRequest\u003A\u003AgetPostData\u0028\u0029",
+            "name": "getPostData",
+            "summary": "Method\u0020to\u0020get\u0020the\u0020request\u0020data\u0020as\u0020an\u0020associative\u0020array.",
+            "url": "classes/IronCore-Rest-LogSecurityEventRequest.html#method_getPostData"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\LogSecurityEventRequest\u003A\u003A\u0024metadata",
+            "name": "metadata",
+            "summary": "",
+            "url": "classes/IronCore-Rest-LogSecurityEventRequest.html#property_metadata"
+        },                {
+            "fqsen": "\\IronCore\\Rest\\LogSecurityEventRequest\u003A\u003A\u0024event",
+            "name": "event",
+            "summary": "",
+            "url": "classes/IronCore-Rest-LogSecurityEventRequest.html#property_event"
         },                {
             "fqsen": "\\IronCore\\Rest\\RekeyRequest",
             "name": "RekeyRequest",
@@ -706,6 +951,276 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/IronCore-Rest-WrapKeyResponse.html#property_edek"
         },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\AdminEvent",
+            "name": "AdminEvent",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-AdminEvent.html"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\AdminEvent\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-AdminEvent.html#method___construct"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\AdminEvent\u003A\u003AgetFlatEvent\u0028\u0029",
+            "name": "getFlatEvent",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-AdminEvent.html#method_getFlatEvent"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\AdminEvent\u003A\u003Aadd\u0028\u0029",
+            "name": "add",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-AdminEvent.html#method_add"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\AdminEvent\u003A\u003Aremove\u0028\u0029",
+            "name": "remove",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-AdminEvent.html#method_remove"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\AdminEvent\u003A\u003AchangePermissions\u0028\u0029",
+            "name": "changePermissions",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-AdminEvent.html#method_changePermissions"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\AdminEvent\u003A\u003AchangeSetting\u0028\u0029",
+            "name": "changeSetting",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-AdminEvent.html#method_changeSetting"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\AdminEvent\u003A\u003A\u0024flatEvent",
+            "name": "flatEvent",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-AdminEvent.html#property_flatEvent"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\CustomEvent",
+            "name": "CustomEvent",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-CustomEvent.html"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\CustomEvent\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-CustomEvent.html#method___construct"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\CustomEvent\u003A\u003AgetFlatEvent\u0028\u0029",
+            "name": "getFlatEvent",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-CustomEvent.html#method_getFlatEvent"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\CustomEvent\u003A\u003AcustomEvent\u0028\u0029",
+            "name": "customEvent",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-CustomEvent.html#method_customEvent"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\CustomEvent\u003A\u003A\u0024flatEvent",
+            "name": "flatEvent",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-CustomEvent.html#property_flatEvent"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\DataEvent",
+            "name": "DataEvent",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-DataEvent.html"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\DataEvent\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-DataEvent.html#method___construct"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\DataEvent\u003A\u003AgetFlatEvent\u0028\u0029",
+            "name": "getFlatEvent",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-DataEvent.html#method_getFlatEvent"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\DataEvent\u003A\u003Aimport\u0028\u0029",
+            "name": "import",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-DataEvent.html#method_import"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\DataEvent\u003A\u003Aexport\u0028\u0029",
+            "name": "export",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-DataEvent.html#method_export"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\DataEvent\u003A\u003Aencrypt\u0028\u0029",
+            "name": "encrypt",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-DataEvent.html#method_encrypt"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\DataEvent\u003A\u003Adecrypt\u0028\u0029",
+            "name": "decrypt",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-DataEvent.html#method_decrypt"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\DataEvent\u003A\u003Acreate\u0028\u0029",
+            "name": "create",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-DataEvent.html#method_create"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\DataEvent\u003A\u003Adelete\u0028\u0029",
+            "name": "delete",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-DataEvent.html#method_delete"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\DataEvent\u003A\u003AdenyAccess\u0028\u0029",
+            "name": "denyAccess",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-DataEvent.html#method_denyAccess"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\DataEvent\u003A\u003AchangePermissions\u0028\u0029",
+            "name": "changePermissions",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-DataEvent.html#method_changePermissions"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\DataEvent\u003A\u003A\u0024flatEvent",
+            "name": "flatEvent",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-DataEvent.html#property_flatEvent"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\PeriodicEvent",
+            "name": "PeriodicEvent",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-PeriodicEvent.html"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\PeriodicEvent\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-PeriodicEvent.html#method___construct"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\PeriodicEvent\u003A\u003AgetFlatEvent\u0028\u0029",
+            "name": "getFlatEvent",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-PeriodicEvent.html#method_getFlatEvent"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\PeriodicEvent\u003A\u003AenforceRetentionPolicy\u0028\u0029",
+            "name": "enforceRetentionPolicy",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-PeriodicEvent.html#method_enforceRetentionPolicy"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\PeriodicEvent\u003A\u003AcreateBackup\u0028\u0029",
+            "name": "createBackup",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-PeriodicEvent.html#method_createBackup"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\PeriodicEvent\u003A\u003A\u0024flatEvent",
+            "name": "flatEvent",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-PeriodicEvent.html#property_flatEvent"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\SecurityEvent",
+            "name": "SecurityEvent",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-SecurityEvent.html"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\SecurityEvent\u003A\u003AgetFlatEvent\u0028\u0029",
+            "name": "getFlatEvent",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-SecurityEvent.html#method_getFlatEvent"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\UserEvent",
+            "name": "UserEvent",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-UserEvent.html"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\UserEvent\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-UserEvent.html#method___construct"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\UserEvent\u003A\u003AgetFlatEvent\u0028\u0029",
+            "name": "getFlatEvent",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-UserEvent.html#method_getFlatEvent"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\UserEvent\u003A\u003Aadd\u0028\u0029",
+            "name": "add",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-UserEvent.html#method_add"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\UserEvent\u003A\u003Asuspend\u0028\u0029",
+            "name": "suspend",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-UserEvent.html#method_suspend"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\UserEvent\u003A\u003Aremove\u0028\u0029",
+            "name": "remove",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-UserEvent.html#method_remove"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\UserEvent\u003A\u003Alogin\u0028\u0029",
+            "name": "login",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-UserEvent.html#method_login"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\UserEvent\u003A\u003AtimeoutSession\u0028\u0029",
+            "name": "timeoutSession",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-UserEvent.html#method_timeoutSession"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\UserEvent\u003A\u003Alockout\u0028\u0029",
+            "name": "lockout",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-UserEvent.html#method_lockout"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\UserEvent\u003A\u003Alogout\u0028\u0029",
+            "name": "logout",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-UserEvent.html#method_logout"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\UserEvent\u003A\u003AchangePermissions\u0028\u0029",
+            "name": "changePermissions",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-UserEvent.html#method_changePermissions"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\UserEvent\u003A\u003AexpirePassword\u0028\u0029",
+            "name": "expirePassword",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-UserEvent.html#method_expirePassword"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\UserEvent\u003A\u003AresetPassword\u0028\u0029",
+            "name": "resetPassword",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-UserEvent.html#method_resetPassword"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\UserEvent\u003A\u003AchangePassword\u0028\u0029",
+            "name": "changePassword",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-UserEvent.html#method_changePassword"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\UserEvent\u003A\u003ArejectLogin\u0028\u0029",
+            "name": "rejectLogin",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-UserEvent.html#method_rejectLogin"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\UserEvent\u003A\u003AenableTwoFactor\u0028\u0029",
+            "name": "enableTwoFactor",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-UserEvent.html#method_enableTwoFactor"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\UserEvent\u003A\u003AdisableTwoFactor\u0028\u0029",
+            "name": "disableTwoFactor",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-UserEvent.html#method_disableTwoFactor"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\UserEvent\u003A\u003AchangeEmail\u0028\u0029",
+            "name": "changeEmail",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-UserEvent.html#method_changeEmail"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\UserEvent\u003A\u003ArequestEmailVerification\u0028\u0029",
+            "name": "requestEmailVerification",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-UserEvent.html#method_requestEmailVerification"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\UserEvent\u003A\u003AverifyEmail\u0028\u0029",
+            "name": "verifyEmail",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-UserEvent.html#method_verifyEmail"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents\\UserEvent\u003A\u003A\u0024flatEvent",
+            "name": "flatEvent",
+            "summary": "",
+            "url": "classes/IronCore-SecurityEvents-UserEvent.html#property_flatEvent"
+        },                {
             "fqsen": "\\IronCore\\TenantSecurityClient",
             "name": "TenantSecurityClient",
             "summary": "Client\u0020used\u0020to\u0020encrypt\u0020and\u0020decrypt\u0020documents.\u0020This\u0020is\u0020the\u0020primary\u0020class\u0020that\u0020consumers\u0020of\u0020the\nlibrary\u0020will\u0020need\u0020to\u0020utilize,\u0020and\u0020a\u0020single\u0020instance\u0020of\u0020the\u0020class\u0020can\u0020be\u0020re\u002Dused\u0020for\u0020requests\nacross\u0020different\u0020tenants.",
@@ -721,15 +1236,30 @@ Search.appendIndex(
             "summary": "Encrypts\u0020the\u0020provided\u0020document.\u0020Documents\u0020are\u0020provided\u0020as\u0020a\u0020map\u0020of\u0020fields\u0020from\u0020the\u0020document\nid\/name\u0020\u0028string\u0029\u0020to\u0020bytes\u0020\u0028string\u0029.\u0020Uses\u0020the\u0020Tenant\u0020Security\u0020Proxy\u0020to\u0020generate\u0020a\u0020new\u0020document\nencryption\u0020key\u0020\u0028DEK\u0029,\u0020encrypt\u0020that\u0020key\u0020\u0028EDEK\u0029,\u0020then\u0020use\u0020the\u0020DEK\u0020to\u0020encrypt\u0020all\u0020of\u0020the\nprovided\u0020document\u0020fields.\u0020Returns\u0020an\u0020EncryptedDocument\u0020which\u0020contains\u0020a\u0020Map\u0020from\u0020each\u0020field\u0027s\nid\/name\u0020to\u0020encrypted\u0020bytes\u0020as\u0020well\u0020as\u0020the\u0020EDEK\u0020and\u0020discards\u0020the\u0020DEK.",
             "url": "classes/IronCore-TenantSecurityClient.html#method_encrypt"
         },                {
+            "fqsen": "\\IronCore\\TenantSecurityClient\u003A\u003AbatchEncrypt\u0028\u0029",
+            "name": "batchEncrypt",
+            "summary": "Encrypts\u0020an\u0020array\u0020of\u0020documents\u0020from\u0020the\u0020ID\u0020of\u0020the\u0020document\u0020to\u0020the\u0020list\u0020of\u0020fields\u0020to\u0020encrypt.",
+            "url": "classes/IronCore-TenantSecurityClient.html#method_batchEncrypt"
+        },                {
             "fqsen": "\\IronCore\\TenantSecurityClient\u003A\u003Adecrypt\u0028\u0029",
             "name": "decrypt",
             "summary": "Decrypts\u0020the\u0020provided\u0020EncryptedDocument.\u0020Decrypts\u0020the\u0020document\u0027s\u0020encrypted\u0020document\u0020key\u0020\u0028EDEK\u0029\nusing\u0020the\u0020Tenant\u0020Security\u0020Proxy\u0020and\u0020uses\u0020it\u0020to\u0020decrypt\u0020and\u0020return\u0020the\u0020document\u0020bytes.\u0020The\u0020DEK\nis\u0020then\u0020discarded.",
             "url": "classes/IronCore-TenantSecurityClient.html#method_decrypt"
         },                {
+            "fqsen": "\\IronCore\\TenantSecurityClient\u003A\u003AbatchDecrypt\u0028\u0029",
+            "name": "batchDecrypt",
+            "summary": "Decrypts\u0020a\u0020map\u0020of\u0020documents\u0020from\u0020the\u0020ID\u0020of\u0020the\u0020document\u0020to\u0020its\u0020encrypted\u0020content.\u0020Makes\u0020a\u0020call\nout\u0020to\u0020the\u0020Tenant\u0020Security\u0020Proxy\u0020to\u0020decrypt\u0020all\u0020of\u0020the\u0020EDEKs\u0020in\u0020each\u0020document.\u0020This\u0020function\nsupports\u0020partial\u0020failure\u0020so\u0020it\u0020returns\u0020two\u0020Maps,\u0020one\u0020of\u0020document\u0020ID\u0020to\u0020successfully\u0020decrypted\ndocument\u0020and\u0020one\u0020of\u0020document\u0020ID\u0020to\u0020a\u0020TenantSecurityException.",
+            "url": "classes/IronCore-TenantSecurityClient.html#method_batchDecrypt"
+        },                {
             "fqsen": "\\IronCore\\TenantSecurityClient\u003A\u003ArekeyEdek\u0028\u0029",
             "name": "rekeyEdek",
             "summary": "Re\u002Dkey\u0020a\u0020document\u0027s\u0020encrypted\u0020document\u0020key\u0020\u0028EDEK\u0029\u0020to\u0020a\u0020new\u0020tenant.\u0020Decrypts\u0020the\u0020EDEK\u0020then\u0020re\u002Dencrypts\u0020it\u0020to\u0020the\nnew\u0020tenant.\u0020The\u0020DEK\u0020is\u0020then\u0020discarded.\u0020The\u0020old\u0020tenant\u0020and\u0020new\u0020tenant\u0020can\u0020be\u0020the\u0020same\u0020in\u0020order\u0020to\u0020re\u002Dkey\u0020the\ndocument\u0020to\u0020the\u0020tenant\u0027s\u0020latest\u0020primary\u0020config.",
             "url": "classes/IronCore-TenantSecurityClient.html#method_rekeyEdek"
+        },                {
+            "fqsen": "\\IronCore\\TenantSecurityClient\u003A\u003AlogSecurityEvent\u0028\u0029",
+            "name": "logSecurityEvent",
+            "summary": "Send\u0020the\u0020provided\u0020security\u0020event\u0020to\u0020the\u0020TSP\u0020to\u0020be\u0020logged\u0020and\u0020analyzed.\u0020Note\u0020that\u0020logging\u0020a\u0020security\u0020event\u0020is\u0020an\nasynchronous\u0020operation\u0020at\u0020the\u0020TSP,\u0020so\u0020successful\u0020receipt\u0020of\u0020a\u0020security\u0020event\u0020does\u0020not\u0020mean\nthat\u0020the\u0020event\u0020is\u0020deliverable\u0020or\u0020has\u0020been\u0020delivered\u0020to\u0020the\u0020tenant\u0027s\u0020logging\u0020system.\u0020It\u0020simply\nmeans\u0020that\u0020the\u0020event\u0020has\u0020been\u0020received\u0020and\u0020will\u0020be\u0020processed.",
+            "url": "classes/IronCore-TenantSecurityClient.html#method_logSecurityEvent"
         },                {
             "fqsen": "\\IronCore\\TenantSecurityClient\u003A\u003A\u0024request",
             "name": "request",
@@ -745,6 +1275,11 @@ Search.appendIndex(
             "name": "WRAP_ENDPOINT",
             "summary": "",
             "url": "namespaces/ironcore.html#constant_WRAP_ENDPOINT"
+        },                {
+            "fqsen": "\\IronCore\\BATCH_WRAP_ENDPOINT",
+            "name": "BATCH_WRAP_ENDPOINT",
+            "summary": "",
+            "url": "namespaces/ironcore.html#constant_BATCH_WRAP_ENDPOINT"
         },                {
             "fqsen": "\\IronCore\\UNWRAP_ENDPOINT",
             "name": "UNWRAP_ENDPOINT",
@@ -766,6 +1301,11 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ironcore.html#constant_TENANT_KEY_DERIVE_ENDPOINT"
         },                {
+            "fqsen": "\\IronCore\\SECURITY_EVENT_ENDPOINT",
+            "name": "SECURITY_EVENT_ENDPOINT",
+            "summary": "",
+            "url": "namespaces/ironcore.html#constant_SECURITY_EVENT_ENDPOINT"
+        },                {
             "fqsen": "\\IronCore\\TenantSecurityRequest",
             "name": "TenantSecurityRequest",
             "summary": "Class\u0020used\u0020to\u0020communicate\u0020with\u0020the\u0020Tenant\u0020Security\u0020Proxy.",
@@ -786,15 +1326,30 @@ Search.appendIndex(
             "summary": "Requests\u0020the\u0020TSP\u0020to\u0020generate\u0020a\u0020DEK\u0020and\u0020an\u0020EDEK.",
             "url": "classes/IronCore-TenantSecurityRequest.html#method_wrapKey"
         },                {
+            "fqsen": "\\IronCore\\TenantSecurityRequest\u003A\u003AbatchWrapKeys\u0028\u0029",
+            "name": "batchWrapKeys",
+            "summary": "Requests\u0020the\u0020TSP\u0020to\u0020generate\u0020multiple\u0020DEK\/EDEK\u0020pairs.",
+            "url": "classes/IronCore-TenantSecurityRequest.html#method_batchWrapKeys"
+        },                {
             "fqsen": "\\IronCore\\TenantSecurityRequest\u003A\u003AunwrapKey\u0028\u0029",
             "name": "unwrapKey",
             "summary": "Requests\u0020the\u0020TSP\u0020to\u0020unwrap\u0020an\u0020EDEK.",
             "url": "classes/IronCore-TenantSecurityRequest.html#method_unwrapKey"
         },                {
+            "fqsen": "\\IronCore\\TenantSecurityRequest\u003A\u003AbatchUnwrapKeys\u0028\u0029",
+            "name": "batchUnwrapKeys",
+            "summary": "Requests\u0020the\u0020TSP\u0020to\u0020unwrap\u0020multiple\u0020EDEKs.",
+            "url": "classes/IronCore-TenantSecurityRequest.html#method_batchUnwrapKeys"
+        },                {
             "fqsen": "\\IronCore\\TenantSecurityRequest\u003A\u003Arekey\u0028\u0029",
             "name": "rekey",
             "summary": "Requests\u0020the\u0020TSP\u0020to\u0020re\u002Dkey\u0020an\u0020EDEK.",
             "url": "classes/IronCore-TenantSecurityRequest.html#method_rekey"
+        },                {
+            "fqsen": "\\IronCore\\TenantSecurityRequest\u003A\u003AlogSecurityEvent\u0028\u0029",
+            "name": "logSecurityEvent",
+            "summary": "Request\u0020to\u0020the\u0020security\u0020event\u0020endpoint\u0020with\u0020the\u0020provided\u0020event\u0020and\u0020metadata.",
+            "url": "classes/IronCore-TenantSecurityRequest.html#method_logSecurityEvent"
         },                {
             "fqsen": "\\IronCore\\TenantSecurityRequest\u003A\u003A\u0024tspAddress",
             "name": "tspAddress",
@@ -885,6 +1440,11 @@ Search.appendIndex(
             "name": "Rest",
             "summary": "",
             "url": "namespaces/ironcore-rest.html"
+        },                {
+            "fqsen": "\\IronCore\\SecurityEvents",
+            "name": "SecurityEvents",
+            "summary": "",
+            "url": "namespaces/ironcore-securityevents.html"
         },                {
             "fqsen": "\\IronCore\\Utils",
             "name": "Utils",

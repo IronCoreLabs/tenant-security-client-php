@@ -69,6 +69,10 @@
                 
             </li>
                     <li>
+                <a href="namespaces/ironcore-securityevents.html">SecurityEvents</a>
+                
+            </li>
+                    <li>
                 <a href="namespaces/ironcore-utils.html">Utils</a>
                 
             </li>
@@ -129,7 +133,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Exception/CryptoException.php"><a href="files/src-exception-cryptoexception.html"><abbr title="src/Exception/CryptoException.php">CryptoException.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12</span>
+    <span class="phpdocumentor-element-found-in__line">10</span>
 
     </aside>
 
@@ -150,6 +154,13 @@
 
 <dl class="phpdocumentor-table-of-contents">
                     <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/IronCore-Exception-TenantSecurityException.html#method_fromDecodedJson">fromDecodedJson()</a>
+    <span>
+                        &nbsp;: <a href="classes/IronCore-Exception-TenantSecurityException.html"><abbr title="\IronCore\Exception\TenantSecurityException">TenantSecurityException</abbr></a>    </span>
+</dt>
+<dd>Converts from a JSON-decoded TSP error response to a TenantSecurityException.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/IronCore-Exception-TenantSecurityException.html#method_fromResponse">fromResponse()</a>
     <span>
                         &nbsp;: <a href="classes/IronCore-Exception-TenantSecurityException.html"><abbr title="\IronCore\Exception\TenantSecurityException">TenantSecurityException</abbr></a>    </span>
@@ -175,6 +186,53 @@
             -public
                                     -static                    "
 >
+    <h4 class="phpdocumentor-element__name" id="method_fromDecodedJson">
+        fromDecodedJson()
+        <a href="classes/IronCore-Exception-TenantSecurityException.html#method_fromDecodedJson" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Exception/TenantSecurityException.php"><a href="files/src-exception-tenantsecurityexception.html"><abbr title="src/Exception/TenantSecurityException.php">TenantSecurityException.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">22</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Converts from a JSON-decoded TSP error response to a TenantSecurityException.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">fromDecodedJson</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$decodedJson</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-Exception-TenantSecurityException.html"><abbr title="\IronCore\Exception\TenantSecurityException">TenantSecurityException</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$decodedJson</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Decoded response from the TSP.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-Exception-TenantSecurityException.html"><abbr title="\IronCore\Exception\TenantSecurityException">TenantSecurityException</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>TenantSecurityException associated with the TSP status coe.</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
     <h4 class="phpdocumentor-element__name" id="method_fromResponse">
         fromResponse()
         <a href="classes/IronCore-Exception-TenantSecurityException.html#method_fromResponse" class="headerlink"><i class="fas fa-link"></i></a>
@@ -182,7 +240,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Exception/TenantSecurityException.php"><a href="files/src-exception-tenantsecurityexception.html"><abbr title="src/Exception/TenantSecurityException.php">TenantSecurityException.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">23</span>
+    <span class="phpdocumentor-element-found-in__line">116</span>
 
     </aside>
 
