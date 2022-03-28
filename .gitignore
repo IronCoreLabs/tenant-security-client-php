@@ -3,3 +3,4 @@ vendor/
 index.php
 **.phar
 **.cache
+coverage/
