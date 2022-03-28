@@ -41,14 +41,14 @@ class BatchWrapKeyResponse
         ) {
             throw new InvalidArgumentException("$response is not a valid BatchWrapKeyResponse.");
         }
-        $keysCallback = fn (array $key): WrapKeyResponse => new WrapKeyResponse(
+        $keyToWrapResponse = fn (array $key): WrapKeyResponse => new WrapKeyResponse(
             Bytes::fromBase64($key["dek"]),
             Bytes::fromBase64($key["edek"])
         );
-        $keys = array_map($keysCallback, $decoded["keys"]);
-        $failuresCallback = fn (array $failure): TenantSecurityException =>
+        $keys = array_map($keyToWrapResponse, $decoded["keys"]);
+        $failureToException = fn (array $failure): TenantSecurityException =>
         TenantSecurityException::fromDecodedJson($failure);
-        $failures = array_map($failuresCallback, $decoded["failures"]);
+        $failures = array_map($failureToException, $decoded["failures"]);
         return new BatchWrapKeyResponse($keys, $failures);
     }
 

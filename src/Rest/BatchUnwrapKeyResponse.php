@@ -41,11 +41,12 @@ class BatchUnwrapKeyResponse
         ) {
             throw new InvalidArgumentException("$response is not a valid BatchUnwrapKeyResponse.");
         }
-        $keysCallback = fn (array $key): UnwrapKeyResponse => new UnwrapKeyResponse(Bytes::fromBase64($key["dek"]));
-        $keys = array_map($keysCallback, $decoded["keys"]);
-        $failuresCallback = fn (array $failure): TenantSecurityException =>
+        $keyToUnwrapResponse = fn (array $key): UnwrapKeyResponse =>
+        new UnwrapKeyResponse(Bytes::fromBase64($key["dek"]));
+        $keys = array_map($keyToUnwrapResponse, $decoded["keys"]);
+        $failureToException = fn (array $failure): TenantSecurityException =>
         TenantSecurityException::fromDecodedJson($failure);
-        $failures = array_map($failuresCallback, $decoded["failures"]);
+        $failures = array_map($failureToException, $decoded["failures"]);
         return new BatchUnwrapKeyResponse($keys, $failures);
     }
 

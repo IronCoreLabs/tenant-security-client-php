@@ -7,7 +7,7 @@ namespace IronCore\SecurityEvents;
 use PHPUnit\Framework\TestCase;
 use InvalidArgumentException;
 
-final class CustomEventsTest extends TestCase
+final class CustomEventTest extends TestCase
 {
     public function testValidCustomEvent(): void
     {
