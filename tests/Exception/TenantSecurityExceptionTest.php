@@ -43,6 +43,7 @@ final class TenantSecurityExceptionTest extends TestCase
         $this->assertEquals(self::createExceptionForCode(206)->getCode(), 206);
         $this->assertEquals(self::createExceptionForCode(207)->getCode(), 207);
         $this->assertEquals(self::createExceptionForCode(208)->getCode(), 208);
+        $this->assertEquals(self::createExceptionForCode(209)->getCode(), 209);
         $this->assertEquals(self::createExceptionForCode(301)->getCode(), 301);
     }
 

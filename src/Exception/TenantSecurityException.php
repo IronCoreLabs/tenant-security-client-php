@@ -94,6 +94,11 @@ class TenantSecurityException extends Exception
                     "KmsUnreachable: Request to KMS failed because KMS was unreachable.",
                     $code
                 );
+            case 209:
+                return new KmsException(
+                    "KmsThrottled: Request to KMS failed because KMS throttled the Tenant Security Proxy.",
+                    $code
+                );
             case 301:
                 return new SecurityEventException(
                     "SecurityEventRejected: Tenant Security Proxy could not accept the security event.",
