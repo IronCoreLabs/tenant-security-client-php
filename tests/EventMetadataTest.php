@@ -20,4 +20,12 @@ final class EventMetadataTest extends TestCase
         ];
         $this->assertEquals($postData, $expected);
     }
+
+    public function testConstructionWithNullTimestamp(): void 
+    {
+        $tenantId = "my-tenant";
+        $iclFields = new IclFields("foo");
+        $metadata = new EventMetadata($tenantId, $iclFields, []);
+        $this->assertNotNull($metadata->getTimestampMillis());
+    }
 }

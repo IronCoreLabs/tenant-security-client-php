@@ -37,6 +37,15 @@ class EventMetadata extends RequestMetadata
     }
 
     /**
+     * Gets the timestampMillis.
+     *
+     * @return int Linux epoch millis of when the event occurred.
+     */
+    public function getTimestampMillis() {
+        return $this->timestampMillis;
+    }
+
+    /**
      * Gets an associative array of data that can be serialized
      * and sent to the Tenant Security Proxy.
      *
