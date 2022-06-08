@@ -28,7 +28,7 @@ class EventMetadata extends RequestMetadata
         int $timestampMillis = null
     ) {
         if ($timestampMillis == null) {
-            $timestampMillis = intval(microtime(true)*1000);
+            $timestampMillis = intval(microtime(true) * 1000);
         };
         $this->tenantId = $tenantId;
         $this->iclFields = $iclFields;
