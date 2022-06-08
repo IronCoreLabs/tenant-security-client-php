@@ -331,6 +331,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/IronCore-EventMetadata.html#method___construct"
         },                {
+            "fqsen": "\\IronCore\\EventMetadata\u003A\u003AgetTimestampMillis\u0028\u0029",
+            "name": "getTimestampMillis",
+            "summary": "Gets\u0020the\u0020timestampMillis.",
+            "url": "classes/IronCore-EventMetadata.html#method_getTimestampMillis"
+        },                {
             "fqsen": "\\IronCore\\EventMetadata\u003A\u003AgetPostData\u0028\u0029",
             "name": "getPostData",
             "summary": "Gets\u0020an\u0020associative\u0020array\u0020of\u0020data\u0020that\u0020can\u0020be\u0020serialized\nand\u0020sent\u0020to\u0020the\u0020Tenant\u0020Security\u0020Proxy.",
