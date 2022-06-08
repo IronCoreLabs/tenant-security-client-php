@@ -1,8 +1,12 @@
 # Changelog
 
-## v0.2.3
+## v0.2.4
 
 - Fix bug with null EventMetadata.timestampMillis.
+
+## v0.2.3
+
+- Add error code 209.
 
 ## v0.2.2
 
