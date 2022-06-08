@@ -27,10 +27,23 @@ class EventMetadata extends RequestMetadata
         array $customFields,
         int $timestampMillis = null
     ) {
+        if ($timestampMillis == null) {
+            $timestampMillis = intval(microtime(true) * 1000);
+        };
         $this->tenantId = $tenantId;
         $this->iclFields = $iclFields;
         $this->customFields = $customFields;
         $this->timestampMillis = $timestampMillis;
+    }
+
+    /**
+     * Gets the timestampMillis.
+     *
+     * @return int Linux epoch millis of when the event occurred.
+     */
+    public function getTimestampMillis()
+    {
+        return $this->timestampMillis;
     }
 
     /**

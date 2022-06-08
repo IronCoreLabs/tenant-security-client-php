@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.3
+
+- Fix bug with null EventMetadata.timestampMillis.
+
 ## v0.2.2
 
 - Add method to encrypt a batch of files with a single call to the TSP.
