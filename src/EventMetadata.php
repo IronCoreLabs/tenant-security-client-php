@@ -27,6 +27,9 @@ class EventMetadata extends RequestMetadata
         array $customFields,
         int $timestampMillis = null
     ) {
+        if ($timestampMillis == null) {
+            $timestampMillis = intval(microtime(true)*1000);
+        };
         $this->tenantId = $tenantId;
         $this->iclFields = $iclFields;
         $this->customFields = $customFields;
@@ -41,6 +44,7 @@ class EventMetadata extends RequestMetadata
      */
     public function getPostData(): array
     {
+
         return [
             "tenantId" => $this->tenantId,
             "iclFields" => $this->iclFields,
