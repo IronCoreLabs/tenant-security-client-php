@@ -41,7 +41,8 @@ class EventMetadata extends RequestMetadata
      *
      * @return int Linux epoch millis of when the event occurred.
      */
-    public function getTimestampMillis() {
+    public function getTimestampMillis() 
+    {
         return $this->timestampMillis;
     }
 
