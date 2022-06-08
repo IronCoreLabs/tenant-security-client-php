@@ -44,7 +44,6 @@ class EventMetadata extends RequestMetadata
      */
     public function getPostData(): array
     {
-
         return [
             "tenantId" => $this->tenantId,
             "iclFields" => $this->iclFields,
