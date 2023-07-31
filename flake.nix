@@ -1,7 +1,7 @@
 {
   description = "Tenant Security Client PHP";
 
-inputs = {
+  inputs = {
     nixpkgs.url = "nixpkgs/nixpkgs-unstable";
     utils.url = "github:numtide/flake-utils";
   };
