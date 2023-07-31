@@ -13,7 +13,7 @@
   "license": "Apache-2.0",
   "require": {
     "php": ">=7.4",
-    "ironcorelabs/tenant-security-client-php": "^0.3.0"
+    "ironcorelabs/tenant-security-client-php": "dev-encrypt-with-existing-key"
   },
   "autoload": {
     "psr-4": {

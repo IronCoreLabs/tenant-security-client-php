@@ -51,10 +51,6 @@ try {
 // persist the EDEK and encryptedDocument to your persistence layer
 $edek = $encryptedResults->getEdek();
 $encryptedDocument = $encryptedResults->getEncryptedFields();
-// un-comment if you want to print out the encrypted data
-// echo ("Encrypted SSN: " . $encryptedDocument["ssn"]->getHexString() . "\n");
-// echo ("Encrypted address: " . $encryptedDocument["address"]->getHexString() . "\n");
-// echo ("Encrypted name: " . $encryptedDocument["name"]->getHexString() . "\n");
 
 //
 // Step 2: Retrieve a customer record and decrypt it
@@ -71,16 +67,38 @@ try {
 }
 $decryptedValues = $decryptedPlaintext->getDecryptedFields();
 
-
-echo ("Decrypted SSN: " . $decryptedValues["ssn"]->getByteString() . "\n");
-echo ("Decrypted address: " . $decryptedValues["address"]->getByteString() . "\n");
-echo ("Decrypted name: " . $decryptedValues["name"]->getByteString() . "\n");
-
 // 
-// Step 3: Update the customer record and re-encrypt it with the same key
+// Step 3: Update the customer record, re-encrypt it with the existing key, and store the new fields
 //
 
 $decryptedValues["address"] = new Bytes("12345 N Montana Ave Helena, MT, 59601");
-
 $newDocument = new PlaintextDocument($decryptedValues, $edek);
-$reencryptedDocument = $tenantSecurityClient->encryptWithExistingKey($newDocument, $metadata);
+
+try {
+    $reencryptResult = $tenantSecurityClient->encryptWithExistingKey($newDocument, $metadata);
+} catch (Exception $e) {
+    echo 'Caught exception: ',  $e->getMessage(), "\n";
+    exit(1);
+}
+// persist the reencryptedDocument to your persistence layer (EDEK is unchanged)
+$reencryptedDocument = $reencryptResult->getEncryptedFields();
+
+// 
+// Step 4: Retrieve the EDEK and encryptedDocument and decrypt
+//
+
+// unchanged original EDEK
+$retrievedEncryptedDocument = new EncryptedDocument($reencryptedDocument, $edek);
+
+try {
+    $decryptedPlaintext = $tenantSecurityClient->decrypt($retrievedEncryptedDocument, $metadata);
+} catch (Exception $e) {
+    echo 'Caught exception: ',  $e->getMessage(), "\n";
+    exit(1);
+}
+$decryptedValues = $decryptedPlaintext->getDecryptedFields();
+
+echo ("Decrypted SSN: " . $decryptedValues["ssn"]->getByteString() . "\n");
+// Note the updated value
+echo ("Decrypted address: " . $decryptedValues["address"]->getByteString() . "\n");
+echo ("Decrypted name: " . $decryptedValues["name"]->getByteString() . "\n");
