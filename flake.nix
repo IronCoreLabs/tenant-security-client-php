@@ -11,7 +11,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in rec {
       devShell = pkgs.mkShell {
-        buildInputs = with pkgs; [php] ++ (with pkgs.phpPackages; [composer]);
+        buildInputs = with pkgs; [php82] ++ (with pkgs.phpPackages; [composer]);
       };
     });
 }
