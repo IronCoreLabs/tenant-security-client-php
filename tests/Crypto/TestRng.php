@@ -10,6 +10,7 @@ use IronCore\Bytes;
 //It should only be used for testing, obviously.
 final class TestRng extends Rng
 {
+    private $seed;
     private $counter = 0;
     //Create a TestRng instance using $seed as the basis for all the hashed values.
     public function __construct(string $seed)

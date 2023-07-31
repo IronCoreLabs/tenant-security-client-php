@@ -57,6 +57,21 @@ class TenantSecurityClient
         return new EncryptedDocument($encryptedFields, $wrapResponse->getEdek());
     }
 
+    public function encryptWithExistingKey(PlaintextDocument $document, RequestMetadata $metadata): EncryptedDocument
+    {
+        $unwrapResponse = $this->request->unwrapKey($document->getEdek(), $metadata);
+        $tenantId = $metadata->getTenantId();
+        $dek = $unwrapResponse->getDek();
+        $encryptDocument = fn (Bytes $field): Bytes => Aes::encryptDocument(
+            $field,
+            $tenantId,
+            $dek,
+            CryptoRng::getInstance()
+        );
+        $encryptedFields = array_map($encryptDocument, $document->getDecryptedFields());
+        return new EncryptedDocument($encryptedFields, $document->getEdek());
+    }
+
     /**
      * Encrypts an array of documents from the ID of the document to the list of fields to encrypt.
      * Makes a call out to the Tenant Security Proxy to generate a collection of new DEK/EDEK pairs
