@@ -7,7 +7,7 @@ namespace IronCore;
 /**
  * A set of fields which has been encrypted.
  */
-class EncryptedDocument
+final class EncryptedDocument
 {
     /**
      * @var \IronCore\Bytes[]

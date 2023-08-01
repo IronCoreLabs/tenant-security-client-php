@@ -7,7 +7,7 @@ namespace IronCore;
 /**
  * A batch of documents which have been encrypted.
  */
-class BatchEncryptedDocuments
+final class BatchEncryptedDocuments
 {
     /**
      * @var EncryptedDocument[]

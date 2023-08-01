@@ -11,7 +11,7 @@ use IronCore\Rest\IronCoreRequest;
 /**
  * Request to the Tenant Security Proxy's batch unwrap keys endpoint
  */
-class BatchUnwrapKeyRequest extends IronCoreRequest
+final class BatchUnwrapKeyRequest extends IronCoreRequest
 {
     /**
      * @var RequestMetadata

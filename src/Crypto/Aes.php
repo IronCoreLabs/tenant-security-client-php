@@ -11,21 +11,17 @@ use IronCore\V3HeaderSignature;
 use Proto\IronCoreLabs\SaaSShieldHeader;
 use Proto\IronCoreLabs\V3DocumentHeader;
 
-final class Aes
+/**
+ * Cryptographic functions. Not intended to be used by consumers of the SDK.
+ */
+trait Aes
 {
-    public const IV_LEN = 12;
-    public const TAG_LEN = 16;
-    /** The size of the fixed length portion of the header (version, magic, size) */
-    public const DOCUMENT_HEADER_META_LENGTH = 7;
-    /** Max IronCore header size. Equals 256 * 255 + 255 since we do a 2 byte size. */
-    public const MAX_HEADER_SIZE = 65535;
-
     /**
      * Gets the current IronCore document header version as a single byte.
      *
      * @return Bytes Byte representation of IronCore document header version
      */
-    public static function getCurrentDocumentHeaderVersion(): Bytes
+    private static function getCurrentDocumentHeaderVersion(): Bytes
     {
         return new Bytes(pack("C", 3));
     }
@@ -35,7 +31,7 @@ final class Aes
      *
      * @return Bytes IronCore document magic bytes
      */
-    public static function getDocumentMagic(): Bytes
+    private static function getDocumentMagic(): Bytes
     {
         return new Bytes("IRON");
     }
@@ -50,9 +46,9 @@ final class Aes
      *
      * @return Bytes Encrypted bytes with a 12-byte IV on the front and a 16-byte tag on the end
      */
-    public static function encrypt(Bytes $plaintext, Bytes $key, Rng $rng): Bytes
+    private static function encrypt(Bytes $plaintext, Bytes $key, Rng $rng): Bytes
     {
-        return Aes::encryptWithIv($plaintext, $key, $rng->randomBytes(12));
+        return self::encryptWithIv($plaintext, $key, $rng->randomBytes(12));
     }
 
     /**
@@ -68,7 +64,7 @@ final class Aes
      */
     private static function encryptWithIv(Bytes $plaintext, Bytes $key, Bytes $iv): Bytes
     {
-        if ($iv->length() != Aes::IV_LEN) {
+        if ($iv->length() != AesConstants::IV_LEN) {
             throw new CryptoException("The IV passed was not the correct length.");
         }
         $ciphertext = openssl_encrypt(
@@ -95,17 +91,17 @@ final class Aes
      *
      * @return Bytes The plaintext, which is arbitrary bytes.
      */
-    public static function decrypt(Bytes $ciphertext, Bytes $key): Bytes
+    private static function decrypt(Bytes $ciphertext, Bytes $key): Bytes
     {
         // The length of the ciphertext cannot possibly be shorter than IV plus the tag.
-        if ($ciphertext->length() <= Aes::IV_LEN + Aes::TAG_LEN) {
+        if ($ciphertext->length() <= AesConstants::IV_LEN + AesConstants::TAG_LEN) {
             throw new CryptoException('The ciphertext was not well formed.');
         }
 
-        $authTag = $ciphertext->byteSlice(-Aes::TAG_LEN);
-        $iv = $ciphertext->byteSlice(0, Aes::IV_LEN);
+        $authTag = $ciphertext->byteSlice(-AesConstants::TAG_LEN);
+        $iv = $ciphertext->byteSlice(0, AesConstants::IV_LEN);
         //mutate the ciphertext to be just the aes encrypted bytes, without the IV or the tag.
-        $ciphertext = $ciphertext->byteSlice(Aes::IV_LEN, -Aes::TAG_LEN);
+        $ciphertext = $ciphertext->byteSlice(AesConstants::IV_LEN, -AesConstants::TAG_LEN);
 
         $plaintext = openssl_decrypt(
             $ciphertext->getByteString(),
@@ -135,7 +131,7 @@ final class Aes
      *
      * @return Bytes Encrypted document bytes
      */
-    public static function encryptDocument(Bytes $document, string $tenantId, Bytes $dek, Rng $rng): Bytes
+    private static function encryptDocument(Bytes $document, string $tenantId, Bytes $dek, Rng $rng): Bytes
     {
         $header = self::generateHeader($dek, $tenantId, $rng);
         $encrypted = self::encrypt($document, $dek, $rng);
@@ -152,7 +148,7 @@ final class Aes
      *
      * @return Bytes Decrypted document
      */
-    public static function decryptDocument(Bytes $document, Bytes $dek): Bytes
+    private static function decryptDocument(Bytes $document, Bytes $dek): Bytes
     {
         $documentParts = self::splitDocument($document);
         $headerBytes = $documentParts->getHeader();
@@ -177,13 +173,13 @@ final class Aes
      */
     private static function splitDocument(Bytes $document): DocumentParts
     {
-        $fixedPreamble = $document->byteSlice(0, self::DOCUMENT_HEADER_META_LENGTH);
+        $fixedPreamble = $document->byteSlice(0, AesConstants::DOCUMENT_HEADER_META_LENGTH);
         if (!self::verifyPreamble($fixedPreamble)) {
             throw new CryptoException("Provided bytes were not an IronCore encrypted document.");
         } else {
             $headerLength = self::getHeaderSize($fixedPreamble);
-            $header = $document->byteSlice(self::DOCUMENT_HEADER_META_LENGTH, $headerLength);
-            $ciphertext = $document->byteSlice(self::DOCUMENT_HEADER_META_LENGTH + $headerLength);
+            $header = $document->byteSlice(AesConstants::DOCUMENT_HEADER_META_LENGTH, $headerLength);
+            $ciphertext = $document->byteSlice(AesConstants::DOCUMENT_HEADER_META_LENGTH + $headerLength);
             return new DocumentParts($fixedPreamble, $header, $ciphertext);
         }
     }
@@ -198,7 +194,7 @@ final class Aes
      */
     private static function verifyPreamble(Bytes $preamble): bool
     {
-        return $preamble->length() === self::DOCUMENT_HEADER_META_LENGTH
+        return $preamble->length() === AesConstants::DOCUMENT_HEADER_META_LENGTH
             && $preamble->getAtIndex(0) == self::getCurrentDocumentHeaderVersion()
             && self::containsIroncoreMagic($preamble)
             && self::getHeaderSize($preamble) >= 0;
@@ -250,7 +246,7 @@ final class Aes
         $headerProto = self::createHeaderProto($dek, $tenantId, $rng);
         $headerBytes = $headerProto->serializeToString();
         $headerLength = strlen($headerBytes);
-        if ($headerLength > self::MAX_HEADER_SIZE) {
+        if ($headerLength > AesConstants::MAX_HEADER_SIZE) {
             throw new CryptoException("The header is too large. It is $headerLength bytes long.");
         }
         // pack header length using format "n": unsigned short (always 16 bit, big endian byte order)
@@ -277,7 +273,7 @@ final class Aes
         ?Bytes $iv = null
     ): V3DocumentHeader {
         if ($iv == null) {
-            $iv = $rng->randomBytes(Aes::IV_LEN);
+            $iv = $rng->randomBytes(AesConstants::IV_LEN);
         }
         $saasHeader = new SaaSShieldHeader();
         $saasHeader->setTenantId($tenantId);
@@ -300,8 +296,8 @@ final class Aes
     public static function generateSignature(Bytes $dek, Bytes $iv, SaaSShieldHeader $header): V3HeaderSignature
     {
         $headerBytes = new Bytes($header->serializeToString());
-        $encryptedHeaderValue = Aes::encryptWithIv($headerBytes, $dek, $iv);
-        $tag = $encryptedHeaderValue->byteSlice(-Aes::TAG_LEN);
+        $encryptedHeaderValue = self::encryptWithIv($headerBytes, $dek, $iv);
+        $tag = $encryptedHeaderValue->byteSlice(-AesConstants::TAG_LEN);
         return new V3HeaderSignature($iv, $tag);
     }
 
@@ -319,7 +315,7 @@ final class Aes
         }
         $headerSigBytes = new Bytes($header->getSig());
         $knownSig = V3HeaderSignature::fromBytes($headerSigBytes);
-        $candidateSig = Aes::generateSignature($dek, $knownSig->getIv(), $header->getSaasShield());
+        $candidateSig = self::generateSignature($dek, $knownSig->getIv(), $header->getSaasShield());
         return $knownSig == $candidateSig;
     }
 }

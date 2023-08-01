@@ -9,7 +9,7 @@ use IronCore\SecurityEvents\SecurityEvent;
 /**
  * Holds the event to pass to the Tenant Security Proxy for logging purposes.
  */
-class IclFieldsWithEvent extends IclFields
+final class IclFieldsWithEvent extends IclFields
 {
     /**
      * @var string Security event to log when calling `logSecurityEvent`

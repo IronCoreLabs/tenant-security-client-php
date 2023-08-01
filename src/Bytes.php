@@ -9,7 +9,7 @@ use InvalidArgumentException;
 /**
  * Wrapper around a string that contains raw bytes
  */
-class Bytes
+final class Bytes
 {
     /**
      * @var string

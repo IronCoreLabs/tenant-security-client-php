@@ -7,6 +7,6 @@ namespace IronCore\Exception;
 /**
  * This indicates a problem with logging a security event to the TSP.
  */
-class SecurityEventException extends TenantSecurityException
+final class SecurityEventException extends TenantSecurityException
 {
 }

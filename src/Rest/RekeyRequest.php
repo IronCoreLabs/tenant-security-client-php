@@ -11,7 +11,7 @@ use IronCore\Rest\IronCoreRequest;
 /**
  * Request to the Tenant Security Proxy's re-key endpoint
  */
-class RekeyRequest extends IronCoreRequest
+final class RekeyRequest extends IronCoreRequest
 {
     /**
      * @var RequestMetadata

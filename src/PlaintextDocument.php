@@ -7,7 +7,7 @@ namespace IronCore;
 /**
  * A decrypted document.
  */
-class PlaintextDocument
+final class PlaintextDocument
 {
     /**
      * @var Bytes[]

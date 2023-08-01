@@ -6,7 +6,7 @@ namespace IronCore\SecurityEvents;
 
 use InvalidArgumentException;
 
-class CustomEvent extends SecurityEvent
+final class CustomEvent extends SecurityEvent
 {
     private $flatEvent;
 

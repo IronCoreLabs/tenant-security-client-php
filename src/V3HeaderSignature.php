@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace IronCore;
 
-use IronCore\Crypto\Aes;
+use IronCore\Crypto\AesConstants;
 use UnexpectedValueException;
 
 /**
  * V3 IronCore header signature
  */
-class V3HeaderSignature
+final class V3HeaderSignature
 {
     /**
      * @var Bytes
@@ -40,12 +40,15 @@ class V3HeaderSignature
      */
     public static function fromBytes(Bytes $bytes): V3HeaderSignature
     {
-        if ($bytes->length() != Aes::IV_LEN + Aes::TAG_LEN) {
+        if ($bytes->length() != AesConstants::IV_LEN + AesConstants::TAG_LEN) {
             throw new
                 UnexpectedValueException("Bytes were not a V3HeaderSignature because they were not the correct length");
         }
 
-        return new V3HeaderSignature($bytes->byteSlice(0, Aes::IV_LEN), $bytes->byteSlice(Aes::IV_LEN, Aes::TAG_LEN));
+        return new V3HeaderSignature(
+            $bytes->byteSlice(0, AesConstants::IV_LEN),
+            $bytes->byteSlice(AesConstants::IV_LEN, AesConstants::TAG_LEN)
+        );
     }
 
     /**

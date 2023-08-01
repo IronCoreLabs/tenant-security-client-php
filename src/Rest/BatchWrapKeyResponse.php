@@ -11,7 +11,7 @@ use IronCore\Exception\TenantSecurityException;
 /**
  * Response from the Tenant Security Proxy's batch wrap key endpoint
  */
-class BatchWrapKeyResponse
+final class BatchWrapKeyResponse
 {
     /**
      * @var WrapKeyResponse[]

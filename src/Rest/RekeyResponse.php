@@ -10,7 +10,7 @@ use IronCore\Bytes;
 /**
  * Response from the Tenant Security Proxy's re-key endpoint
  */
-class RekeyResponse
+final class RekeyResponse
 {
     /**
      * @var Bytes
