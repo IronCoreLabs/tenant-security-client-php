@@ -10,7 +10,7 @@ use IronCore\Bytes;
 /**
  * Response from the Tenant Security Proxy's wrap key endpoint
  */
-class WrapKeyResponse
+final class WrapKeyResponse
 {
     /**
      * @var Bytes

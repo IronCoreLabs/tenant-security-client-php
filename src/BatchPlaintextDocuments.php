@@ -7,7 +7,7 @@ namespace IronCore;
 /**
  * A batch of documents which have been decrypted.
  */
-class BatchPlaintextDocuments
+final class BatchPlaintextDocuments
 {
     /**
      * @var PlaintextDocument[]

@@ -10,7 +10,7 @@ use IronCore\Rest\IronCoreRequest;
 /**
  * Request to the Tenant Security Proxy's batch wrap keys endpoint
  */
-class BatchWrapKeyRequest extends IronCoreRequest
+final class BatchWrapKeyRequest extends IronCoreRequest
 {
     /**
      * @var RequestMetadata

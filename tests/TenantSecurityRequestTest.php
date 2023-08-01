@@ -8,70 +8,81 @@ use IronCore\Exception\TenantSecurityException;
 use IronCore\SecurityEvents\UserEvent;
 use PHPUnit\Framework\TestCase;
 
+final class TestableTenantSecurityRequest extends TenantSecurityRequest
+{
+    public function __construct(string $tspAddress, string $apiKey)
+    {
+        return parent::__construct($tspAddress, $apiKey);
+    }
+}
+
 final class TenantSecurityRequestTest extends TestCase
 {
 
+    private static function callMethod(string $name, array $args)
+    {
+        $class = new \ReflectionClass('IronCore\TenantSecurityRequest');
+        $method = $class->getMethod($name);
+        $method->setAccessible(true);
+        $object = new TestableTenantSecurityRequest("localhost:99999", "");
+        $result = $method->invokeArgs($object, $args);
+        return $result;
+    }
+
     public function testFailedToMakeRequest(): void
     {
-        $request = new TenantSecurityRequest("localhost:99999", "");
         $this->expectException(TenantSecurityException::class);
-        $request->makeJsonRequest("/", "");
+        self::callMethod("makeJsonRequest", ["/", ""]);
     }
 
     public function testFailedWrapRequest(): void
     {
-        $request = new TenantSecurityRequest("localhost:99999", "");
         $metadata = new RequestMetadata("tenant", new IclFields("foo"), []);
         $this->expectException(TenantSecurityException::class);
         $this->expectExceptionMessage("Failed to make a request to the TSP.");
-        $request->wrapKey($metadata);
+        self::callMethod("wrapKey", [$metadata]);
     }
 
     public function testFailedUnwrapRequest(): void
     {
-        $request = new TenantSecurityRequest("localhost:99999", "");
         $metadata = new RequestMetadata("tenant", new IclFields("foo"), []);
         $edek = new Bytes("boo");
         $this->expectException(TenantSecurityException::class);
         $this->expectExceptionMessage("Failed to make a request to the TSP.");
-        $request->unwrapKey($edek, $metadata);
+        self::callMethod("unwrapKey", [$edek, $metadata]);
     }
 
     public function testFailedRekeyRequest(): void
     {
-        $request = new TenantSecurityRequest("localhost:99999", "");
         $metadata = new RequestMetadata("tenant", new IclFields("foo"), []);
         $edek = new Bytes("boo");
         $newTenantId = "foo";
         $this->expectException(TenantSecurityException::class);
         $this->expectExceptionMessage("Failed to make a request to the TSP.");
-        $request->rekey($edek, $newTenantId, $metadata);
+        self::callMethod("rekey", [$edek, $newTenantId, $metadata]);
     }
 
     public function testFailedBatchWrapRequest(): void
     {
-        $request = new TenantSecurityRequest("localhost:99999", "");
         $metadata = new RequestMetadata("tenant", new IclFields("foo"), []);
         $this->expectException(TenantSecurityException::class);
         $this->expectExceptionMessage("Failed to make a request to the TSP.");
-        $request->batchWrapKeys(["a", "2"], $metadata);
+        self::callMethod("batchWrapKeys", [["a", "2"], $metadata]);
     }
 
     public function testFailedBatchunWrapRequest(): void
     {
-        $request = new TenantSecurityRequest("localhost:99999", "");
         $metadata = new RequestMetadata("tenant", new IclFields("foo"), []);
         $this->expectException(TenantSecurityException::class);
         $this->expectExceptionMessage("Failed to make a request to the TSP.");
-        $request->batchUnwrapKeys(["a" => new Bytes("edek1"), "2" => new Bytes("edek2")], $metadata);
+        self::callMethod("batchUnwrapKeys", [["a" => new Bytes("edek1"), "2" => new Bytes("edek2")], $metadata]);
     }
 
     public function testFailedLogSecurityEventRequest(): void
     {
-        $request = new TenantSecurityRequest("localhost:99999", "");
         $metadata = new EventMetadata("tenant", new IclFields("foo"), [], 1);
         $this->expectException(TenantSecurityException::class);
         $this->expectExceptionMessage("Failed to make a request to the TSP.");
-        $request->logSecurityEvent(UserEvent::login(), $metadata);
+        self::callMethod("logSecurityEvent", [UserEvent::login(), $metadata]);
     }
 }

@@ -20,20 +20,21 @@ use IronCore\Rest\LogSecurityEventRequest;
 use IronCore\Rest\RekeyRequest;
 use IronCore\SecurityEvents\SecurityEvent;
 
-const TSP_API_PREFIX = "/api/1/";
-const WRAP_ENDPOINT = "document/wrap";
-const BATCH_WRAP_ENDPOINT = "document/batch-wrap";
-const UNWRAP_ENDPOINT = "document/unwrap";
-const BATCH_UNWRAP_ENDPOINT = "document/batch-unwrap";
-const REKEY_ENDPOINT = "document/rekey";
-const TENANT_KEY_DERIVE_ENDPOINT = "key/derive";
-const SECURITY_EVENT_ENDPOINT = "event/security-event";
-
 /**
  * Class used to communicate with the Tenant Security Proxy.
+ * Not intended to be used by consumers of the SDK.
  */
 class TenantSecurityRequest
 {
+    private const TSP_API_PREFIX = "/api/1/";
+    private const WRAP_ENDPOINT = "document/wrap";
+    private const BATCH_WRAP_ENDPOINT = "document/batch-wrap";
+    private const UNWRAP_ENDPOINT = "document/unwrap";
+    private const BATCH_UNWRAP_ENDPOINT = "document/batch-unwrap";
+    private const REKEY_ENDPOINT = "document/rekey";
+    private const TENANT_KEY_DERIVE_ENDPOINT = "key/derive";
+    private const SECURITY_EVENT_ENDPOINT = "event/security-event";
+
     /**
      * @var string URL of the Tenant Security Proxy
      */
@@ -51,7 +52,7 @@ class TenantSecurityRequest
      * @param string $tspAddress URL of the Tenant Security Proxy
      * @param string $apiKey Secret key needed to communicate with the Tenant Security Proxy
      */
-    public function __construct(string $tspAddress, string $apiKey)
+    protected function __construct(string $tspAddress, string $apiKey)
     {
         $this->tspAddress = Utils\trimSlashes($tspAddress);
         $this->apiKey = $apiKey;
@@ -77,10 +78,10 @@ class TenantSecurityRequest
      *
      * @return string The response from the Tenant Security Proxy
      */
-    public function makeJsonRequest(string $endpoint, string $jsonEncodedData): string
+    protected function makeJsonRequest(string $endpoint, string $jsonEncodedData): string
     {
         // Set the request URL
-        curl_setopt($this->ch, CURLOPT_URL, $this->tspAddress . TSP_API_PREFIX . $endpoint);
+        curl_setopt($this->ch, CURLOPT_URL, $this->tspAddress . self::TSP_API_PREFIX . $endpoint);
         // Set the request body
         curl_setopt($this->ch, CURLOPT_POSTFIELDS, $jsonEncodedData);
         $response = curl_exec($this->ch);
@@ -100,10 +101,10 @@ class TenantSecurityRequest
      *
      * @return WrapKeyResponse The generated DEK and EDEK
      */
-    public function wrapKey(RequestMetadata $metadata): WrapKeyResponse
+    protected function wrapKey(RequestMetadata $metadata): WrapKeyResponse
     {
         $request = new WrapKeyRequest($metadata);
-        $response = $this->makeJsonRequest(WRAP_ENDPOINT, $request->getJsonData());
+        $response = $this->makeJsonRequest(self::WRAP_ENDPOINT, $request->getJsonData());
         try {
             $wrapResponse = WrapKeyResponse::fromResponse($response);
         } catch (InvalidArgumentException $e) {
@@ -122,10 +123,10 @@ class TenantSecurityRequest
      *
      * @return BatchWrapKeyResponse The generated DEKs and EDEKs, as well as any failures
      */
-    public function batchWrapKeys(array $documentIds, RequestMetadata $metadata): BatchWrapKeyResponse
+    protected function batchWrapKeys(array $documentIds, RequestMetadata $metadata): BatchWrapKeyResponse
     {
         $request = new BatchWrapKeyRequest($metadata, $documentIds);
-        $response = $this->makeJsonRequest(BATCH_WRAP_ENDPOINT, $request->getJsonData());
+        $response = $this->makeJsonRequest(self::BATCH_WRAP_ENDPOINT, $request->getJsonData());
         try {
             $batchWrapResponse = BatchWrapKeyResponse::fromResponse($response);
         } catch (InvalidArgumentException $e) {
@@ -144,10 +145,10 @@ class TenantSecurityRequest
      *
      * @return UnwrapKeyResponse The unwrapped DEK
      */
-    public function unwrapKey(Bytes $edek, RequestMetadata $metadata): UnwrapKeyResponse
+    protected function unwrapKey(Bytes $edek, RequestMetadata $metadata): UnwrapKeyResponse
     {
         $request = new UnwrapKeyRequest($metadata, $edek);
-        $response = $this->makeJsonRequest(UNWRAP_ENDPOINT, $request->getJsonData());
+        $response = $this->makeJsonRequest(self::UNWRAP_ENDPOINT, $request->getJsonData());
         try {
             $unwrapResponse = UnwrapKeyResponse::fromResponse($response);
         } catch (InvalidArgumentException $e) {
@@ -166,10 +167,10 @@ class TenantSecurityRequest
      *
      * @return BatchUnwrapKeyResponse The unwrapped DEKs, as well as any failures
      */
-    public function batchUnwrapKeys(array $edeks, RequestMetadata $metadata): BatchUnwrapKeyResponse
+    protected function batchUnwrapKeys(array $edeks, RequestMetadata $metadata): BatchUnwrapKeyResponse
     {
         $request = new BatchUnwrapKeyRequest($metadata, $edeks);
-        $response = $this->makeJsonRequest(BATCH_UNWRAP_ENDPOINT, $request->getJsonData());
+        $response = $this->makeJsonRequest(self::BATCH_UNWRAP_ENDPOINT, $request->getJsonData());
         try {
             $batchWrapResponse = BatchUnwrapKeyResponse::fromResponse($response);
         } catch (InvalidArgumentException $e) {
@@ -189,10 +190,10 @@ class TenantSecurityRequest
      *
      * @return RekeyResponse The new DEK and EDEK
      */
-    public function rekey(Bytes $edek, string $newTenantId, RequestMetadata $metadata): RekeyResponse
+    protected function rekey(Bytes $edek, string $newTenantId, RequestMetadata $metadata): RekeyResponse
     {
         $request = new RekeyRequest($metadata, $edek, $newTenantId);
-        $response = $this->makeJsonRequest(REKEY_ENDPOINT, $request->getJsonData());
+        $response = $this->makeJsonRequest(self::REKEY_ENDPOINT, $request->getJsonData());
         try {
             $rekeyResponse = RekeyResponse::fromResponse($response);
         } catch (InvalidArgumentException $e) {
@@ -208,10 +209,10 @@ class TenantSecurityRequest
      * @param EventMetadata $metadata Metadata associated with the security event.
      * @return void Failures come back as exceptions
      */
-    public function logSecurityEvent(SecurityEvent $event, EventMetadata $metadata): void
+    protected function logSecurityEvent(SecurityEvent $event, EventMetadata $metadata): void
     {
         $request = new LogSecurityEventRequest($metadata, $event);
-        $response = $this->makeJsonRequest(SECURITY_EVENT_ENDPOINT, $request->getJsonData());
+        $response = $this->makeJsonRequest(self::SECURITY_EVENT_ENDPOINT, $request->getJsonData());
         if ($response !== "null") {
             throw TenantSecurityException::fromResponse($response);
         }

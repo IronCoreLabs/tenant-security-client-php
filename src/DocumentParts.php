@@ -7,7 +7,7 @@ namespace IronCore;
 /**
  * A parsed IronCore encrypted document
  */
-class DocumentParts
+final class DocumentParts
 {
     /**
      * @var Bytes

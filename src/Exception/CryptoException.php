@@ -7,6 +7,6 @@ namespace IronCore\Exception;
 /**
  * This exception indicates a problem with encrypting, decrypting or verifying signatures.
  */
-class CryptoException extends TenantSecurityException
+final class CryptoException extends TenantSecurityException
 {
 }

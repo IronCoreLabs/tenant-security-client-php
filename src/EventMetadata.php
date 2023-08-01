@@ -7,7 +7,7 @@ namespace IronCore;
 /**
  * RequestMetadata with an optional `timestampMillis` referencing when a security event took place.
  */
-class EventMetadata extends RequestMetadata
+final class EventMetadata extends RequestMetadata
 {
     /**
      * @var string Unique ID of tenant that is performing the operation.

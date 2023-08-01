@@ -13,8 +13,10 @@ use IronCore\SecurityEvents\SecurityEvent;
  * library will need to utilize, and a single instance of the class can be re-used for requests
  * across different tenants.
  */
-class TenantSecurityClient
+final class TenantSecurityClient extends TenantSecurityRequest
 {
+    use Aes;
+
     /**
      * @var TenantSecurityRequest
      */
@@ -47,7 +49,7 @@ class TenantSecurityClient
         $wrapResponse = $this->request->wrapKey($metadata);
         $tenantId = $metadata->getTenantId();
         $dek = $wrapResponse->getDek();
-        $encryptDocument = fn (Bytes $field): Bytes => Aes::encryptDocument(
+        $encryptDocument = fn (Bytes $field): Bytes => self::encryptDocument(
             $field,
             $tenantId,
             $dek,
@@ -62,7 +64,7 @@ class TenantSecurityClient
         $unwrapResponse = $this->request->unwrapKey($document->getEdek(), $metadata);
         $tenantId = $metadata->getTenantId();
         $dek = $unwrapResponse->getDek();
-        $encryptDocument = fn (Bytes $field): Bytes => Aes::encryptDocument(
+        $encryptDocument = fn (Bytes $field): Bytes => self::encryptDocument(
             $field,
             $tenantId,
             $dek,
@@ -99,7 +101,7 @@ class TenantSecurityClient
             $dek = $key->getDek();
             $edek = $key->getEdek();
             $document = $documents[$documentId];
-            $encryptDocumentFields = fn (Bytes $field): Bytes => Aes::encryptDocument(
+            $encryptDocumentFields = fn (Bytes $field): Bytes => self::encryptDocument(
                 $field,
                 $tenantId,
                 $dek,
@@ -126,7 +128,7 @@ class TenantSecurityClient
         $unwrapResponse = $this->request->unwrapKey($document->getEdek(), $metadata);
         $dek = $unwrapResponse->getDek();
         $encryptedFields = $document->getEncryptedFields();
-        $decryptDocumentFields = fn (Bytes $field): Bytes => Aes::decryptDocument($field, $dek);
+        $decryptDocumentFields = fn (Bytes $field): Bytes => self::decryptDocument($field, $dek);
         $decryptedFields = array_map($decryptDocumentFields, $encryptedFields);
         return new PlaintextDocument($decryptedFields, $document->getEdek());
     }
@@ -159,7 +161,7 @@ class TenantSecurityClient
             $dek = $key->getDek();
             $edek = $edeks[$documentId];
             $document = $documents[$documentId];
-            $decryptFields = fn (Bytes $field): Bytes => Aes::decryptDocument($field, $dek);
+            $decryptFields = fn (Bytes $field): Bytes => self::decryptDocument($field, $dek);
             $decryptedDocument = array_map($decryptFields, $document->getEncryptedFields());
             $decryptedDocuments[$documentId] = new PlaintextDocument($decryptedDocument, $edek);
         };

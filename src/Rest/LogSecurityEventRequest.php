@@ -12,7 +12,7 @@ use IronCore\SecurityEvents\SecurityEvent;
 /**
  * Request to the Tenant Security Proxy's security event logging endpoint
  */
-class LogSecurityEventRequest extends IronCoreRequest
+final class LogSecurityEventRequest extends IronCoreRequest
 {
     /**
      * @var EventMetadata

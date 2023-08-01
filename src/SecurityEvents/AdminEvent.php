@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace IronCore\SecurityEvents;
 
-class AdminEvent extends SecurityEvent
+final class AdminEvent extends SecurityEvent
 {
     private $flatEvent;
 
