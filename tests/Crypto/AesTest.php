@@ -164,6 +164,18 @@ final class AesTest extends TestCase
         $this->assertEquals($decrypted, $document);
     }
 
+    public function testDoubleEncryptDocument(): void
+    {
+        $rng = new TestRng("someseed");
+        $dek = $rng->randomBytes(32);
+        $document = new Bytes("bytes");
+        $tenantId = "tenant";
+        $encrypted = self::encryptDocument($document, $tenantId, $dek, $rng);
+        $this->expectException(CryptoException::class);
+        $this->expectExceptionMessage("The provided document is already IronCore encrypted.");
+        self::encryptDocument($encrypted, $tenantId, $dek, $rng);
+    }
+
     public function testDecryptBadDocument(): void
     {
         $rng = new TestRng("someseed");

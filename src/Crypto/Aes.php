@@ -133,6 +133,13 @@ trait Aes
      */
     private static function encryptDocument(Bytes $document, string $tenantId, Bytes $dek, Rng $rng): Bytes
     {
+        // Check if the provided document is already IronCore encrypted
+        if ($document->length() >= AesConstants::DOCUMENT_HEADER_META_LENGTH) {
+            $fixedPreamble = $document->byteSlice(0, AesConstants::DOCUMENT_HEADER_META_LENGTH);
+            if (self::verifyPreamble($fixedPreamble)) {
+                throw new CryptoException("The provided document is already IronCore encrypted.");
+            }
+        }
         $header = self::generateHeader($dek, $tenantId, $rng);
         $encrypted = self::encrypt($document, $dek, $rng);
         return $header->concat($encrypted);
