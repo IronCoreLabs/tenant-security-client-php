@@ -4,7 +4,7 @@
 
 - Restricted visibility of some methods intended for internal use only
   - `TenantSecurityRequest` and `Aes` in particular should not be used directly.
-- Encryption now throw a `CryptoException` when trying to encrypt a document that has already been IronCore encrypted.
+- Encryption now throws a `CryptoException` when trying to encrypt a document that has already been IronCore encrypted.
   - If you have a use case for double-encrypting a document, please open an issue explaining and we can work on accommodating you.
 - Added `encryptWithExistingKey` to `TenantSecurityClient`.
 
