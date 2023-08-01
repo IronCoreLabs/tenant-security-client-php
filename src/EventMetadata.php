@@ -10,7 +10,19 @@ namespace IronCore;
 class EventMetadata extends RequestMetadata
 {
     /**
-     * @var int Time the event occurred.
+     * @var string Unique ID of tenant that is performing the operation.
+     */
+    private $tenantId;
+    /**
+     * @var IclFields Metadata about the request for the Tenant Security Proxy to log.
+     */
+    private $iclFields;
+    /**
+     * @var string[] Optional additional information for the Tenant Security Proxy to log.
+     */
+    private $customFields;
+    /**
+     * @var int Linux epoch millis of when the event occurred.
      */
     private $timestampMillis;
 

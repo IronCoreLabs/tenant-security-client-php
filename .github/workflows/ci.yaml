@@ -10,30 +10,33 @@ env:
 jobs:
   build:
     runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        php-version: ["7.4", "8.2"]
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: "7.4"
+          php-version: ${{ matrix.php-version }}
           tools: phpunit:9.5.10
           coverage: pcov
       - name: Cache Composer packages
         id: composer-cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: vendor
-          key: ${{ runner.os }}-php-${{ matrix.php-versions }}-${{ hashFiles('**/composer.lock') }}
+          key: ${{ runner.os }}-php-${{ matrix.php-version }}-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
-            ${{ runner.os }}-php-${{ matrix.php-versions }}-
+            ${{ runner.os }}-php-${{ matrix.php-version }}-
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
       - name: Run test suite
         run: ./vendor/bin/phpunit --coverage-cobertura=cobertura.xml tests
       - name: Post code coverage to PR comment
         if: ${{ github.base_ref != '' }}
-        uses: 5monkeys/cobertura-action@v12
+        uses: 5monkeys/cobertura-action@v13
         with:
           path: cobertura.xml
           repo_token: ${{ secrets.GITHUB_TOKEN }}
@@ -45,19 +48,19 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: "7.4"
       - name: Cache Composer packages
         id: composer-cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: vendor
-          key: ${{ runner.os }}-php-${{ matrix.php-versions }}-${{ hashFiles('**/composer.lock') }}
+          key: ${{ runner.os }}-php-7.4-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
-            ${{ runner.os }}-php-${{ matrix.php-versions }}-
+            ${{ runner.os }}-php-7.4-
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
       - name: Run lint
