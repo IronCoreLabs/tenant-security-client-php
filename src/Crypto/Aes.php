@@ -46,7 +46,7 @@ trait Aes
      *
      * @return Bytes Encrypted bytes with a 12-byte IV on the front and a 16-byte tag on the end
      */
-    private static function encrypt(Bytes $plaintext, Bytes $key, Rng $rng): Bytes
+    private static function encryptInternal(Bytes $plaintext, Bytes $key, Rng $rng): Bytes
     {
         return self::encryptWithIv($plaintext, $key, $rng->randomBytes(12));
     }
@@ -91,7 +91,7 @@ trait Aes
      *
      * @return Bytes The plaintext, which is arbitrary bytes.
      */
-    private static function decrypt(Bytes $ciphertext, Bytes $key): Bytes
+    private static function decryptInternal(Bytes $ciphertext, Bytes $key): Bytes
     {
         // The length of the ciphertext cannot possibly be shorter than IV plus the tag.
         if ($ciphertext->length() <= AesConstants::IV_LEN + AesConstants::TAG_LEN) {
@@ -141,7 +141,7 @@ trait Aes
             }
         }
         $header = self::generateHeader($dek, $tenantId, $rng);
-        $encrypted = self::encrypt($document, $dek, $rng);
+        $encrypted = self::encryptInternal($document, $dek, $rng);
         return $header->concat($encrypted);
     }
 
@@ -165,7 +165,7 @@ trait Aes
         if (!self::verifySignature($dek, $documentHeader)) {
             throw new CryptoException("The signature computed did not match. The document key is likely incorrect.");
         } else {
-            return self::decrypt($ciphertext, $dek);
+            return self::decryptInternal($ciphertext, $dek);
         }
     }
 
