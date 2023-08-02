@@ -4,7 +4,3 @@ index.php
 **.phar
 **.cache
 coverage/
-*.html
-*.css
-*.js
-*.phpdoc
