@@ -115,6 +115,9 @@
         <h2 class="phpdocumentor-content__title">
     TenantSecurityClient
 
+        <span class="phpdocumentor-element__extends">
+        extends <a href="classes/IronCore-TenantSecurityRequest.html"><abbr title="\IronCore\TenantSecurityRequest">TenantSecurityRequest</abbr></a>
+    </span>
     
             <div class="phpdocumentor-element__package">
             in package
@@ -124,6 +127,9 @@
         </div>
     
     
+            <span class="phpdocumentor-element__extends">
+            Uses
+                            <a href="classes/IronCore-Crypto-Aes.html"><abbr title="\IronCore\Crypto\Aes">Aes</abbr></a>                    </span>
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
@@ -151,10 +157,87 @@ across different tenants.</p>
 </h3>
 
 <dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -constant -private">
+    <a href="classes/IronCore-TenantSecurityRequest.html#constant_BATCH_UNWRAP_ENDPOINT">BATCH_UNWRAP_ENDPOINT</a>
+    <span>
+        &nbsp;= &quot;document/batch-unwrap&quot;                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -private">
+    <a href="classes/IronCore-TenantSecurityRequest.html#constant_BATCH_WRAP_ENDPOINT">BATCH_WRAP_ENDPOINT</a>
+    <span>
+        &nbsp;= &quot;document/batch-wrap&quot;                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -private">
+    <a href="classes/IronCore-TenantSecurityRequest.html#constant_REKEY_ENDPOINT">REKEY_ENDPOINT</a>
+    <span>
+        &nbsp;= &quot;document/rekey&quot;                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -private">
+    <a href="classes/IronCore-TenantSecurityRequest.html#constant_SECURITY_EVENT_ENDPOINT">SECURITY_EVENT_ENDPOINT</a>
+    <span>
+        &nbsp;= &quot;event/security-event&quot;                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -private">
+    <a href="classes/IronCore-TenantSecurityRequest.html#constant_TENANT_KEY_DERIVE_ENDPOINT">TENANT_KEY_DERIVE_ENDPOINT</a>
+    <span>
+        &nbsp;= &quot;key/derive&quot;                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -private">
+    <a href="classes/IronCore-TenantSecurityRequest.html#constant_TSP_API_PREFIX">TSP_API_PREFIX</a>
+    <span>
+        &nbsp;= &quot;/api/1/&quot;                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -private">
+    <a href="classes/IronCore-TenantSecurityRequest.html#constant_UNWRAP_ENDPOINT">UNWRAP_ENDPOINT</a>
+    <span>
+        &nbsp;= &quot;document/unwrap&quot;                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -private">
+    <a href="classes/IronCore-TenantSecurityRequest.html#constant_WRAP_ENDPOINT">WRAP_ENDPOINT</a>
+    <span>
+        &nbsp;= &quot;document/wrap&quot;                    </span>
+</dt>
+<dd></dd>
+
                 <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/IronCore-TenantSecurityRequest.html#property_apiKey">$apiKey</a>
+    <span>
+                &nbsp;: string            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/IronCore-TenantSecurityRequest.html#property_ch">$ch</a>
+    <span>
+                &nbsp;: <abbr title="\CurlHandle">CurlHandle</abbr>            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/IronCore-TenantSecurityClient.html#property_request">$request</a>
     <span>
                 &nbsp;: <a href="classes/IronCore-TenantSecurityRequest.html"><abbr title="\IronCore\TenantSecurityRequest">TenantSecurityRequest</abbr></a>            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/IronCore-TenantSecurityRequest.html#property_tspAddress">$tspAddress</a>
+    <span>
+                &nbsp;: string            </span>
 </dt>
 <dd></dd>
 
@@ -183,6 +266,13 @@ document and one of document ID to a TenantSecurityException.</dd>
 <dd>Encrypts an array of documents from the ID of the document to the list of fields to encrypt.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/IronCore-Crypto-Aes.html#method_createHeaderProto">createHeaderProto()</a>
+    <span>
+                        &nbsp;: <a href="classes/Proto-IronCoreLabs-V3DocumentHeader.html"><abbr title="\Proto\IronCoreLabs\V3DocumentHeader">V3DocumentHeader</abbr></a>    </span>
+</dt>
+<dd>Make a V3DocumentHeader with a SaaSShieldHeader and a generated signature.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/IronCore-TenantSecurityClient.html#method_decrypt">decrypt()</a>
     <span>
                         &nbsp;: <a href="classes/IronCore-PlaintextDocument.html"><abbr title="\IronCore\PlaintextDocument">PlaintextDocument</abbr></a>    </span>
@@ -203,6 +293,27 @@ provided document fields. Returns an EncryptedDocument which contains a Map from
 id/name to encrypted bytes as well as the EDEK and discards the DEK.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/IronCore-TenantSecurityClient.html#method_encryptWithExistingKey">encryptWithExistingKey()</a>
+    <span>
+                        &nbsp;: <a href="classes/IronCore-EncryptedDocument.html"><abbr title="\IronCore\EncryptedDocument">EncryptedDocument</abbr></a>    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/IronCore-Crypto-Aes.html#method_generateHeader">generateHeader()</a>
+    <span>
+                        &nbsp;: <a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>    </span>
+</dt>
+<dd>Generates a header to mark the encrypted document as ours.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/IronCore-Crypto-Aes.html#method_generateSignature">generateSignature()</a>
+    <span>
+                        &nbsp;: <a href="classes/IronCore-V3HeaderSignature.html"><abbr title="\IronCore\V3HeaderSignature">V3HeaderSignature</abbr></a>    </span>
+</dt>
+<dd>Generates a signature over the header using the provided document encryption key and IV.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/IronCore-TenantSecurityClient.html#method_logSecurityEvent">logSecurityEvent()</a>
     <span>
                         &nbsp;: void    </span>
@@ -221,11 +332,363 @@ means that the event has been received and will be processed.</dd>
 new tenant. The DEK is then discarded. The old tenant and new tenant can be the same in order to re-key the
 document to the tenant&#039;s latest primary config.</dd>
 
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/IronCore-Crypto-Aes.html#method_verifySignature">verifySignature()</a>
+    <span>
+                        &nbsp;: bool    </span>
+</dt>
+<dd>Verifies a document header&#039;s signature.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/IronCore-TenantSecurityRequest.html#method_batchUnwrapKeys">batchUnwrapKeys()</a>
+    <span>
+                        &nbsp;: <a href="classes/IronCore-Rest-BatchUnwrapKeyResponse.html"><abbr title="\IronCore\Rest\BatchUnwrapKeyResponse">BatchUnwrapKeyResponse</abbr></a>    </span>
+</dt>
+<dd>Requests the TSP to unwrap multiple EDEKs.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/IronCore-TenantSecurityRequest.html#method_batchWrapKeys">batchWrapKeys()</a>
+    <span>
+                        &nbsp;: <a href="classes/IronCore-Rest-BatchWrapKeyResponse.html"><abbr title="\IronCore\Rest\BatchWrapKeyResponse">BatchWrapKeyResponse</abbr></a>    </span>
+</dt>
+<dd>Requests the TSP to generate multiple DEK/EDEK pairs.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/IronCore-TenantSecurityRequest.html#method_makeJsonRequest">makeJsonRequest()</a>
+    <span>
+                        &nbsp;: string    </span>
+</dt>
+<dd>Makes a POST request to a Tenant Security Proxy endpoint with the provided JSON payload.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/IronCore-TenantSecurityRequest.html#method_rekey">rekey()</a>
+    <span>
+                        &nbsp;: <a href="classes/IronCore-Rest-RekeyResponse.html"><abbr title="\IronCore\Rest\RekeyResponse">RekeyResponse</abbr></a>    </span>
+</dt>
+<dd>Requests the TSP to re-key an EDEK.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/IronCore-TenantSecurityRequest.html#method_unwrapKey">unwrapKey()</a>
+    <span>
+                        &nbsp;: <a href="classes/IronCore-Rest-UnwrapKeyResponse.html"><abbr title="\IronCore\Rest\UnwrapKeyResponse">UnwrapKeyResponse</abbr></a>    </span>
+</dt>
+<dd>Requests the TSP to unwrap an EDEK.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/IronCore-TenantSecurityRequest.html#method_wrapKey">wrapKey()</a>
+    <span>
+                        &nbsp;: <a href="classes/IronCore-Rest-WrapKeyResponse.html"><abbr title="\IronCore\Rest\WrapKeyResponse">WrapKeyResponse</abbr></a>    </span>
+</dt>
+<dd>Requests the TSP to generate a DEK and an EDEK.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/IronCore-Crypto-Aes.html#method_containsIroncoreMagic">containsIroncoreMagic()</a>
+    <span>
+                        &nbsp;: bool    </span>
+</dt>
+<dd>Verifies that bytes 2-5 are the IronCore magic string.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/IronCore-Crypto-Aes.html#method_decryptDocument">decryptDocument()</a>
+    <span>
+                        &nbsp;: <a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>    </span>
+</dt>
+<dd>Decrypts an encrypted document.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/IronCore-Crypto-Aes.html#method_encryptDocument">encryptDocument()</a>
+    <span>
+                        &nbsp;: <a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>    </span>
+</dt>
+<dd>Encrypts a document.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/IronCore-Crypto-Aes.html#method_encryptWithIv">encryptWithIv()</a>
+    <span>
+                        &nbsp;: <a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>    </span>
+</dt>
+<dd>Encrypts given plaintext with the provided key and IV.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/IronCore-Crypto-Aes.html#method_getCurrentDocumentHeaderVersion">getCurrentDocumentHeaderVersion()</a>
+    <span>
+                        &nbsp;: <a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>    </span>
+</dt>
+<dd>Gets the current IronCore document header version as a single byte.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/IronCore-Crypto-Aes.html#method_getDocumentMagic">getDocumentMagic()</a>
+    <span>
+                        &nbsp;: <a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>    </span>
+</dt>
+<dd>Gets IronCore document magic bytes that are included in every document&#039;s preamble</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/IronCore-Crypto-Aes.html#method_getHeaderSize">getHeaderSize()</a>
+    <span>
+                        &nbsp;: int    </span>
+</dt>
+<dd>Converts bytes 6 and 7 of the fixed preamble to an integer that
+represents the length of the header.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/IronCore-Crypto-Aes.html#method_splitDocument">splitDocument()</a>
+    <span>
+                        &nbsp;: <a href="classes/IronCore-DocumentParts.html"><abbr title="\IronCore\DocumentParts">DocumentParts</abbr></a>    </span>
+</dt>
+<dd>Splits an IronCore encrypted document into its component pieces.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/IronCore-Crypto-Aes.html#method_verifyPreamble">verifyPreamble()</a>
+    <span>
+                        &nbsp;: bool    </span>
+</dt>
+<dd>Verifies that the preamble is the correct length and version, contains the string &quot;IRON&quot;,
+and indicates a valid header length.</dd>
+
         </dl>
 
 
 
         
+    <section class="phpdocumentor-constants">
+        <h3 class="phpdocumentor-elements__header" id="constants">
+            Constants
+            <a href="classes/IronCore-TenantSecurityClient.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+        </h3>
+                    <article class="phpdocumentor-element -constant -private ">
+    <h4 class="phpdocumentor-element__name" id="constant_BATCH_UNWRAP_ENDPOINT">
+        BATCH_UNWRAP_ENDPOINT
+        <a href="classes/IronCore-TenantSecurityRequest.html#constant_BATCH_UNWRAP_ENDPOINT" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">33</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">BATCH_UNWRAP_ENDPOINT</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;document/batch-unwrap&quot;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -private ">
+    <h4 class="phpdocumentor-element__name" id="constant_BATCH_WRAP_ENDPOINT">
+        BATCH_WRAP_ENDPOINT
+        <a href="classes/IronCore-TenantSecurityRequest.html#constant_BATCH_WRAP_ENDPOINT" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">31</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">BATCH_WRAP_ENDPOINT</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;document/batch-wrap&quot;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -private ">
+    <h4 class="phpdocumentor-element__name" id="constant_REKEY_ENDPOINT">
+        REKEY_ENDPOINT
+        <a href="classes/IronCore-TenantSecurityRequest.html#constant_REKEY_ENDPOINT" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">34</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">REKEY_ENDPOINT</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;document/rekey&quot;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -private ">
+    <h4 class="phpdocumentor-element__name" id="constant_SECURITY_EVENT_ENDPOINT">
+        SECURITY_EVENT_ENDPOINT
+        <a href="classes/IronCore-TenantSecurityRequest.html#constant_SECURITY_EVENT_ENDPOINT" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">36</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SECURITY_EVENT_ENDPOINT</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;event/security-event&quot;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -private ">
+    <h4 class="phpdocumentor-element__name" id="constant_TENANT_KEY_DERIVE_ENDPOINT">
+        TENANT_KEY_DERIVE_ENDPOINT
+        <a href="classes/IronCore-TenantSecurityRequest.html#constant_TENANT_KEY_DERIVE_ENDPOINT" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">35</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">TENANT_KEY_DERIVE_ENDPOINT</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;key/derive&quot;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -private ">
+    <h4 class="phpdocumentor-element__name" id="constant_TSP_API_PREFIX">
+        TSP_API_PREFIX
+        <a href="classes/IronCore-TenantSecurityRequest.html#constant_TSP_API_PREFIX" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">29</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">TSP_API_PREFIX</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/api/1/&quot;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -private ">
+    <h4 class="phpdocumentor-element__name" id="constant_UNWRAP_ENDPOINT">
+        UNWRAP_ENDPOINT
+        <a href="classes/IronCore-TenantSecurityRequest.html#constant_UNWRAP_ENDPOINT" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">32</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">UNWRAP_ENDPOINT</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;document/unwrap&quot;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -private ">
+    <h4 class="phpdocumentor-element__name" id="constant_WRAP_ENDPOINT">
+        WRAP_ENDPOINT
+        <a href="classes/IronCore-TenantSecurityRequest.html#constant_WRAP_ENDPOINT" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">30</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">WRAP_ENDPOINT</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;document/wrap&quot;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+            </section>
 
         
     <section class="phpdocumentor-properties">
@@ -233,6 +696,74 @@ document to the tenant&#039;s latest primary config.</dd>
             Properties
             <a href="classes/IronCore-TenantSecurityClient.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_apiKey">
+        $apiKey
+        <a href="classes/IronCore-TenantSecurityRequest.html#property_apiKey" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">45</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">$apiKey</span>
+    </code>
+
+    
+        <section class="phpdocumentor-description"><p>Secret key used to communicate with the Tenant Security Proxy</p>
+</section>
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_ch">
+        $ch
+        <a href="classes/IronCore-TenantSecurityRequest.html#property_ch" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">49</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type"><abbr title="\CurlHandle">CurlHandle</abbr></span>
+    <span class="phpdocumentor-signature__name">$ch</span>
+    </code>
+
+    
+        <section class="phpdocumentor-description"><p>Curl handle used to make requests</p>
+</section>
+
+    
+
+</article>
                     <article
         class="
             phpdocumentor-element
@@ -249,7 +780,7 @@ document to the tenant&#039;s latest primary config.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityClient.php"><a href="files/src-tenantsecurityclient.html"><abbr title="src/TenantSecurityClient.php">TenantSecurityClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">21</span>
+    <span class="phpdocumentor-element-found-in__line">23</span>
 
     </aside>
 
@@ -262,6 +793,40 @@ document to the tenant&#039;s latest primary config.</dd>
 
     
     
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_tspAddress">
+        $tspAddress
+        <a href="classes/IronCore-TenantSecurityRequest.html#property_tspAddress" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">41</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">$tspAddress</span>
+    </code>
+
+    
+        <section class="phpdocumentor-description"><p>URL of the Tenant Security Proxy</p>
+</section>
+
     
 
 </article>
@@ -285,7 +850,7 @@ document to the tenant&#039;s latest primary config.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityClient.php"><a href="files/src-tenantsecurityclient.html"><abbr title="src/TenantSecurityClient.php">TenantSecurityClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">29</span>
 
     </aside>
 
@@ -338,7 +903,7 @@ document to the tenant&#039;s latest primary config.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityClient.php"><a href="files/src-tenantsecurityclient.html"><abbr title="src/TenantSecurityClient.php">TenantSecurityClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">132</span>
+    <span class="phpdocumentor-element-found-in__line">149</span>
 
     </aside>
 
@@ -398,7 +963,7 @@ The keys of each map returned will be the same keys provided in the original doc
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityClient.php"><a href="files/src-tenantsecurityclient.html"><abbr title="src/TenantSecurityClient.php">TenantSecurityClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">72</span>
+    <span class="phpdocumentor-element-found-in__line">89</span>
 
     </aside>
 
@@ -450,6 +1015,79 @@ The keys of each map returned will be the same keys provided in the original doc
         class="phpdocumentor-element
             -method
             -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_createHeaderProto">
+        createHeaderProto()
+        <a href="classes/IronCore-Crypto-Aes.html#method_createHeaderProto" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Crypto/Aes.php"><a href="files/src-crypto-aes.html"><abbr title="src/Crypto/Aes.php">Aes.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">276</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Make a V3DocumentHeader with a SaaSShieldHeader and a generated signature.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">createHeaderProto</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dek</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$tenantId</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Crypto-Rng.html"><abbr title="\IronCore\Crypto\Rng">Rng</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$rng</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$iv</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Proto-IronCoreLabs-V3DocumentHeader.html"><abbr title="\Proto\IronCoreLabs\V3DocumentHeader">V3DocumentHeader</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$dek</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Document encryption key to use for signing</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$tenantId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Tenant making the request</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$rng</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Crypto-Rng.html"><abbr title="\IronCore\Crypto\Rng">Rng</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$iv</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Option IV to use when signing. If not present, a random IV is generated.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Proto-IronCoreLabs-V3DocumentHeader.html"><abbr title="\Proto\IronCoreLabs\V3DocumentHeader">V3DocumentHeader</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>Signed document header</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
                                                         "
 >
     <h4 class="phpdocumentor-element__name" id="method_decrypt">
@@ -459,7 +1097,7 @@ The keys of each map returned will be the same keys provided in the original doc
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityClient.php"><a href="files/src-tenantsecurityclient.html"><abbr title="src/TenantSecurityClient.php">TenantSecurityClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">109</span>
+    <span class="phpdocumentor-element-found-in__line">126</span>
 
     </aside>
 
@@ -517,7 +1155,7 @@ is then discarded.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityClient.php"><a href="files/src-tenantsecurityclient.html"><abbr title="src/TenantSecurityClient.php">TenantSecurityClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">45</span>
+    <span class="phpdocumentor-element-found-in__line">47</span>
 
     </aside>
 
@@ -571,6 +1209,207 @@ with the same key.</p>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_encryptWithExistingKey">
+        encryptWithExistingKey()
+        <a href="classes/IronCore-TenantSecurityClient.html#method_encryptWithExistingKey" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityClient.php"><a href="files/src-tenantsecurityclient.html"><abbr title="src/TenantSecurityClient.php">TenantSecurityClient.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">62</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">encryptWithExistingKey</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-PlaintextDocument.html"><abbr title="\IronCore\PlaintextDocument">PlaintextDocument</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$document</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-RequestMetadata.html"><abbr title="\IronCore\RequestMetadata">RequestMetadata</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$metadata</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-EncryptedDocument.html"><abbr title="\IronCore\EncryptedDocument">EncryptedDocument</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$document</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-PlaintextDocument.html"><abbr title="\IronCore\PlaintextDocument">PlaintextDocument</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$metadata</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-RequestMetadata.html"><abbr title="\IronCore\RequestMetadata">RequestMetadata</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-EncryptedDocument.html"><abbr title="\IronCore\EncryptedDocument">EncryptedDocument</abbr></a></span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_generateHeader">
+        generateHeader()
+        <a href="classes/IronCore-Crypto-Aes.html#method_generateHeader" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Crypto/Aes.php"><a href="files/src-crypto-aes.html"><abbr title="src/Crypto/Aes.php">Aes.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">251</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Generates a header to mark the encrypted document as ours.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">generateHeader</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dek</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$tenantId</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Crypto-Rng.html"><abbr title="\IronCore\Crypto\Rng">Rng</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$rng</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"><p>Current version is as follows: VERSION_NUMBER (1 bytes, fixed at <code class="prettyprint">3</code>),
+IRONCORE_MAGIC (4 bytes, &quot;IRON&quot; in ASCII), HEADER_LENGTH (2 bytes Uint16),
+PROTOBUF_HEADER_DATA (variable bytes)</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$dek</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Document encryption key to use for signing</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$tenantId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Tenant making the request</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$rng</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Crypto-Rng.html"><abbr title="\IronCore\Crypto\Rng">Rng</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/IronCore-Exception-CryptoException.html"><abbr title="\IronCore\Exception\CryptoException">CryptoException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the header is too long or if the signature generation fails.</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>Bytes of header</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_generateSignature">
+        generateSignature()
+        <a href="classes/IronCore-Crypto-Aes.html#method_generateSignature" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Crypto/Aes.php"><a href="files/src-crypto-aes.html"><abbr title="src/Crypto/Aes.php">Aes.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">303</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Generates a signature over the header using the provided document encryption key and IV.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">generateSignature</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dek</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$iv</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Proto-IronCoreLabs-SaaSShieldHeader.html"><abbr title="\Proto\IronCoreLabs\SaaSShieldHeader">SaaSShieldHeader</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$header</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-V3HeaderSignature.html"><abbr title="\IronCore\V3HeaderSignature">V3HeaderSignature</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$dek</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Document encryption key to use for signing</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$iv</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>IV to use for signing</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$header</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Proto-IronCoreLabs-SaaSShieldHeader.html"><abbr title="\Proto\IronCoreLabs\SaaSShieldHeader">SaaSShieldHeader</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Header to sign over</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-V3HeaderSignature.html"><abbr title="\IronCore\V3HeaderSignature">V3HeaderSignature</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>Header signature</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_logSecurityEvent">
         logSecurityEvent()
         <a href="classes/IronCore-TenantSecurityClient.html#method_logSecurityEvent" class="headerlink"><i class="fas fa-link"></i></a>
@@ -578,7 +1417,7 @@ with the same key.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityClient.php"><a href="files/src-tenantsecurityclient.html"><abbr title="src/TenantSecurityClient.php">TenantSecurityClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">181</span>
+    <span class="phpdocumentor-element-found-in__line">198</span>
 
     </aside>
 
@@ -619,7 +1458,9 @@ means that the event has been received and will be processed.</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">void</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>Failures come back as exceptions</p>
+</section>
+
     
 </article>
                     <article
@@ -635,7 +1476,7 @@ means that the event has been received and will be processed.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityClient.php"><a href="files/src-tenantsecurityclient.html"><abbr title="src/TenantSecurityClient.php">TenantSecurityClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">165</span>
+    <span class="phpdocumentor-element-found-in__line">182</span>
 
     </aside>
 
@@ -685,6 +1526,1012 @@ document to the tenant&#039;s latest primary config.</p>
     <span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></span>
             &mdash;
             <section class="phpdocumentor-description"><p>Newly re-keyed EDEK</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_verifySignature">
+        verifySignature()
+        <a href="classes/IronCore-Crypto-Aes.html#method_verifySignature" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Crypto/Aes.php"><a href="files/src-crypto-aes.html"><abbr title="src/Crypto/Aes.php">Aes.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">318</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Verifies a document header&#039;s signature.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">verifySignature</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dek</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Proto-IronCoreLabs-V3DocumentHeader.html"><abbr title="\Proto\IronCoreLabs\V3DocumentHeader">V3DocumentHeader</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$header</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$dek</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Document encryption key used when generating the signature</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$header</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Proto-IronCoreLabs-V3DocumentHeader.html"><abbr title="\Proto\IronCoreLabs\V3DocumentHeader">V3DocumentHeader</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Header with signature to verify</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">bool</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p><code class="prettyprint">true</code> if the header's signature was successfully verified</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_batchUnwrapKeys">
+        batchUnwrapKeys()
+        <a href="classes/IronCore-TenantSecurityRequest.html#method_batchUnwrapKeys" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">170</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Requests the TSP to unwrap multiple EDEKs.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                <span class="phpdocumentor-signature__name">batchUnwrapKeys</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$edeks</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-RequestMetadata.html"><abbr title="\IronCore\RequestMetadata">RequestMetadata</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$metadata</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-Rest-BatchUnwrapKeyResponse.html"><abbr title="\IronCore\Rest\BatchUnwrapKeyResponse">BatchUnwrapKeyResponse</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$edeks</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Map from document IDs to EDEKs to unwrap</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$metadata</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-RequestMetadata.html"><abbr title="\IronCore\RequestMetadata">RequestMetadata</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Metadata about the requesting user/service</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/IronCore-Exception-TenantSecurityException.html"><abbr title="\IronCore\Exception\TenantSecurityException">TenantSecurityException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>if the request to the TSP fails.</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-Rest-BatchUnwrapKeyResponse.html"><abbr title="\IronCore\Rest\BatchUnwrapKeyResponse">BatchUnwrapKeyResponse</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The unwrapped DEKs, as well as any failures</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_batchWrapKeys">
+        batchWrapKeys()
+        <a href="classes/IronCore-TenantSecurityRequest.html#method_batchWrapKeys" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">126</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Requests the TSP to generate multiple DEK/EDEK pairs.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                <span class="phpdocumentor-signature__name">batchWrapKeys</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$documentIds</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-RequestMetadata.html"><abbr title="\IronCore\RequestMetadata">RequestMetadata</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$metadata</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-Rest-BatchWrapKeyResponse.html"><abbr title="\IronCore\Rest\BatchWrapKeyResponse">BatchWrapKeyResponse</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$documentIds</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Document IDs to generate DEK/EDEK for.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$metadata</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-RequestMetadata.html"><abbr title="\IronCore\RequestMetadata">RequestMetadata</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Metadata about the requesting user/service</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/IronCore-Exception-TenantSecurityException.html"><abbr title="\IronCore\Exception\TenantSecurityException">TenantSecurityException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>if the request to the TSP fails.</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-Rest-BatchWrapKeyResponse.html"><abbr title="\IronCore\Rest\BatchWrapKeyResponse">BatchWrapKeyResponse</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The generated DEKs and EDEKs, as well as any failures</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_makeJsonRequest">
+        makeJsonRequest()
+        <a href="classes/IronCore-TenantSecurityRequest.html#method_makeJsonRequest" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">81</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Makes a POST request to a Tenant Security Proxy endpoint with the provided JSON payload.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                <span class="phpdocumentor-signature__name">makeJsonRequest</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$endpoint</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$jsonEncodedData</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$endpoint</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Tenant Security Proxy endpoint to make a request to</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$jsonEncodedData</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Payload to send to the Tenant Security Proxy</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/IronCore-Exception-TenantSecurityException.html"><abbr title="\IronCore\Exception\TenantSecurityException">TenantSecurityException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>if the request to the Tenant Security Proxy fails</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The response from the Tenant Security Proxy</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_rekey">
+        rekey()
+        <a href="classes/IronCore-TenantSecurityRequest.html#method_rekey" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">193</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Requests the TSP to re-key an EDEK.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                <span class="phpdocumentor-signature__name">rekey</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$edek</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$newTenantId</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-RequestMetadata.html"><abbr title="\IronCore\RequestMetadata">RequestMetadata</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$metadata</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-Rest-RekeyResponse.html"><abbr title="\IronCore\Rest\RekeyResponse">RekeyResponse</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$edek</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The encrypted document key to re-key</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$newTenantId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Tenant ID to re-key to</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$metadata</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-RequestMetadata.html"><abbr title="\IronCore\RequestMetadata">RequestMetadata</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Metadata about the requesting user/service</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/IronCore-Exception-TenantSecurityException.html"><abbr title="\IronCore\Exception\TenantSecurityException">TenantSecurityException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>if the TSP responds with an error or if the request to the TSP fails.</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-Rest-RekeyResponse.html"><abbr title="\IronCore\Rest\RekeyResponse">RekeyResponse</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The new DEK and EDEK</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_unwrapKey">
+        unwrapKey()
+        <a href="classes/IronCore-TenantSecurityRequest.html#method_unwrapKey" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">148</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Requests the TSP to unwrap an EDEK.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                <span class="phpdocumentor-signature__name">unwrapKey</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$edek</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-RequestMetadata.html"><abbr title="\IronCore\RequestMetadata">RequestMetadata</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$metadata</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-Rest-UnwrapKeyResponse.html"><abbr title="\IronCore\Rest\UnwrapKeyResponse">UnwrapKeyResponse</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$edek</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The encrypted document key to unwrap</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$metadata</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-RequestMetadata.html"><abbr title="\IronCore\RequestMetadata">RequestMetadata</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Metadata about the requesting user/service</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/IronCore-Exception-TenantSecurityException.html"><abbr title="\IronCore\Exception\TenantSecurityException">TenantSecurityException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>if the TSP responds with an error or if the request to the TSP fails.</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-Rest-UnwrapKeyResponse.html"><abbr title="\IronCore\Rest\UnwrapKeyResponse">UnwrapKeyResponse</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The unwrapped DEK</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_wrapKey">
+        wrapKey()
+        <a href="classes/IronCore-TenantSecurityRequest.html#method_wrapKey" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TenantSecurityRequest.php"><a href="files/src-tenantsecurityrequest.html"><abbr title="src/TenantSecurityRequest.php">TenantSecurityRequest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">104</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Requests the TSP to generate a DEK and an EDEK.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                <span class="phpdocumentor-signature__name">wrapKey</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-RequestMetadata.html"><abbr title="\IronCore\RequestMetadata">RequestMetadata</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$metadata</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-Rest-WrapKeyResponse.html"><abbr title="\IronCore\Rest\WrapKeyResponse">WrapKeyResponse</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$metadata</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-RequestMetadata.html"><abbr title="\IronCore\RequestMetadata">RequestMetadata</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Metadata about the requesting user/service</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/IronCore-Exception-TenantSecurityException.html"><abbr title="\IronCore\Exception\TenantSecurityException">TenantSecurityException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>if the TSP responds with an error or if the request to the TSP fails.</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-Rest-WrapKeyResponse.html"><abbr title="\IronCore\Rest\WrapKeyResponse">WrapKeyResponse</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The generated DEK and EDEK</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_containsIroncoreMagic">
+        containsIroncoreMagic()
+        <a href="classes/IronCore-Crypto-Aes.html#method_containsIroncoreMagic" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Crypto/Aes.php"><a href="files/src-crypto-aes.html"><abbr title="src/Crypto/Aes.php">Aes.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">217</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Verifies that bytes 2-5 are the IronCore magic string.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">containsIroncoreMagic</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$bytes</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$bytes</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Bytes to check</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">bool</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p><code class="prettyprint">true</code> if the bytes are the correct form.</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_decryptDocument">
+        decryptDocument()
+        <a href="classes/IronCore-Crypto-Aes.html#method_decryptDocument" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Crypto/Aes.php"><a href="files/src-crypto-aes.html"><abbr title="src/Crypto/Aes.php">Aes.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">158</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Decrypts an encrypted document.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">decryptDocument</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$document</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dek</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$document</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Encrypted bytes to decrypt</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$dek</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Document encryption key used to encrypt the document</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/IronCore-Exception-CryptoException.html"><abbr title="\IronCore\Exception\CryptoException">CryptoException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the header was corrupt or if decryption fails.</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>Decrypted document</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_encryptDocument">
+        encryptDocument()
+        <a href="classes/IronCore-Crypto-Aes.html#method_encryptDocument" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Crypto/Aes.php"><a href="files/src-crypto-aes.html"><abbr title="src/Crypto/Aes.php">Aes.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">134</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Encrypts a document.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">encryptDocument</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$document</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$tenantId</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dek</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Crypto-Rng.html"><abbr title="\IronCore\Crypto\Rng">Rng</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$rng</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$document</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Document bytes to encrypt</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$tenantId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Tenant performing the encryption</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$dek</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Document encryption key</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$rng</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Crypto-Rng.html"><abbr title="\IronCore\Crypto\Rng">Rng</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/IronCore-Exception-CryptoException.html"><abbr title="\IronCore\Exception\CryptoException">CryptoException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the AES encrypt fails.</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>Encrypted document bytes</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_encryptWithIv">
+        encryptWithIv()
+        <a href="classes/IronCore-Crypto-Aes.html#method_encryptWithIv" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Crypto/Aes.php"><a href="files/src-crypto-aes.html"><abbr title="src/Crypto/Aes.php">Aes.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">65</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Encrypts given plaintext with the provided key and IV.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">encryptWithIv</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$plaintext</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$iv</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$plaintext</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Bytes to encrypt</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$key</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>32-byte secret key that should be cryptographically random</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$iv</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>IV to use for encryption</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/IronCore-Exception-CryptoException.html"><abbr title="\IronCore\Exception\CryptoException">CryptoException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the iv is not of the correct length or if aes encryption fails.</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>Encrypted bytes with a 12-byte IV on the front and a 16-byte tag on the end</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getCurrentDocumentHeaderVersion">
+        getCurrentDocumentHeaderVersion()
+        <a href="classes/IronCore-Crypto-Aes.html#method_getCurrentDocumentHeaderVersion" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Crypto/Aes.php"><a href="files/src-crypto-aes.html"><abbr title="src/Crypto/Aes.php">Aes.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">24</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Gets the current IronCore document header version as a single byte.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">getCurrentDocumentHeaderVersion</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>Byte representation of IronCore document header version</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getDocumentMagic">
+        getDocumentMagic()
+        <a href="classes/IronCore-Crypto-Aes.html#method_getDocumentMagic" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Crypto/Aes.php"><a href="files/src-crypto-aes.html"><abbr title="src/Crypto/Aes.php">Aes.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">34</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Gets IronCore document magic bytes that are included in every document&#039;s preamble</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">getDocumentMagic</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>IronCore document magic bytes</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getHeaderSize">
+        getHeaderSize()
+        <a href="classes/IronCore-Crypto-Aes.html#method_getHeaderSize" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Crypto/Aes.php"><a href="files/src-crypto-aes.html"><abbr title="src/Crypto/Aes.php">Aes.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">230</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Converts bytes 6 and 7 of the fixed preamble to an integer that
+represents the length of the header.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">getHeaderSize</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$preamble</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$preamble</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The first 7 bytes of an IronCore encrypted document</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">int</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The length of the IronCore header</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_splitDocument">
+        splitDocument()
+        <a href="classes/IronCore-Crypto-Aes.html#method_splitDocument" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Crypto/Aes.php"><a href="files/src-crypto-aes.html"><abbr title="src/Crypto/Aes.php">Aes.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">181</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Splits an IronCore encrypted document into its component pieces.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">splitDocument</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$document</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-DocumentParts.html"><abbr title="\IronCore\DocumentParts">DocumentParts</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$document</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>IronCore encrypted document</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/IronCore-Exception-CryptoException.html"><abbr title="\IronCore\Exception\CryptoException">CryptoException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the document cannot be split into its components.</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/IronCore-DocumentParts.html"><abbr title="\IronCore\DocumentParts">DocumentParts</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>Object containing the distinct parts of the document</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_verifyPreamble">
+        verifyPreamble()
+        <a href="classes/IronCore-Crypto-Aes.html#method_verifyPreamble" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Crypto/Aes.php"><a href="files/src-crypto-aes.html"><abbr title="src/Crypto/Aes.php">Aes.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">202</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Verifies that the preamble is the correct length and version, contains the string &quot;IRON&quot;,
+and indicates a valid header length.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">verifyPreamble</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$preamble</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$preamble</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/IronCore-Bytes.html"><abbr title="\IronCore\Bytes">Bytes</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The first 7 bytes of an IronCore encrypted document</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">bool</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p><code class="prettyprint">true</code> if the preamble is valid</p>
 </section>
 
     

@@ -123,7 +123,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\IronCore\\Crypto\\Aes",
             "name": "Aes",
-            "summary": "",
+            "summary": "Cryptographic\u0020functions.\u0020Not\u0020intended\u0020to\u0020be\u0020used\u0020by\u0020consumers\u0020of\u0020the\u0020SDK.",
             "url": "classes/IronCore-Crypto-Aes.html"
         },                {
             "fqsen": "\\IronCore\\Crypto\\Aes\u003A\u003AgetCurrentDocumentHeaderVersion\u0028\u0029",
@@ -201,25 +201,30 @@ Search.appendIndex(
             "summary": "Verifies\u0020a\u0020document\u0020header\u0027s\u0020signature.",
             "url": "classes/IronCore-Crypto-Aes.html#method_verifySignature"
         },                {
-            "fqsen": "\\IronCore\\Crypto\\Aes\u003A\u003AIV_LEN",
+            "fqsen": "\\IronCore\\Crypto\\AesConstants",
+            "name": "AesConstants",
+            "summary": "",
+            "url": "classes/IronCore-Crypto-AesConstants.html"
+        },                {
+            "fqsen": "\\IronCore\\Crypto\\AesConstants\u003A\u003AIV_LEN",
             "name": "IV_LEN",
             "summary": "",
-            "url": "classes/IronCore-Crypto-Aes.html#constant_IV_LEN"
+            "url": "classes/IronCore-Crypto-AesConstants.html#constant_IV_LEN"
         },                {
-            "fqsen": "\\IronCore\\Crypto\\Aes\u003A\u003ATAG_LEN",
+            "fqsen": "\\IronCore\\Crypto\\AesConstants\u003A\u003ATAG_LEN",
             "name": "TAG_LEN",
             "summary": "",
-            "url": "classes/IronCore-Crypto-Aes.html#constant_TAG_LEN"
+            "url": "classes/IronCore-Crypto-AesConstants.html#constant_TAG_LEN"
         },                {
-            "fqsen": "\\IronCore\\Crypto\\Aes\u003A\u003ADOCUMENT_HEADER_META_LENGTH",
+            "fqsen": "\\IronCore\\Crypto\\AesConstants\u003A\u003ADOCUMENT_HEADER_META_LENGTH",
             "name": "DOCUMENT_HEADER_META_LENGTH",
             "summary": "The\u0020size\u0020of\u0020the\u0020fixed\u0020length\u0020portion\u0020of\u0020the\u0020header\u0020\u0028version,\u0020magic,\u0020size\u0029",
-            "url": "classes/IronCore-Crypto-Aes.html#constant_DOCUMENT_HEADER_META_LENGTH"
+            "url": "classes/IronCore-Crypto-AesConstants.html#constant_DOCUMENT_HEADER_META_LENGTH"
         },                {
-            "fqsen": "\\IronCore\\Crypto\\Aes\u003A\u003AMAX_HEADER_SIZE",
+            "fqsen": "\\IronCore\\Crypto\\AesConstants\u003A\u003AMAX_HEADER_SIZE",
             "name": "MAX_HEADER_SIZE",
             "summary": "Max\u0020IronCore\u0020header\u0020size.\u0020Equals\u0020256\u0020\u002A\u0020255\u0020\u002B\u0020255\u0020since\u0020we\u0020do\u0020a\u00202\u0020byte\u0020size.",
-            "url": "classes/IronCore-Crypto-Aes.html#constant_MAX_HEADER_SIZE"
+            "url": "classes/IronCore-Crypto-AesConstants.html#constant_MAX_HEADER_SIZE"
         },                {
             "fqsen": "\\IronCore\\Crypto\\CryptoRng",
             "name": "CryptoRng",
@@ -340,6 +345,21 @@ Search.appendIndex(
             "name": "getPostData",
             "summary": "Gets\u0020an\u0020associative\u0020array\u0020of\u0020data\u0020that\u0020can\u0020be\u0020serialized\nand\u0020sent\u0020to\u0020the\u0020Tenant\u0020Security\u0020Proxy.",
             "url": "classes/IronCore-EventMetadata.html#method_getPostData"
+        },                {
+            "fqsen": "\\IronCore\\EventMetadata\u003A\u003A\u0024tenantId",
+            "name": "tenantId",
+            "summary": "",
+            "url": "classes/IronCore-EventMetadata.html#property_tenantId"
+        },                {
+            "fqsen": "\\IronCore\\EventMetadata\u003A\u003A\u0024iclFields",
+            "name": "iclFields",
+            "summary": "",
+            "url": "classes/IronCore-EventMetadata.html#property_iclFields"
+        },                {
+            "fqsen": "\\IronCore\\EventMetadata\u003A\u003A\u0024customFields",
+            "name": "customFields",
+            "summary": "",
+            "url": "classes/IronCore-EventMetadata.html#property_customFields"
         },                {
             "fqsen": "\\IronCore\\EventMetadata\u003A\u003A\u0024timestampMillis",
             "name": "timestampMillis",
@@ -1241,6 +1261,11 @@ Search.appendIndex(
             "summary": "Encrypts\u0020the\u0020provided\u0020document.\u0020Documents\u0020are\u0020provided\u0020as\u0020a\u0020map\u0020of\u0020fields\u0020from\u0020the\u0020document\nid\/name\u0020\u0028string\u0029\u0020to\u0020bytes\u0020\u0028string\u0029.\u0020Uses\u0020the\u0020Tenant\u0020Security\u0020Proxy\u0020to\u0020generate\u0020a\u0020new\u0020document\nencryption\u0020key\u0020\u0028DEK\u0029,\u0020encrypt\u0020that\u0020key\u0020\u0028EDEK\u0029,\u0020then\u0020use\u0020the\u0020DEK\u0020to\u0020encrypt\u0020all\u0020of\u0020the\nprovided\u0020document\u0020fields.\u0020Returns\u0020an\u0020EncryptedDocument\u0020which\u0020contains\u0020a\u0020Map\u0020from\u0020each\u0020field\u0027s\nid\/name\u0020to\u0020encrypted\u0020bytes\u0020as\u0020well\u0020as\u0020the\u0020EDEK\u0020and\u0020discards\u0020the\u0020DEK.",
             "url": "classes/IronCore-TenantSecurityClient.html#method_encrypt"
         },                {
+            "fqsen": "\\IronCore\\TenantSecurityClient\u003A\u003AencryptWithExistingKey\u0028\u0029",
+            "name": "encryptWithExistingKey",
+            "summary": "",
+            "url": "classes/IronCore-TenantSecurityClient.html#method_encryptWithExistingKey"
+        },                {
             "fqsen": "\\IronCore\\TenantSecurityClient\u003A\u003AbatchEncrypt\u0028\u0029",
             "name": "batchEncrypt",
             "summary": "Encrypts\u0020an\u0020array\u0020of\u0020documents\u0020from\u0020the\u0020ID\u0020of\u0020the\u0020document\u0020to\u0020the\u0020list\u0020of\u0020fields\u0020to\u0020encrypt.",
@@ -1270,46 +1295,6 @@ Search.appendIndex(
             "name": "request",
             "summary": "",
             "url": "classes/IronCore-TenantSecurityClient.html#property_request"
-        },                {
-            "fqsen": "\\IronCore\\TSP_API_PREFIX",
-            "name": "TSP_API_PREFIX",
-            "summary": "",
-            "url": "namespaces/ironcore.html#constant_TSP_API_PREFIX"
-        },                {
-            "fqsen": "\\IronCore\\WRAP_ENDPOINT",
-            "name": "WRAP_ENDPOINT",
-            "summary": "",
-            "url": "namespaces/ironcore.html#constant_WRAP_ENDPOINT"
-        },                {
-            "fqsen": "\\IronCore\\BATCH_WRAP_ENDPOINT",
-            "name": "BATCH_WRAP_ENDPOINT",
-            "summary": "",
-            "url": "namespaces/ironcore.html#constant_BATCH_WRAP_ENDPOINT"
-        },                {
-            "fqsen": "\\IronCore\\UNWRAP_ENDPOINT",
-            "name": "UNWRAP_ENDPOINT",
-            "summary": "",
-            "url": "namespaces/ironcore.html#constant_UNWRAP_ENDPOINT"
-        },                {
-            "fqsen": "\\IronCore\\BATCH_UNWRAP_ENDPOINT",
-            "name": "BATCH_UNWRAP_ENDPOINT",
-            "summary": "",
-            "url": "namespaces/ironcore.html#constant_BATCH_UNWRAP_ENDPOINT"
-        },                {
-            "fqsen": "\\IronCore\\REKEY_ENDPOINT",
-            "name": "REKEY_ENDPOINT",
-            "summary": "",
-            "url": "namespaces/ironcore.html#constant_REKEY_ENDPOINT"
-        },                {
-            "fqsen": "\\IronCore\\TENANT_KEY_DERIVE_ENDPOINT",
-            "name": "TENANT_KEY_DERIVE_ENDPOINT",
-            "summary": "",
-            "url": "namespaces/ironcore.html#constant_TENANT_KEY_DERIVE_ENDPOINT"
-        },                {
-            "fqsen": "\\IronCore\\SECURITY_EVENT_ENDPOINT",
-            "name": "SECURITY_EVENT_ENDPOINT",
-            "summary": "",
-            "url": "namespaces/ironcore.html#constant_SECURITY_EVENT_ENDPOINT"
         },                {
             "fqsen": "\\IronCore\\TenantSecurityRequest",
             "name": "TenantSecurityRequest",
@@ -1355,6 +1340,46 @@ Search.appendIndex(
             "name": "logSecurityEvent",
             "summary": "Request\u0020to\u0020the\u0020security\u0020event\u0020endpoint\u0020with\u0020the\u0020provided\u0020event\u0020and\u0020metadata.",
             "url": "classes/IronCore-TenantSecurityRequest.html#method_logSecurityEvent"
+        },                {
+            "fqsen": "\\IronCore\\TenantSecurityRequest\u003A\u003ATSP_API_PREFIX",
+            "name": "TSP_API_PREFIX",
+            "summary": "",
+            "url": "classes/IronCore-TenantSecurityRequest.html#constant_TSP_API_PREFIX"
+        },                {
+            "fqsen": "\\IronCore\\TenantSecurityRequest\u003A\u003AWRAP_ENDPOINT",
+            "name": "WRAP_ENDPOINT",
+            "summary": "",
+            "url": "classes/IronCore-TenantSecurityRequest.html#constant_WRAP_ENDPOINT"
+        },                {
+            "fqsen": "\\IronCore\\TenantSecurityRequest\u003A\u003ABATCH_WRAP_ENDPOINT",
+            "name": "BATCH_WRAP_ENDPOINT",
+            "summary": "",
+            "url": "classes/IronCore-TenantSecurityRequest.html#constant_BATCH_WRAP_ENDPOINT"
+        },                {
+            "fqsen": "\\IronCore\\TenantSecurityRequest\u003A\u003AUNWRAP_ENDPOINT",
+            "name": "UNWRAP_ENDPOINT",
+            "summary": "",
+            "url": "classes/IronCore-TenantSecurityRequest.html#constant_UNWRAP_ENDPOINT"
+        },                {
+            "fqsen": "\\IronCore\\TenantSecurityRequest\u003A\u003ABATCH_UNWRAP_ENDPOINT",
+            "name": "BATCH_UNWRAP_ENDPOINT",
+            "summary": "",
+            "url": "classes/IronCore-TenantSecurityRequest.html#constant_BATCH_UNWRAP_ENDPOINT"
+        },                {
+            "fqsen": "\\IronCore\\TenantSecurityRequest\u003A\u003AREKEY_ENDPOINT",
+            "name": "REKEY_ENDPOINT",
+            "summary": "",
+            "url": "classes/IronCore-TenantSecurityRequest.html#constant_REKEY_ENDPOINT"
+        },                {
+            "fqsen": "\\IronCore\\TenantSecurityRequest\u003A\u003ATENANT_KEY_DERIVE_ENDPOINT",
+            "name": "TENANT_KEY_DERIVE_ENDPOINT",
+            "summary": "",
+            "url": "classes/IronCore-TenantSecurityRequest.html#constant_TENANT_KEY_DERIVE_ENDPOINT"
+        },                {
+            "fqsen": "\\IronCore\\TenantSecurityRequest\u003A\u003ASECURITY_EVENT_ENDPOINT",
+            "name": "SECURITY_EVENT_ENDPOINT",
+            "summary": "",
+            "url": "classes/IronCore-TenantSecurityRequest.html#constant_SECURITY_EVENT_ENDPOINT"
         },                {
             "fqsen": "\\IronCore\\TenantSecurityRequest\u003A\u003A\u0024tspAddress",
             "name": "tspAddress",
