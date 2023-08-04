@@ -41,8 +41,8 @@ final class AesTest extends TestCase
         $rng = new TestRng("someseed");
         $plaintext = new Bytes("This is a non base64 string.");
         $key = $rng->randomBytes(32);
-        $encryptedResult = self::encrypt($plaintext, $key, new TestRng("hello"));
-        $decryptedResult = self::decrypt($encryptedResult, $key);
+        $encryptedResult = self::encryptInternal($plaintext, $key, new TestRng("hello"));
+        $decryptedResult = self::decryptInternal($encryptedResult, $key);
         $this->assertEquals($plaintext, $decryptedResult);
     }
 
@@ -150,7 +150,7 @@ final class AesTest extends TestCase
         $badCiphertext = new Bytes("foo");
         $this->expectException(CryptoException::class);
         $this->expectExceptionMessage("The ciphertext was not well formed.");
-        self::decrypt($badCiphertext, $key);
+        self::decryptInternal($badCiphertext, $key);
     }
 
     public function testRoundtripDocument(): void
