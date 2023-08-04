@@ -136,20 +136,20 @@ Search.appendIndex(
             "summary": "Gets\u0020IronCore\u0020document\u0020magic\u0020bytes\u0020that\u0020are\u0020included\u0020in\u0020every\u0020document\u0027s\u0020preamble",
             "url": "classes/IronCore-Crypto-Aes.html#method_getDocumentMagic"
         },                {
-            "fqsen": "\\IronCore\\Crypto\\Aes\u003A\u003Aencrypt\u0028\u0029",
-            "name": "encrypt",
+            "fqsen": "\\IronCore\\Crypto\\Aes\u003A\u003AencryptInternal\u0028\u0029",
+            "name": "encryptInternal",
             "summary": "Encrypts\u0020given\u0020plaintext\u0020with\u0020the\u0020provided\u0020key.",
-            "url": "classes/IronCore-Crypto-Aes.html#method_encrypt"
+            "url": "classes/IronCore-Crypto-Aes.html#method_encryptInternal"
         },                {
             "fqsen": "\\IronCore\\Crypto\\Aes\u003A\u003AencryptWithIv\u0028\u0029",
             "name": "encryptWithIv",
             "summary": "Encrypts\u0020given\u0020plaintext\u0020with\u0020the\u0020provided\u0020key\u0020and\u0020IV.",
             "url": "classes/IronCore-Crypto-Aes.html#method_encryptWithIv"
         },                {
-            "fqsen": "\\IronCore\\Crypto\\Aes\u003A\u003Adecrypt\u0028\u0029",
-            "name": "decrypt",
+            "fqsen": "\\IronCore\\Crypto\\Aes\u003A\u003AdecryptInternal\u0028\u0029",
+            "name": "decryptInternal",
             "summary": "Takes\u0020a\u0020string\u0020of\u0020arbitrary\u0020bytes\u0020and\u0020decrypts\u0020it\u0020using\u0020a\u0020given\u0020key.",
-            "url": "classes/IronCore-Crypto-Aes.html#method_decrypt"
+            "url": "classes/IronCore-Crypto-Aes.html#method_decryptInternal"
         },                {
             "fqsen": "\\IronCore\\Crypto\\Aes\u003A\u003AencryptDocument\u0028\u0029",
             "name": "encryptDocument",
