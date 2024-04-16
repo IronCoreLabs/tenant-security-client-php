@@ -99,6 +99,11 @@ class TenantSecurityException extends Exception
                     "KmsThrottled: Request to KMS failed because KMS throttled the Tenant Security Proxy.",
                     $code
                 );
+            case 210:
+                return new KmsException(
+                    "KmsAccountIssue: Request to KMS failed because of an issue with the KMS account.",
+                    $code
+                );
             case 301:
                 return new SecurityEventException(
                     "SecurityEventRejected: Tenant Security Proxy could not accept the security event.",

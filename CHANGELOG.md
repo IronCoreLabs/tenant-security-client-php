@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.4.0
+
+- Support TSP error code for KMS_ACCOUNT_ISSUE.
+
 ## v0.3.0
 
 - Restricted visibility of some methods intended for internal use only
