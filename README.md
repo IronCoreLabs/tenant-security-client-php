@@ -29,4 +29,8 @@ Functions which can error may throw [TenantSecurityException](https://ironcorela
 
 This library uses CURL for http requests and OpenSSL for AES encryption/decryption.
 
+## License
+
+The Tenant Security Client is licensed under the [GNU Affero General Public License](https://github.com/IronCoreLabs/tenant-security-client-php/blob/main/LICENSE). We also offer commercial licenses - [email](mailto:info@ironcorelabs.com) for more information.
+
 Copyright (c) 2021 IronCore Labs, Inc. All rights reserved.
