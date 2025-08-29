@@ -10,7 +10,7 @@
       "homepage": "https://ironcorelabs.com"
     }
   ],
-  "license": "Apache-2.0",
+  "license": "AGPL-3.0-only OR LicenseRef-ironcore-labs-commercial-license",
   "require": {
     "php": ">=7.4",
     "google/protobuf": "^3.19",
