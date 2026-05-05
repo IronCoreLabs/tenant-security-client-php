@@ -12,8 +12,8 @@
   ],
   "license": "AGPL-3.0-only OR LicenseRef-ironcore-labs-commercial-license",
   "require": {
-    "php": ">=7.4",
-    "google/protobuf": "^3.19",
+    "php": ">=8.2",
+    "google/protobuf": "^4.33.6",
     "ext-openssl": "*",
     "ext-curl": "*"
   },

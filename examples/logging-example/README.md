@@ -32,16 +32,18 @@ to the TSP. Same thing with "Successfully logged admin add event." but for the a
 
 If you look in the TSP/LD logs you should see something like:
 
-```bash
-tenant-security-proxy_1      | {"service":"proxy","message":"Security Event Received","level":"INFO","timestamp":"2022-03-28T18:22:42.699357522+00:00","tenant_id":"tenant-gcp-l","rayid":"syBKJMj8xOI5zSAJ"}
-tenant-security-proxy_1      | {"service":"proxy","message":"{\"iclFields\":{\"dataLabel\":\"PII\",\"requestId\":\"Rq8675309\",\"requestingId\":\"userId1\",\"sourceIp\":\"127.0.0.1\",\"objectId\":\"object1\",\"event\":\"USER_LOGIN\"},\"customFields\":{\"field2\":\"gumby\",\"field1\":\"gumby\"}}","level":"INFO","timestamp":"2022-03-28T18:22:42.699385813+00:00","tenant_id":"tenant-gcp-l","rayid":"syBKJMj8xOI5zSAJ"}
-tenant-security-proxy_1      | {"service":"proxy","message":"Security Event Received","level":"INFO","timestamp":"2022-03-28T18:22:42.700447605+00:00","tenant_id":"tenant-gcp-l","rayid":"iojQAIWHre2yC-iU"}
-tenant-security-proxy_1      | {"service":"proxy","message":"{\"iclFields\":{\"dataLabel\":null,\"requestId\":null,\"requestingId\":\"userId1\",\"sourceIp\":null,\"objectId\":null,\"event\":\"ADMIN_ADD\"},\"customFields\":{}}","level":"INFO","timestamp":"2022-03-28T18:22:42.700471497+00:00","tenant_id":"tenant-gcp-l","rayid":"iojQAIWHre2yC-iU"}
-tenant-security-logdriver_1  | {"service":"logdriver","message":"Making request to Stackdriver to write 2 log entries.","level":"INFO","timestamp":"2022-03-28T18:22:42.800555550+00:00","tenant_id":"tenant-gcp-l"}
-tenant-security-logdriver_1  | {"service":"logdriver","message":"Successfully wrote 2 log entries to Stackdriver.","level":"INFO","timestamp":"2022-03-28T18:22:42.905105143+00:00","tenant_id":"tenant-gcp-l"}
+```
+tenant-security-proxy-1      | {"contexts":"request","level":"INFO","service":"proxy","timestamp":"2026-05-05T18:02:22.022940Z","message":"Security Event Received","name":"request","ray_id":"ssxlOOMj0isKWtuQ","tenant_id":"tenant-gcp-l"}
+tenant-security-proxy-1      | {"contexts":"request","level":"INFO","service":"proxy","timestamp":"2026-05-05T18:02:22.023068Z","message":"{\"iclFields\":{\"dataLabel\":\"PII\",\"requestId\":\"Rq8675309\",\"requestingId\":\"userId1\",\"sourceIp\":\"127.0.0.1\",\"objectId\":\"object1\",\"event\":\"USER_LOGIN\"},\"customFields\":{\"field1\":\"gumby\",\"field2\":\"gumby\"}}","name":"request","ray_id":"ssxlOOMj0isKWtuQ","tenant_id":"tenant-gcp-l"}
+tenant-security-proxy-1      | {"contexts":"request","level":"INFO","service":"proxy","timestamp":"2026-05-05T18:02:22.026257Z","message":"Security Event Received","name":"request","ray_id":"GFYximi8b0xXLC72","tenant_id":"tenant-gcp-l"}
+tenant-security-proxy-1      | {"contexts":"request","level":"INFO","service":"proxy","timestamp":"2026-05-05T18:02:22.026271Z","message":"{\"iclFields\":{\"dataLabel\":null,\"requestId\":null,\"requestingId\":\"userId1\",\"sourceIp\":null,\"objectId\":null,\"event\":\"ADMIN_ADD\"},\"customFields\":{}}","name":"request","ray_id":"GFYximi8b0xXLC72","tenant_id":"tenant-gcp-l"}
+tenant-security-logdriver-1  | {"contexts":"main;batching;tenant","level":"INFO","service":"logdriver","timestamp":"2026-05-05T18:02:24.087980548Z","message":"BATCH: 2 log events received for an unknown tenant. Using a stdout logger for this tenant.","name":"tenant","tenant_id":"tenant-gcp-l"}
+tenant-security-logdriver-1  | {"contexts":"main;batching;stdout client;write-entries","level":"INFO","service":"logdriver","timestamp":"2026-05-05T18:02:24.088209173Z","message":"{\"tenantId\":\"tenant-gcp-l\",\"timestamp\":\"2026-05-05T18:02:17Z\",\"iclFields\":{\"event\":\"USER_LOGIN\",\"logdriverRayId\":\"kHemkWFAGAvnNDr0\",\"sourceIp\":\"127.0.0.1\",\"tspRayId\":\"ray_id\",\"objectId\":\"object1\",\"requestId\":\"Rq8675309\",\"requestingId\":\"userId1\",\"dataLabel\":\"PII\"},\"customFields\":{\"field2\":\"gumby\",\"field1\":\"gumby\"}}","name":"write-entries"}
+tenant-security-logdriver-1  | {"contexts":"main;batching;stdout client;write-entries","level":"INFO","service":"logdriver","timestamp":"2026-05-05T18:02:24.088275131Z","message":"{\"tenantId\":\"tenant-gcp-l\",\"timestamp\":\"2026-05-05T18:02:22Z\",\"iclFields\":{\"logdriverRayId\":\"eH4gGBAcJTP0XP39\",\"tspRayId\":\"ray_id\",\"event\":\"ADMIN_ADD\",\"requestingId\":\"userId1\"},\"customFields\":{}}","name":"write-entries"}
 ```
 
-This shows the TSP receiving these events and sending them to LogDriver, which then batches them up together and sends them to Stackdriver (the configured log sink for `tenant-gcp-l`).
+This shows the TSP receiving these events, batching them up together, and sending them successfully to Logdriver. Because this tenant does not have a log sink configured,
+the security events will be output to Logdriver's stdout logs.
 
 If you would like to experiment with a different tenant, just do:
 
